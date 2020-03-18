@@ -28,3 +28,5 @@ python app.py
   "files.autoSave": "onFocusChange"
 }
 ```
+
+npx mrm lint-staged

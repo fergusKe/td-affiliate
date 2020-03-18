@@ -60,16 +60,15 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "pretty-quick --verbose",
       "post-commit": "git update-index --again"
     }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,html,css,scss}": "prettier"
   },
   "eslintConfig": {
     "extends": [
@@ -118,7 +117,8 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
   },
   "jest": {
     "roots": [
