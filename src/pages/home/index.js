@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-import './index.scss';
+import './index.scss'
 
-export default class index extends Component {
-  render() {
-    return <div>index</div>;
-  }
+const Index = function() {
+  return <div>index</div>
 }
+
+export default Index

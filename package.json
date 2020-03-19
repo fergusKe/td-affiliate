@@ -65,14 +65,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "eslint src",
       "post-commit": "git update-index --again"
     }
   },
   "lint-staged": {
-    "src/**/*.js": [
-      "eslint src",
-      "git add"
+    "*.js": [
+      "eslint src"
     ]
   },
   "eslintConfig": {
