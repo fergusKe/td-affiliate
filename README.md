@@ -5,28 +5,29 @@
 ## 執行程式
 
 ```
-python app.py
+npm start
 ```
 
 ## 環境配置
 
-[參考教學](https://www.youtube.com/watch?v=bfyI9yl3qfE)
+[eslint-config-wesbos](https://github.com/wesbos/eslint-config-wesbos)
 
 ```
-// setting.json
+// Code/File → Preferences → Settings
 
-{
-  "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.formatOnSave": false
-  },
-  "eslint.autoFixOnSave": true,
-  "eslint.alwaysShowStatus": true,
-  "prettier.disableLanguages": [
-    "js"
-  ],
-  "files.autoSave": "onFocusChange"
-}
+// These are all my auto-save configs
+"editor.formatOnSave": true,
+// turn it off for JS and JSX, we will do this via eslint
+"[javascript]": {
+  "editor.formatOnSave": false
+},
+"[javascriptreact]": {
+  "editor.formatOnSave": false
+},
+// tell the ESLint plugin to run on save
+"editor.codeActionsOnSave": {
+  "source.fixAll": true
+},
+// Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
+"prettier.disableLanguages": ["javascript", "javascriptreact"],
 ```
-
-npx mrm lint-staged
