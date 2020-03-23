@@ -1,23 +1,33 @@
 import React from 'react'
-import { Menu, Button } from 'antd'
+import { Menu } from 'antd'
+import { UserOutlined, SettingOutlined, ProfileOutlined } from '@ant-design/icons'
+import { Link } from 'react-router-dom'
+
+import './sideBar.scss'
 
 class SideBar extends React.Component {
   render() {
     return (
-      <div style={{ width: 256 }}>
-        <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}></Button>
-        <Menu defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} mode="inline" theme="dark">
-          <Menu.Item key="1">
-            <span>總覽</span>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <span>設定</span>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <span>報表</span>
-          </Menu.Item>
-        </Menu>
-      </div>
+      <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+        <Menu.Item key="1">
+          <UserOutlined />
+          <Link to="/user-admin/overview">
+            <span className="nav-text">總覽</span>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="2">
+          <SettingOutlined />
+          <Link to="/user-admin/setting">
+            <span className="nav-text">設定</span>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="3">
+          <ProfileOutlined />
+          <span className="nav-text">
+            <Link to="/user-admin/report">報表</Link>
+          </span>
+        </Menu.Item>
+      </Menu>
     )
   }
 }
