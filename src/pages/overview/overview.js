@@ -1,10 +1,8 @@
 import React from 'react'
 import LayoutWrapper from '../../components/layoutWrapper'
-import OverviewContent from '../overview/overview-content'
+import OverviewContent from './overview-content'
 
-import './index.scss'
-
-const UserAdmin = () => (
+const Overview = () => (
   <div>
     <LayoutWrapper>
       <OverviewContent />
@@ -12,4 +10,4 @@ const UserAdmin = () => (
   </div>
 )
 
-export default UserAdmin
+export default Overview
