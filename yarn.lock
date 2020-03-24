@@ -9523,9 +9523,15 @@ rc-collapse@~1.11.3:
     shallowequal "^1.1.0"
 
 rc-dialog@~7.6.0:
+<<<<<<< HEAD
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/rc-dialog/-/rc-dialog-7.6.0.tgz#6467b75f5b60038129bf2e1b003b264281949c09"
   integrity sha512-N48vBPW8I53WycFHI4KXhuTUkB4mx+hixq1a9tcFMLoE7EhkAjbHvs0vGg+Bh/uFg5V00jmZBgQOIEbhcNal/A==
+=======
+  version "7.6.1"
+  resolved "https://registry.yarnpkg.com/rc-dialog/-/rc-dialog-7.6.1.tgz#11545ccc0b945934fa76079726e0d853e52d705f"
+  integrity sha512-KUKf+2eZ4YL+lnXMG3hR4ZtIhC9glfH27NtTVz3gcoDIPAf3uUvaXVRNoDCiSi+OGKLyIb/b6EoidFh6nQC5Wg==
+>>>>>>> 07cc18e9ce173e26c0dbba669676225aba348496
   dependencies:
     babel-runtime "6.x"
     rc-animate "2.x"
