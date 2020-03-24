@@ -1,11 +1,13 @@
 import React from 'react'
 import LayoutWrapper from '../../components/layoutWrapper'
-import OverviewContent from './overview-content'
+import DashboardCard from '../../components/card'
+import OverviewTable from './overview-table'
 
 const Overview = () => (
   <div>
     <LayoutWrapper>
-      <OverviewContent />
+      <DashboardCard />
+      <OverviewTable />
     </LayoutWrapper>
   </div>
 )

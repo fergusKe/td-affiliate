@@ -1,7 +1,6 @@
 import React from 'react'
 import { Form, Input, Button, Checkbox, Typography } from 'antd'
 import { Link } from 'react-router-dom'
-import Nav from './nav'
 
 import './loginForm.scss'
 
@@ -30,7 +29,7 @@ const loginForm = () => (
       remember: true,
     }}
   >
-    <Nav></Nav>
+    {/* <Nav></Nav> */}
     <div className="titleWrap">
       <Title>Turing digital</Title>
       <h2>Sign in to InVision</h2>
@@ -67,7 +66,7 @@ const loginForm = () => (
 
     <Form.Item {...tailLayout}>
       <Button type="primary" htmlType="submit">
-        <Link to="/user-admin">Submit</Link>
+        <Link to="/user-admin/overview">Submit</Link>
       </Button>
     </Form.Item>
   </Form>
