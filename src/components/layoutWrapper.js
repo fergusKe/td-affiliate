@@ -2,14 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Layout, Menu, Avatar } from 'antd'
-import {
-  UserOutlined,
-  SettingOutlined,
-  ProfileOutlined,
-  TeamOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-} from '@ant-design/icons'
+import { UserOutlined, SettingOutlined, ProfileOutlined } from '@ant-design/icons'
 import logo from '../imgs/logo.jpg'
 
 import './layoutWrapper.scss'
