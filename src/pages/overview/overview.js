@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Tabs } from 'antd'
 import LayoutWrapper from '../../components/layoutWrapper'
 import DashboardCard from '../../components/card'
-import OverviewTable from './overview-table'
 import Barchart from '../../components/barchart'
 
 import salesConfig from './data/sales-config'
