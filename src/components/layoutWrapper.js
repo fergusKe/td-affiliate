@@ -32,7 +32,6 @@ class LayoutWrapper extends React.Component {
   render() {
     const { collapsed } = this.state
     const { children, selectedKeys, rolePath } = this.props
-    console.log('rolePath = ', rolePath)
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
