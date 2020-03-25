@@ -39,7 +39,7 @@ class LayoutWrapper extends React.Component {
             <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
               <Link to={`${rolePath}overview`}>
                 <div className="logo">
-                  <img src={logo} alt="logo" style={{ width: '30px' }} />
+                  <img src={logo} alt="logo" />
                   <span className="nav-text">Turing Digital</span>
                 </div>
               </Link>
