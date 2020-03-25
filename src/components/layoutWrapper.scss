@@ -1,16 +1,17 @@
 .logo {
-  height: 36px;
-  margin: 0px;
   color: white;
+  margin: 10px 0;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .logo img {
-  margin-right: 10px;
+  padding-right: 10px;
   width: 40px;
 }
 
-.logoText {
-  font-size: 20px;
+.logo .nav-text {
+  margin: 20px;
 }
 
 .trigger {

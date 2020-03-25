@@ -31,7 +31,7 @@ const Overview = props => {
             <TabPane tab="銷售額" key="1">
               <Barchart style={{ height: '400px' }} option={salesConfig} />
             </TabPane>
-            <TabPane tab="最高訪問量" key="2">
+            <TabPane tab="訪問量" key="2">
               <Barchart style={{ height: '400px' }} option={pageviewConfig} />
             </TabPane>
           </Tabs>

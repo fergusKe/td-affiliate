@@ -2,20 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
-import {
-  UserOutlined,
-  SettingOutlined,
-  ProfileOutlined,
-  TeamOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-} from '@ant-design/icons'
+import { UserOutlined, SettingOutlined, ProfileOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import logo from '../imgs/logo.jpg'
 
 import './layoutWrapper.scss'
 
 const { Header, Content, Footer, Sider } = Layout
-const { SubMenu } = Menu
 
 class LayoutWrapper extends React.Component {
   state = {
@@ -63,31 +55,6 @@ class LayoutWrapper extends React.Component {
                 <span className="nav-text">報表</span>
               </Link>
             </Menu.Item>
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <UserOutlined />
-                  <span>User</span>
-                </span>
-              }
-            >
-              <Menu.Item key="5">Tom</Menu.Item>
-              <Menu.Item key="6">Bill</Menu.Item>
-              <Menu.Item key="7">Alex</Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub2"
-              title={
-                <span>
-                  <TeamOutlined />
-                  <span>Team</span>
-                </span>
-              }
-            >
-              <Menu.Item key="8">Team 1</Menu.Item>
-              <Menu.Item key="9">Team 2</Menu.Item>
-            </SubMenu>
           </Menu>
         </Sider>
         <Layout className="site-layout">
