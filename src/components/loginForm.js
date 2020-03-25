@@ -45,12 +45,12 @@ const loginForm = () => (
       <h2>Sign in to InVision</h2>
     </div>
     <Form.Item
-      label="Username"
+      label="帳號"
       name="username"
       rules={[
         {
           required: true,
-          message: 'Please input your username!',
+          message: '請輸入帳號',
         },
       ]}
     >
@@ -58,12 +58,12 @@ const loginForm = () => (
     </Form.Item>
 
     <Form.Item
-      label="Password"
+      label="密碼"
       name="password"
       rules={[
         {
           required: true,
-          message: 'Please input your password!',
+          message: '請輸入密碼',
         },
       ]}
     >
@@ -71,16 +71,20 @@ const loginForm = () => (
     </Form.Item>
 
     <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-      <Checkbox>Remember me</Checkbox>
+      <Checkbox>記住資訊</Checkbox>
     </Form.Item>
 
     <Form.Item {...tailLayout}>
-      <Button type="primary" htmlType="submit">
-        <Link to="/user-admin/overview">user-admin</Link>
-      </Button>
-      <Button type="primary" htmlType="submit" style={{ marginLeft: '20px' }}>
-        <Link to="/manager-admin/overview">manager-admin</Link>
-      </Button>
+      <Link to="/user-admin/overview">
+        <Button type="primary" htmlType="submit">
+          登入
+        </Button>
+      </Link>
+      {/* <Link to="/manager-admin/overview">
+        <Button type="primary" htmlType="submit" style={{ marginLeft: '20px' }}>
+          manager-admin
+        </Button>
+      </Link> */}
     </Form.Item>
   </Form>
 )

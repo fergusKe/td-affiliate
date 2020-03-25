@@ -35,7 +35,7 @@ const Overview = props => {
               <Barchart style={{ height: '400px' }} option={pageviewConfig} />
             </TabPane>
           </Tabs>
-          <OverviewTable />
+          {/* <OverviewTable /> */}
         </div>
       </LayoutWrapper>
     </div>
