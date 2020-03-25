@@ -10,10 +10,14 @@ const App = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Home} />
-      {/* <Route exact path="/user-admin/overview" component={UserAdmin} /> */}
-      <Route exact path="/user-admin/overview" component={Overview} />
-      <Route exact path="/user-admin/setting" component={Setting} />
-      <Route exact path="/user-admin/report" component={Report} />
+      {/* user-admin */}
+      <Route exact path="/user-admin/overview" render={() => <Overview rolePath="/user-admin/" />} />
+      <Route exact path="/user-admin/setting" render={() => <Setting rolePath="/user-admin/" />} />
+      <Route exact path="/user-admin/report" render={() => <Report rolePath="/user-admin/" />} />
+      {/* manager-admin */}
+      <Route exact path="/manager-admin/overview" render={() => <Overview rolePath="/manager-admin/" />} />
+      <Route exact path="/manager-admin/setting" render={() => <Setting rolePath="/manager-admin/" />} />
+      <Route exact path="/manager-admin/report" render={() => <Report rolePath="/manager-admin/" />} />
     </Switch>
   </BrowserRouter>
 )

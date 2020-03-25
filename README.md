@@ -31,3 +31,9 @@ npm start
 // Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
 "prettier.disableLanguages": ["javascript", "javascriptreact"],
 ```
+
+TypeScript and JavaScript validation can be turned off in VS Code with these two settings:
+```
+"typescript.validate.enable": false,
+"javascript.validate.enable": false,
+```

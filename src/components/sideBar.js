@@ -3,8 +3,6 @@ import { Menu } from 'antd'
 import { UserOutlined, SettingOutlined, ProfileOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 
-import './sideBar.scss'
-
 class SideBar extends React.Component {
   render() {
     return (
