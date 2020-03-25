@@ -4,7 +4,7 @@ import SettingContent from './report-content'
 
 const Overview = () => (
   <div>
-    <LayoutWrapper>
+    <LayoutWrapper selectedKeys="4">
       <SettingContent />
     </LayoutWrapper>
   </div>

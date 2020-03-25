@@ -4,7 +4,7 @@ import SettingContent from './setting-content'
 
 const Overview = () => (
   <div>
-    <LayoutWrapper>
+    <LayoutWrapper selectedKeys="3">
       <SettingContent />
     </LayoutWrapper>
   </div>

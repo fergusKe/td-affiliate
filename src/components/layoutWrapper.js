@@ -31,11 +31,12 @@ class LayoutWrapper extends React.Component {
 
   render() {
     const { collapsed } = this.state
-    const { children } = this.props
+    const { children, selectedKeys } = this.props
+
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider trigger={null} collapsible collapsed={collapsed}>
-          <Menu theme="dark" defaultSelectedKeys={['2']} mode="inline">
+          <Menu theme="dark" defaultSelectedKeys={['2']} selectedKeys={[selectedKeys]} mode="inline">
             <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
               <Link to="/user-admin/overview">
                 <div className="logo">
@@ -108,6 +109,7 @@ class LayoutWrapper extends React.Component {
 
 LayoutWrapper.propTypes = {
   children: PropTypes.element.isRequired,
+  selectedKeys: PropTypes.string,
 }
 
 export default LayoutWrapper
