@@ -96,7 +96,7 @@ class LayoutWrapper extends React.Component {
               onClick: this.toggle,
             })}
           </Header>
-          <Content style={{ margin: '16px' }}>
+          <Content style={{ margin: '8px' }}>
             <div style={{ padding: 24, minHeight: 360 }}>{children}</div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Turing Digital ©2020 Created by Turing-digital Team</Footer>

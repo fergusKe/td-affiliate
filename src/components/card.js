@@ -1,12 +1,13 @@
 import React from 'react'
 import { Card, Col, Row, Progress, Statistic } from 'antd'
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons'
+import MainChart from './barchart/barchart'
 
 import './card.scss'
 
 const DashboardCard = () => (
   <div className="site-card-wrapper">
-    <Row gutter={16}>
+    <Row gutter={[24, 24]}>
       <Col span={8}>
         <Card title="總銷售額" bordered={false}>
           <h1 style={{ fontSize: '30px' }}>$2890000</h1>
@@ -61,6 +62,16 @@ const DashboardCard = () => (
           <div>
             <span>日同比 12％ </span>
           </div>
+        </Card>
+      </Col>
+    </Row>
+    <Row gutter={[24, 24]}>
+      <Col>
+        <Card title="銷售額" bordered={false}>
+          <div span={16}>
+            <span>銷售趨勢</span>
+          </div>
+          <MainChart />
         </Card>
       </Col>
     </Row>
