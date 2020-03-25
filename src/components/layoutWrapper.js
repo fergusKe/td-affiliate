@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import { Layout, Menu } from 'antd'
+import { Layout, Menu, Avatar } from 'antd'
 import {
   UserOutlined,
   SettingOutlined,
@@ -15,7 +15,6 @@ import logo from '../imgs/logo.jpg'
 import './layoutWrapper.scss'
 
 const { Header, Content, Footer, Sider } = Layout
-const { SubMenu } = Menu
 
 class LayoutWrapper extends React.Component {
   state = {
@@ -40,7 +39,7 @@ class LayoutWrapper extends React.Component {
             <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
               <Link to={`${rolePath}overview`}>
                 <div className="logo">
-                  <img src={logo} alt="logo" />
+                  <img src={logo} alt="logo" style={{ width: '30px' }} />
                   <span className="nav-text">Turing Digital</span>
                 </div>
               </Link>
@@ -63,44 +62,23 @@ class LayoutWrapper extends React.Component {
                 <span className="nav-text">報表</span>
               </Link>
             </Menu.Item>
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <UserOutlined />
-                  <span>User</span>
-                </span>
-              }
-            >
-              <Menu.Item key="5">Tom</Menu.Item>
-              <Menu.Item key="6">Bill</Menu.Item>
-              <Menu.Item key="7">Alex</Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub2"
-              title={
-                <span>
-                  <TeamOutlined />
-                  <span>Team</span>
-                </span>
-              }
-            >
-              <Menu.Item key="8">Team 1</Menu.Item>
-              <Menu.Item key="9">Team 2</Menu.Item>
-            </SubMenu>
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0, background: '#fff' }}>
-            {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+          <Header
+            className="site-layout-background"
+            style={{ padding: 0, background: '#fff', textAlign: 'right', paddingRight: '10px' }}
+          >
+            <Avatar size="large" icon={<UserOutlined />} style={{ cursor: 'pointer' }} />
+            {/* {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
               className: 'trigger',
               onClick: this.toggle,
-            })}
+            })} */}
           </Header>
           <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, minHeight: 360 }}>{children}</div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Turing Digital ©2020 Created by Turing-digital Team</Footer>
+          <Footer style={{ textAlign: 'center' }}>© 2020 Turing Digital. All Rights Reserved</Footer>
         </Layout>
       </Layout>
     )
