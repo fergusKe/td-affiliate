@@ -31,14 +31,15 @@ class LayoutWrapper extends React.Component {
 
   render() {
     const { collapsed } = this.state
-    const { children, selectedKeys } = this.props
+    const { children, selectedKeys, rolePath } = this.props
+    console.log('rolePath = ', rolePath)
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <Menu theme="dark" defaultSelectedKeys={['2']} selectedKeys={[selectedKeys]} mode="inline">
             <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
-              <Link to="/user-admin/overview">
+              <Link to={`${rolePath}overview`}>
                 <div className="logo">
                   <img src={logo} alt="logo" />
                   <span className="nav-text">Turing Digital</span>
@@ -46,19 +47,19 @@ class LayoutWrapper extends React.Component {
               </Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Link to="/user-admin/overview">
+              <Link to={`${rolePath}overview`}>
                 <UserOutlined />
                 <span className="nav-text">總覽</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="3">
-              <Link to="/user-admin/setting">
+              <Link to={`${rolePath}setting`}>
                 <SettingOutlined />
                 <span className="nav-text">設定</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="4">
-              <Link to="/user-admin/report">
+              <Link to={`${rolePath}report`}>
                 <ProfileOutlined />
                 <span className="nav-text">報表</span>
               </Link>
@@ -110,6 +111,7 @@ class LayoutWrapper extends React.Component {
 LayoutWrapper.propTypes = {
   children: PropTypes.element.isRequired,
   selectedKeys: PropTypes.string,
+  rolePath: PropTypes.string.isRequired,
 }
 
 export default LayoutWrapper

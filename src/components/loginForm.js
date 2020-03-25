@@ -25,8 +25,18 @@ const loginForm = () => (
   <Form
     {...layout}
     name="basic"
+    fields={[
+      {
+        name: ['username'],
+        value: 'username',
+      },
+      {
+        name: ['password'],
+        value: 'password',
+      },
+    ]}
     initialValues={{
-      remember: true,
+      remember: false,
     }}
   >
     {/* <Nav></Nav> */}
@@ -66,7 +76,10 @@ const loginForm = () => (
 
     <Form.Item {...tailLayout}>
       <Button type="primary" htmlType="submit">
-        <Link to="/user-admin/overview">Submit</Link>
+        <Link to="/user-admin/overview">user-admin</Link>
+      </Button>
+      <Button type="primary" htmlType="submit" style={{ marginLeft: '20px' }}>
+        <Link to="/manager-admin/overview">manager-admin</Link>
       </Button>
     </Form.Item>
   </Form>
