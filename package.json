@@ -86,6 +86,7 @@
     ],
     "rules": {
       "no-console": "off",
+      "react/display-name": "off",
       "prettier/prettier": [
         "error",
         {

@@ -67,7 +67,7 @@ const DashboardCard = () => (
         </Card>
       </Col>
       <Col span={8}>
-        <Card title="支付筆數" bordered={false} style={{ minheight: '300px' }}>
+        <Card title="銷售量" bordered={false} style={{ minheight: '300px' }}>
           <h1 style={{ fontSize: '24px', fontWeight: 'normal' }}>6,560</h1>
           <Barchart style={{ height: '200px', marginTop: '-50px' }} option={pageviewConfig} />
           <Row>
