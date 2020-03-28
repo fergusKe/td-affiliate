@@ -14,7 +14,7 @@ const DashboardCard = () => (
         <Card title="總銷售額" bordered={false} style={{ minheight: '300px' }}>
           <h1 style={{ fontSize: '24px', fontWeight: 'normal' }}>$ 2,899,000</h1>
           <Row gutter={16}>
-            <Col span={12}>
+            <Col span={12} style={{ margin: '26px 0' }}>
               <Statistic
                 title="與同期上週比"
                 value={11.28}
@@ -22,6 +22,8 @@ const DashboardCard = () => (
                 prefix={<CaretUpOutlined />}
                 suffix="%"
               />
+            </Col>
+            <Col span={12} style={{ margin: '26px 0' }}>
               <Statistic
                 title="與同期上月比"
                 value={9.3}
@@ -30,15 +32,6 @@ const DashboardCard = () => (
                 suffix="%"
               />
             </Col>
-            {/* <Col span={12} style={{ height: '100px', margin: '50px 0' }}>
-              <Statistic
-                title="與同期上月比"
-                value={9.3}
-                valueStyle={{ color: '#3f8600', fontSize: '16px' }}
-                prefix={<CaretDownOutlined />}
-                suffix="%"
-              />
-            </Col> */}
             <Col span={24} style={{ marginTop: '32px' }}>
               <div>
                 <p>
