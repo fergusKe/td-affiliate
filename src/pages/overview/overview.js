@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { Tabs } from 'antd'
 import LayoutWrapper from '../../components/layoutWrapper'
 import DashboardCard from '../../components/card'
-import OverviewTable from './overview-table'
 import Barchart from '../../components/barchart'
+import Proportion from '../../components/card-proportion'
 
 import salesConfig from './data/sales-config'
 import pageviewConfig from './data/pageview-config'
@@ -26,7 +26,7 @@ const Overview = props => {
           <Tabs
             defaultActiveKey="1"
             onChange={callback}
-            style={{ backgroundColor: '#fff', marginTop: '20px', padding: '10px' }}
+            style={{ backgroundColor: '#fff', margin: '20px 0', padding: '10px' }}
           >
             <TabPane tab="銷售額" key="1">
               <Barchart style={{ height: '400px' }} option={salesConfig} />
@@ -35,7 +35,8 @@ const Overview = props => {
               <Barchart style={{ height: '400px' }} option={pageviewConfig} />
             </TabPane>
           </Tabs>
-          <OverviewTable />
+          {/* <OverviewTable /> */}
+          <Proportion />
         </div>
       </LayoutWrapper>
     </div>

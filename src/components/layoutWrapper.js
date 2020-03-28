@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import { Layout, Menu } from 'antd'
-import { UserOutlined, SettingOutlined, ProfileOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
+import { Layout, Menu, Avatar } from 'antd'
+import { UserOutlined, SettingOutlined, ProfileOutlined } from '@ant-design/icons'
 import logo from '../imgs/logo.jpg'
 
 import './layoutWrapper.scss'
@@ -32,7 +32,7 @@ class LayoutWrapper extends React.Component {
             <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
               <Link to={`${rolePath}overview`}>
                 <div className="logo">
-                  <img src={logo} alt="logo" />
+                  <img src={logo} alt="logo" style={{ width: '30px' }} />
                   <span className="nav-text">Turing Digital</span>
                 </div>
               </Link>
@@ -58,16 +58,20 @@ class LayoutWrapper extends React.Component {
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0, background: '#fff' }}>
-            {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+          <Header
+            className="site-layout-background"
+            style={{ padding: 0, background: '#fff', textAlign: 'right', paddingRight: '10px' }}
+          >
+            <Avatar size="large" icon={<UserOutlined />} style={{ cursor: 'pointer' }} />
+            {/* {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
               className: 'trigger',
               onClick: this.toggle,
-            })}
+            })} */}
           </Header>
           <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, minHeight: 360 }}>{children}</div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Turing Digital ©2020 Created by Turing-digital Team</Footer>
+          <Footer style={{ textAlign: 'center' }}>© 2020 Turing Digital. All Rights Reserved</Footer>
         </Layout>
       </Layout>
     )
