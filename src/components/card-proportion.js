@@ -8,21 +8,12 @@ import './card.scss'
 
 const { TabPane } = Tabs
 
+function callback(key) {
+  console.log(key)
+}
+
 class Proportion extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      mode: 'top',
-    }
-  }
-
-  handleModeChange = e => {
-    const mode = e.target.value
-    this.setState({ mode })
-  }
-
   render() {
-    const { mode } = this.state
     return (
       <div className="site-card-wrapper">
         <Row gutter={[16, 16]}>
@@ -32,22 +23,66 @@ class Proportion extends React.Component {
             </Card>
           </Col>
           <Col span={24}>
-            <Card title="轉化率" bordered={false} style={{ minheight: '300px' }}>
-              <div>
-                <Tabs defaultActiveKey="1" tabPosition={mode}>
-                  {[...Array(12).keys()].map(i => (
-                    <TabPane tab={`${i + 1}月`} key={i}>
-                      <Col span={24}>
-                        <div>
-                          <p>轉化率 75%</p>
-                          <Progress type="circle" width={60} percent={75} format={percent => `${percent} %`} />
-                        </div>
-                      </Col>
-                      <Barchart option={pageviewConversion} />
-                    </TabPane>
-                  ))}
+            <Card title="商品轉化率" bordered={false} style={{ minheight: '300px' }}>
+              <Col span={24}>
+                <Tabs defaultActiveKey="1" onChange={callback} style={{ backgroundColor: '#fff' }}>
+                  <TabPane tab="配件飾品" key="1">
+                    <div style={{ margin: '20px 0 -10px 0' }}>
+                      <p>
+                        轉化率
+                        <span style={{ marginLeft: '10px' }}>
+                          <Progress type="circle" percent={23} width={80} />
+                        </span>
+                      </p>
+                    </div>
+                    <Barchart option={pageviewConversion} style={{ margin: '10px 0 30px 0' }} />
+                  </TabPane>
+                  <TabPane tab="居家生活" key="2">
+                    <div style={{ margin: '20px 0 -10px 0' }}>
+                      <p>
+                        轉化率
+                        <span style={{ marginLeft: '10px' }}>
+                          <Progress type="circle" percent={14} width={80} />
+                        </span>
+                      </p>
+                    </div>
+                    <Barchart option={pageviewConversion} style={{ margin: '10px 0 30px 0' }} />
+                  </TabPane>
+                  <TabPane tab="包包提袋" key="3">
+                    <div style={{ margin: '20px 0 -10px 0' }}>
+                      <p>
+                        轉化率
+                        <span style={{ marginLeft: '20px' }}>
+                          <Progress type="circle" percent={21} width={80} />
+                        </span>
+                      </p>
+                    </div>
+                    <Barchart option={pageviewConversion} style={{ margin: '10px 0 30px 0' }} />
+                  </TabPane>
+                  <TabPane tab="衣著良品" key="4">
+                    <div style={{ margin: '20px 0 -10px 0' }}>
+                      <p>
+                        轉化率
+                        <span style={{ marginLeft: '10px' }}>
+                          <Progress type="circle" percent={19} width={80} />
+                        </span>
+                      </p>
+                    </div>
+                    <Barchart option={pageviewConversion} style={{ margin: '10px 0 30px 0' }} />
+                  </TabPane>
+                  <TabPane tab="文具卡片" key="5">
+                    <div style={{ margin: '20px 0 -10px 0' }}>
+                      <p>
+                        轉化率
+                        <span style={{ marginLeft: '10px' }}>
+                          <Progress type="circle" percent={35} width={80} />
+                        </span>
+                      </p>
+                    </div>
+                    <Barchart option={pageviewConversion} style={{ margin: '10px 0 30px 0' }} />
+                  </TabPane>
                 </Tabs>
-              </div>
+              </Col>
             </Card>
           </Col>
         </Row>

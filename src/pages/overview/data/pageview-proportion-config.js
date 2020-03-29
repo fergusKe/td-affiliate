@@ -6,11 +6,11 @@ export default {
   legend: {
     orient: 'vertical',
     left: 10,
-    data: ['直接訪問', '郵件營銷', '聯盟廣告', '視頻廣告', '搜尋引擎'],
+    data: ['配件飾品', '居家生活', '包包提袋', '衣著良品', '文具卡片'],
   },
   series: [
     {
-      name: '訪問來源',
+      name: '銷售額',
       type: 'pie',
       radius: ['50%', '70%'],
       avoidLabelOverlap: false,
@@ -29,11 +29,11 @@ export default {
         show: true,
       },
       data: [
-        { value: 335, name: '直接訪問' },
-        { value: 310, name: '郵件營銷' },
-        { value: 234, name: '聯盟廣告' },
-        { value: 135, name: '視頻廣告' },
-        { value: 1548, name: '搜尋引擎' },
+        { value: 335, name: '配件飾品' },
+        { value: 310, name: '居家生活' },
+        { value: 234, name: '包包提袋' },
+        { value: 135, name: '衣著良品' },
+        { value: 1548, name: '文具卡片' },
       ],
     },
   ],
