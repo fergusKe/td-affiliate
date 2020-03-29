@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Layout, Menu, Avatar } from 'antd'
-import { UserOutlined, SettingOutlined, ProfileOutlined } from '@ant-design/icons'
+import { AreaChartOutlined, SettingOutlined, ProfileOutlined, UserOutlined } from '@ant-design/icons'
 import logo from '../imgs/logo.jpg'
 
 import './layoutWrapper.scss'
@@ -32,14 +32,14 @@ class LayoutWrapper extends React.Component {
             <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
               <Link to={`${rolePath}overview`}>
                 <div className="logo">
-                  <img src={logo} alt="logo" style={{ width: '30px' }} />
-                  <span className="nav-text">Turing Digital</span>
+                  <img src={logo} alt="logo" style={{ width: '30px', marginRight: '10px' }} />
+                  Turing Digital
                 </div>
               </Link>
             </Menu.Item>
             <Menu.Item key="2">
               <Link to={`${rolePath}overview`}>
-                <UserOutlined />
+                <AreaChartOutlined />
                 <span className="nav-text">總覽</span>
               </Link>
             </Menu.Item>

@@ -1,23 +1,20 @@
 export default {
+  color: ['#6eb9ff', '#6efff2', '#c2ff80', '#f4c04a', '#ff6f6f'],
   tooltip: {
     trigger: 'item',
-    formatter: '{a} <br/>{b}: {c} ({d}%)',
+    formatter: '{a} <br/>{b} : {c} ({d}%)',
   },
   legend: {
     orient: 'vertical',
-    left: 10,
+    left: 'left',
     data: ['配件飾品', '居家生活', '包包提袋', '衣著良品', '文具卡片'],
   },
   series: [
     {
       name: '銷售額',
       type: 'pie',
-      radius: ['50%', '70%'],
-      avoidLabelOverlap: false,
-      label: {
-        show: false,
-        position: 'center',
-      },
+      radius: '85%',
+      center: ['50%', '50%'],
       emphasis: {
         label: {
           show: true,

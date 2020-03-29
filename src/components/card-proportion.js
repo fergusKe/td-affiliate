@@ -18,7 +18,7 @@ class Proportion extends React.Component {
       <div className="site-card-wrapper">
         <Row gutter={[16, 16]}>
           <Col span={24}>
-            <Card title="銷售額類別占比" bordered={false} style={{ minheight: '300px' }}>
+            <Card title="銷售額類別占比" bordered={false}>
               <Barchart option={pageviewProportion} />
             </Card>
           </Col>
