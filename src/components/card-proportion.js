@@ -1,8 +1,8 @@
 import React from 'react'
 import { Card, Col, Row, Tabs, Progress } from 'antd'
 import Barchart from './barchart'
-import pageviewProportion from '../pages/overview/data/pageview-proportion-config'
-import pageviewConversion from '../pages/overview/data/pageview-conversion-config'
+import pageviewProportion from '../pages/reportCart/data/pageview-proportion-config'
+import pageviewConversion from '../pages/reportCart/data/pageview-conversion-config'
 
 import './card.scss'
 

@@ -2,8 +2,8 @@ import React from 'react'
 import { Card, Col, Row, Statistic } from 'antd'
 import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons'
 import Barchart from './barchart'
-import pageviewConfigSmall from '../pages/overview/data/pageview-small-config'
-import pageviewConfig from '../pages/overview/data/pageview-config'
+import pageviewConfigSmall from '../pages/reportCart/data/pageview-small-config'
+import pageviewConfig from '../pages/reportCart/data/pageview-config'
 
 import './card.scss'
 
