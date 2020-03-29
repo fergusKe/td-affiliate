@@ -2,16 +2,26 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Layout, Menu, Avatar } from 'antd'
-import { UserOutlined, SettingOutlined, ProfileOutlined } from '@ant-design/icons'
+import { AreaChartOutlined, SettingOutlined, ProfileOutlined, UserOutlined } from '@ant-design/icons'
 import logo from '../imgs/logo.jpg'
 
 import './layoutWrapper.scss'
 
-const { Header, Content, Footer, Sider } = Layout
+const { Content, Footer, Sider } = Layout
+
+const { SubMenu } = Menu
 
 class LayoutWrapper extends React.Component {
   state = {
     collapsed: false,
+    current: 'mail',
+  }
+
+  handleClick = e => {
+    console.log('click ', e)
+    this.setState({
+      current: e.key,
+    })
   }
 
   toggle = () => {
@@ -24,7 +34,7 @@ class LayoutWrapper extends React.Component {
   render() {
     const { collapsed } = this.state
     const { children, selectedKeys, rolePath } = this.props
-
+    const { current } = this.state
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -32,42 +42,73 @@ class LayoutWrapper extends React.Component {
             <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
               <Link to={`${rolePath}overview`}>
                 <div className="logo">
-                  <img src={logo} alt="logo" />
-                  <span className="nav-text">Turing Digital</span>
+                  <img src={logo} alt="logo" style={{ width: '30px', marginRight: '10px' }} />
+                  Turing Digital
                 </div>
               </Link>
             </Menu.Item>
             <Menu.Item key="2">
               <Link to={`${rolePath}overview`}>
-                <UserOutlined />
-                <span className="nav-text">總覽</span>
+                <AreaChartOutlined />
+                <span className="nav-text">回饋總覽</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="3">
               <Link to={`${rolePath}setting`}>
                 <SettingOutlined />
-                <span className="nav-text">設定</span>
+                <span className="nav-text">推薦設定</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key="4">
-              <Link to={`${rolePath}report`}>
-                <ProfileOutlined />
-                <span className="nav-text">報表</span>
+            <SubMenu
+              key="sub1"
+              title={
+                <span>
+                  <ProfileOutlined />
+                  銷售收益
+                </span>
+              }
+            >
+              <Menu.Item key="4">
+                <Link to={`${rolePath}reportCart`}>
+                  <span className="nav-text">收益總覽</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="5">
+                <Link to={`${rolePath}report`}>
+                  <span className="nav-text">收益報表</span>
+                </Link>
+              </Menu.Item>
+            </SubMenu>
+            <Menu.Item key="6">
+              <Link to={`${rolePath}user`}>
+                <UserOutlined />
+                <span className="nav-text">帳戶資訊</span>
               </Link>
             </Menu.Item>
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Header
-            className="site-layout-background"
-            style={{ padding: 0, background: '#fff', textAlign: 'right', paddingRight: '10px' }}
+          <Menu
+            onClick={this.handleClick}
+            selectedKeys={[current]}
+            mode="horizontal"
+            style={{ textAlign: 'right', height: '52px', padding: '3px 0', paddingRight: '20px' }}
           >
-            <Avatar size="large" icon={<UserOutlined />} style={{ cursor: 'pointer' }} />
-            {/* {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-              className: 'trigger',
-              onClick: this.toggle,
-            })} */}
-          </Header>
+            <SubMenu
+              title={
+                <span className="submenu-title-wrapper">
+                  <Avatar size="small" icon={<UserOutlined />} style={{ cursor: 'pointer', marginRight: '10px' }} />
+                  Hi Jessica
+                </span>
+              }
+            >
+              <Menu.Item key="5">
+                帳戶資訊
+                <Link to={`${rolePath}user`}></Link>
+              </Menu.Item>
+              <Menu.Item key="setting:1">登出</Menu.Item>
+            </SubMenu>
+          </Menu>
           <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, minHeight: 360 }}>{children}</div>
           </Content>

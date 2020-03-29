@@ -15,10 +15,8 @@ const columns = [
     dataIndex: 'price',
   },
   {
-    title: '收益',
-    dataIndex: 'totalRevenue',
-    sorter: (a, b) => a.totalRevenue - b.totalRevenue,
-    sortDirections: ['descend', 'ascend'],
+    title: '分潤',
+    dataIndex: 'revenue',
   },
   {
     title: '銷售量',
@@ -135,11 +133,11 @@ data = data.map(item => ({
   totalRevenue: item.conversion * item.revenue,
 }))
 
-const ReportContent = () => (
+const OverviewContent = () => (
   <div>
-    <h2>報表總覽</h2>
+    <h4>報表總覽</h4>
     <Table columns={columns} dataSource={data} size="middle" />
   </div>
 )
 
-export default ReportContent
+export default OverviewContent
