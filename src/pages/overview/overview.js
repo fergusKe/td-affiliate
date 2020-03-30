@@ -2,12 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Tabs } from 'antd'
 import LayoutWrapper from '../../components/layoutWrapper'
-import DashboardCard from '../../components/card'
-import OverviewTable from './overview-table'
-import Barchart from '../../components/barchart'
-
-import salesConfig from './data/sales-config'
-import pageviewConfig from './data/pageview-config'
+import OverviewCash from './overview-cash'
+import OverviewRecord from './overview-record'
+import OverviewNote from './overview-note'
 
 const { TabPane } = Tabs
 
@@ -22,20 +19,20 @@ const Overview = props => {
     <div>
       <LayoutWrapper rolePath={rolePath} selectedKeys="2">
         <div className="overview">
-          <DashboardCard />
-          <Tabs
-            defaultActiveKey="1"
-            onChange={callback}
-            style={{ backgroundColor: '#fff', marginTop: '20px', padding: '10px' }}
-          >
-            <TabPane tab="銷售額" key="1">
-              <Barchart style={{ height: '400px' }} option={salesConfig} />
+          <div>
+            <h2>現金回饋總覽</h2>
+          </div>
+          <Tabs defaultActiveKey="1" onChange={callback} style={{ backgroundColor: '#fff', padding: '10px 20px' }}>
+            <TabPane tab="現金回饋明細" key="1">
+              <OverviewCash style={{ minheight: '600px' }} />
             </TabPane>
-            <TabPane tab="訪問量" key="2">
-              <Barchart style={{ height: '400px' }} option={pageviewConfig} />
+            <TabPane tab="提領紀錄" key="2">
+              <OverviewRecord style={{ minheight: '600px' }} />
             </TabPane>
+            {/* <TabPane tab="瀏覽紀錄" key="3">
+              <OverviewNote style={{ minheight: '600px' }} />
+            </TabPane> */}
           </Tabs>
-          {/* <OverviewTable /> */}
         </div>
       </LayoutWrapper>
     </div>

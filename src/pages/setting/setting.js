@@ -1,12 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Table, Modal, Button } from 'antd'
-import { ExclamationCircleOutlined } from '@ant-design/icons'
 import LayoutWrapper from '../../components/layoutWrapper'
 import SettingContent from './setting-content'
 
 const { Column } = Table
-const { confirm } = Modal
 
 const data = [
   {
@@ -48,23 +46,6 @@ function showCopySuccess() {
   })
 }
 
-function showDeleteConfirm() {
-  confirm({
-    title: '刪除項目',
-    icon: <ExclamationCircleOutlined />,
-    content: '確認要刪除這個項目嗎?',
-    okText: 'Yes',
-    okType: 'danger',
-    cancelText: 'No',
-    onOk() {
-      console.log('OK')
-    },
-    onCancel() {
-      console.log('Cancel')
-    },
-  })
-}
-
 const Setting = props => {
   const { rolePath } = props
 
@@ -83,14 +64,13 @@ const Setting = props => {
             <Column title="售價" dataIndex="price" key="price" />
             <Column title="分潤" dataIndex="revenue" key="revenue" />
             <Column
-              title="Action"
+              title=""
               key="action"
               render={() => (
                 <span>
                   <Button style={{ marginRight: '10px' }} onClick={showCopySuccess}>
                     複製網址
                   </Button>
-                  <Button onClick={showDeleteConfirm}>Delete</Button>
                 </span>
               )}
             />

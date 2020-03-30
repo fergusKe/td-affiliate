@@ -1,6 +1,7 @@
 {
   "name": "td-affiliate",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.0.3",
@@ -85,6 +86,7 @@
     ],
     "rules": {
       "no-console": "off",
+      "react/display-name": "off",
       "prettier/prettier": [
         "error",
         {

@@ -30,6 +30,28 @@ const columns = [
     ),
   },
   {
+    title: '會員',
+    dataIndex: 'member',
+    sorter: (a, b) => {
+      const stringA = a.name.toUpperCase() // ignore upper and lowercase
+      const stringB = b.name.toUpperCase() // ignore upper and lowercase
+      if (stringA < stringB) {
+        return -1
+      }
+      if (stringA > stringB) {
+        return 1
+      }
+      // names must be equal
+      return 0
+    },
+    sortDirections: ['descend', 'ascend'],
+  },
+  {
+    title: '成交日期',
+    dataIndex: 'successDate',
+    sorter: (a, b) => a.successDate - b.successDate,
+  },
+  {
     title: '售價',
     dataIndex: 'price',
     sorter: (a, b) => a.price - b.price,
@@ -53,6 +75,10 @@ const columns = [
     sorter: (a, b) => a.totalRevenue - b.totalRevenue,
     sortDirections: ['descend', 'ascend'],
   },
+  {
+    title: '狀態',
+    dataIndex: 'status',
+  },
 ]
 
 let data = [
@@ -63,6 +89,9 @@ let data = [
     price: 1099,
     revenue: 120,
     conversion: 32,
+    member: 'Andy',
+    successDate: '2020-03-01',
+    status: '提領完成',
   },
   {
     key: '2',
@@ -71,6 +100,9 @@ let data = [
     price: 510,
     revenue: 82,
     conversion: 18,
+    member: 'Andy',
+    successDate: '2020-03-01',
+    status: '提領完成',
   },
   {
     key: '3',
@@ -79,6 +111,9 @@ let data = [
     price: 320,
     revenue: 42,
     conversion: 11,
+    member: 'Andy',
+    successDate: '2020-03-01',
+    status: '提領完成',
   },
   {
     key: '4',
@@ -87,6 +122,9 @@ let data = [
     price: 2880,
     revenue: 450,
     conversion: 10,
+    member: 'Mary',
+    successDate: '2020-03-02',
+    status: '審核中',
   },
   {
     key: '5',
@@ -95,6 +133,9 @@ let data = [
     price: 490,
     revenue: 63,
     conversion: 8,
+    member: 'Mary',
+    successDate: '2020-03-02',
+    status: '審核中',
   },
   {
     key: '6',
@@ -103,6 +144,9 @@ let data = [
     price: 2480,
     revenue: 620,
     conversion: 3,
+    member: 'Mary',
+    successDate: '2020-03-02',
+    status: '審核中',
   },
   {
     key: '7',
@@ -111,6 +155,9 @@ let data = [
     price: 1235,
     revenue: 320,
     conversion: 3,
+    member: 'Mary',
+    successDate: '2020-03-02',
+    status: '審核中',
   },
   {
     key: '8',
@@ -119,6 +166,9 @@ let data = [
     price: 590,
     revenue: 70,
     conversion: 32,
+    member: 'Jessica',
+    successDate: '2020-03-03',
+    status: '未提領',
   },
   {
     key: '9',
@@ -127,6 +177,9 @@ let data = [
     price: 351,
     revenue: 42,
     conversion: 18,
+    member: 'Jessica',
+    successDate: '2020-03-03',
+    status: '未提領',
   },
   {
     key: '10',
@@ -135,6 +188,9 @@ let data = [
     price: 3380,
     revenue: 532,
     conversion: 11,
+    member: 'Jessica',
+    successDate: '2020-03-03',
+    status: '未提領',
   },
   {
     key: '11',
@@ -143,6 +199,9 @@ let data = [
     price: 839,
     revenue: 132,
     conversion: 10,
+    member: 'Jessica',
+    successDate: '2020-03-03',
+    status: '未提領',
   },
   {
     key: '12',
@@ -151,6 +210,9 @@ let data = [
     price: 972,
     revenue: 169,
     conversion: 8,
+    member: 'Jessica',
+    successDate: '2020-03-03',
+    status: '未提領',
   },
   {
     key: '13',
@@ -159,6 +221,9 @@ let data = [
     price: 880,
     revenue: 92,
     conversion: 3,
+    member: 'Andy',
+    successDate: '2020-03-01',
+    status: '提領完成',
   },
   {
     key: '14',
@@ -167,6 +232,9 @@ let data = [
     price: 1980,
     revenue: 327,
     conversion: 3,
+    member: 'Andy',
+    successDate: '2020-03-01',
+    status: '提領完成',
   },
 ]
 
@@ -177,7 +245,7 @@ data = data.map(item => ({
 
 const OverviewContent = () => (
   <div>
-    <h4>報表總覽</h4>
+    <h4>會員報表總覽</h4>
     <Table columns={columns} dataSource={data} size="middle" />
   </div>
 )

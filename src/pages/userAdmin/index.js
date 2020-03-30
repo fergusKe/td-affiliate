@@ -1,13 +1,13 @@
 import React from 'react'
 import LayoutWrapper from '../../components/layoutWrapper'
-import OverviewContent from '../overview/overview-content'
+import OverviewTable from '../overview/overview-table'
 
 import './index.scss'
 
 const UserAdmin = () => (
   <div>
     <LayoutWrapper>
-      <OverviewContent />
+      <OverviewTable />
     </LayoutWrapper>
   </div>
 )
