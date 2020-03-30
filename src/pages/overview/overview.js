@@ -29,9 +29,9 @@ const Overview = props => {
             <TabPane tab="提領紀錄" key="2">
               <OverviewRecord style={{ minheight: '600px' }} />
             </TabPane>
-            <TabPane tab="瀏覽紀錄" key="3">
+            {/* <TabPane tab="瀏覽紀錄" key="3">
               <OverviewNote style={{ minheight: '600px' }} />
-            </TabPane>
+            </TabPane> */}
           </Tabs>
         </div>
       </LayoutWrapper>

@@ -35,8 +35,8 @@ const DashboardCard = () => (
             <Col span={24} style={{ marginTop: '32px' }}>
               <div>
                 <p>
-                  日銷售額
-                  <span> $12,670</span>
+                  月銷售額
+                  <span> $612,670</span>
                 </p>
               </div>
             </Col>
@@ -44,15 +44,15 @@ const DashboardCard = () => (
         </Card>
       </Col>
       <Col span={8}>
-        <Card title="訪問量" bordered={false} style={{ minheight: '300px' }}>
+        <Card title="瀏覽量" bordered={false} style={{ minheight: '300px' }}>
           <h1 style={{ fontSize: '24px', fontWeight: 'normal' }}>63,000</h1>
           <Barchart style={{ height: '200px', marginTop: '-50px' }} option={pageviewConfigSmall} />
           <Row>
             <Col span={24} style={{ marginTop: '-15px' }}>
               <div>
                 <p>
-                  日訪問量
-                  <span> $12,670</span>
+                  月瀏覽量
+                  <span> 512,670</span>
                 </p>
               </div>
             </Col>
@@ -67,8 +67,8 @@ const DashboardCard = () => (
             <Col span={24} style={{ marginTop: '-15px' }}>
               <div>
                 <p>
-                  轉化率
-                  <span> 60%</span>
+                  月銷售量
+                  <span> 21,463</span>
                 </p>
               </div>
             </Col>

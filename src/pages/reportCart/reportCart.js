@@ -23,7 +23,7 @@ const ReportCart = props => {
       <LayoutWrapper rolePath={rolePath} selectedKeys="4">
         <div className="overview">
           <DashboardCard />
-          <Tabs
+          {/* <Tabs
             defaultActiveKey="1"
             onChange={callback}
             style={{ backgroundColor: '#fff', margin: '20px 0', padding: '10px' }}
@@ -31,10 +31,10 @@ const ReportCart = props => {
             <TabPane tab="銷售額" key="1">
               <Barchart style={{ height: '400px' }} option={salesConfig} />
             </TabPane>
-            <TabPane tab="訪問量" key="2">
+            <TabPane tab="瀏覽量" key="2">
               <Barchart style={{ height: '400px' }} option={pageviewConfig} />
             </TabPane>
-          </Tabs>
+          </Tabs> */}
           <Proportion />
         </div>
       </LayoutWrapper>

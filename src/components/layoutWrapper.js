@@ -40,23 +40,11 @@ class LayoutWrapper extends React.Component {
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <Menu theme="dark" defaultSelectedKeys={['2']} selectedKeys={[selectedKeys]} mode="inline">
             <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
-              <Link to={`${rolePath}overview`}>
+              <Link to={`${rolePath}reportCart`}>
                 <div className="logo">
                   <img src={logo} alt="logo" style={{ width: '30px', marginRight: '10px' }} />
                   Turing Digital
                 </div>
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Link to={`${rolePath}overview`}>
-                <AreaChartOutlined />
-                <span className="nav-text">回饋總覽</span>
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Link to={`${rolePath}setting`}>
-                <SettingOutlined />
-                <span className="nav-text">推薦設定</span>
               </Link>
             </Menu.Item>
             <SubMenu
@@ -78,7 +66,24 @@ class LayoutWrapper extends React.Component {
                   <span className="nav-text">收益報表</span>
                 </Link>
               </Menu.Item>
+              <Menu.Item key="7">
+                <Link to={`${rolePath}member-report`}>
+                  <span className="nav-text">會員報表</span>
+                </Link>
+              </Menu.Item>
             </SubMenu>
+            <Menu.Item key="3">
+              <Link to={`${rolePath}setting`}>
+                <SettingOutlined />
+                <span className="nav-text">推薦產品</span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="2">
+              <Link to={`${rolePath}overview`}>
+                <AreaChartOutlined />
+                <span className="nav-text">提領現金</span>
+              </Link>
+            </Menu.Item>
             <Menu.Item key="6">
               <Link to={`${rolePath}user`}>
                 <UserOutlined />
