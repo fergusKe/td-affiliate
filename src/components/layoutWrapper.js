@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 import { Layout, Menu, Avatar, notification } from 'antd'
 import { AreaChartOutlined, SettingOutlined, ProfileOutlined, UserOutlined } from '@ant-design/icons'
+import Header from './Header/Header'
 import logo from '../imgs/logo.jpg'
-import { getCookie, removeCookie } from '../commons/cookie'
+import { getCookie } from '../commons/cookie'
 
 import './layoutWrapper.scss'
 
@@ -15,7 +16,6 @@ const { SubMenu } = Menu
 class LayoutWrapper extends React.Component {
   state = {
     collapsed: false,
-    current: '',
   }
 
   componentDidMount() {
@@ -41,28 +41,6 @@ class LayoutWrapper extends React.Component {
     })
   }
 
-  logout = () => {
-    removeCookie('td_user')
-    removeCookie('td_jwt')
-  }
-
-  handleClick = e => {
-    console.log('click ', e)
-    const { key } = e
-    const { history } = this.props
-
-    if (key === 'logout') {
-      console.log('logout')
-      this.logout()
-      history.push('/login')
-      return
-    }
-
-    this.setState({
-      current: key,
-    })
-  }
-
   toggle = () => {
     const { collapsed } = this.state
     this.setState({
@@ -73,7 +51,8 @@ class LayoutWrapper extends React.Component {
   render() {
     const { collapsed } = this.state
     const { children, selectedKeys, rolePath } = this.props
-    const { current } = this.state
+    const tdUser = getCookie('td_user')
+
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -132,27 +111,7 @@ class LayoutWrapper extends React.Component {
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Menu
-            onClick={this.handleClick}
-            selectedKeys={[current]}
-            mode="horizontal"
-            style={{ textAlign: 'right', height: '52px', padding: '3px 0', paddingRight: '20px' }}
-          >
-            <SubMenu
-              title={
-                <span className="submenu-title-wrapper">
-                  <Avatar size="small" icon={<UserOutlined />} style={{ cursor: 'pointer', marginRight: '10px' }} />
-                  Hi Jessica
-                </span>
-              }
-            >
-              <Menu.Item key="user-info">
-                帳戶資訊
-                <Link to={`${rolePath}user`}></Link>
-              </Menu.Item>
-              <Menu.Item key="logout">登出</Menu.Item>
-            </SubMenu>
-          </Menu>
+          <Header username={tdUser} rolePath={rolePath} />
           <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, minHeight: 360 }}>{children}</div>
           </Content>
