@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-import { Layout, Menu, Avatar } from 'antd'
+import { Link, withRouter } from 'react-router-dom'
+import { Layout, Menu, Avatar, notification } from 'antd'
 import { AreaChartOutlined, SettingOutlined, ProfileOutlined, UserOutlined } from '@ant-design/icons'
 import logo from '../imgs/logo.jpg'
+import { getCookie, removeCookie } from '../commons/cookie'
 
 import './layoutWrapper.scss'
 
@@ -14,13 +15,51 @@ const { SubMenu } = Menu
 class LayoutWrapper extends React.Component {
   state = {
     collapsed: false,
-    current: 'mail',
+    current: '',
+  }
+
+  componentDidMount() {
+    const tdUser = getCookie('td_user')
+    const tdJwt = getCookie('td_jwt')
+    const { history } = this.props
+    console.log('tdUser = ', tdUser)
+    console.log('tdJwt = ', tdJwt)
+    if (!tdUser || !tdJwt) {
+      console.log('未登入')
+      this.openNotification()
+      history.push('/login')
+    }
+  }
+
+  openNotification = () => {
+    notification.error({
+      message: '請先登入',
+      description: '',
+      onClick: () => {
+        console.log('Notification Clicked!')
+      },
+    })
+  }
+
+  logout = () => {
+    removeCookie('td_user')
+    removeCookie('td_jwt')
   }
 
   handleClick = e => {
     console.log('click ', e)
+    const { key } = e
+    const { history } = this.props
+
+    if (key === 'logout') {
+      console.log('logout')
+      this.logout()
+      history.push('/login')
+      return
+    }
+
     this.setState({
-      current: e.key,
+      current: key,
     })
   }
 
@@ -107,11 +146,11 @@ class LayoutWrapper extends React.Component {
                 </span>
               }
             >
-              <Menu.Item key="5">
+              <Menu.Item key="user-info">
                 帳戶資訊
                 <Link to={`${rolePath}user`}></Link>
               </Menu.Item>
-              <Menu.Item key="setting:1">登出</Menu.Item>
+              <Menu.Item key="logout">登出</Menu.Item>
             </SubMenu>
           </Menu>
           <Content style={{ margin: '16px' }}>
@@ -128,6 +167,7 @@ LayoutWrapper.propTypes = {
   children: PropTypes.element.isRequired,
   selectedKeys: PropTypes.string,
   rolePath: PropTypes.string.isRequired,
+  history: PropTypes.object,
 }
 
-export default LayoutWrapper
+export default withRouter(LayoutWrapper)

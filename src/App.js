@@ -1,6 +1,7 @@
 import React from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
-import Home from './pages/home'
+import Login from './pages/login/login'
+import Sign from './pages/sign/sign'
 // import UserAdmin from './pages/userAdmin'
 import Overview from './pages/overview/overview'
 import Setting from './pages/setting/setting'
@@ -9,13 +10,18 @@ import Report from './pages/report/report'
 import MemberReport from './pages/member-report/member-report'
 import User from './pages/user/user'
 
+import 'antd/dist/antd.css'
+import './App.scss'
+
 // const tdPath = '/affiliate'
 // const tdPath = ''
 
 const App = () => (
   <HashRouter>
     <Switch>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={Login} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/sign" component={Sign} />
       {/* user-admin */}
       <Route exact path="/user-admin/overview" render={() => <Overview rolePath="/user-admin/" />} />
       <Route exact path="/user-admin/setting" render={() => <Setting rolePath="/user-admin/" />} />
