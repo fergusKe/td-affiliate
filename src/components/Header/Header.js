@@ -9,7 +9,7 @@ const { SubMenu } = Menu
 
 function Header(props) {
   const [current, setCurrent] = useState('')
-  const { username, rolePath, history } = props
+  const { username, history } = props
 
   const openNotification = (type, message) => {
     notification[type]({
@@ -54,9 +54,6 @@ function Header(props) {
           </span>
         }
       >
-        {/* <Menu.Item key="user-info">
-          <Link to={`${rolePath}user`}>帳戶資訊</Link>
-        </Menu.Item> */}
         <Menu.Item key="logout">登出</Menu.Item>
       </SubMenu>
     </Menu>
@@ -66,7 +63,6 @@ function Header(props) {
 Header.propTypes = {
   username: PropTypes.string.isRequired,
   history: PropTypes.object.isRequired,
-  rolePath: PropTypes.string.isRequired,
 }
 
 export default withRouter(Header)

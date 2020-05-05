@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Table, Modal, Button } from 'antd'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import SettingContent from './setting-content'
@@ -46,43 +45,35 @@ function showCopySuccess() {
   })
 }
 
-const Setting = props => {
-  const { rolePath } = props
-
-  return (
-    <div>
-      <AdminLayout rolePath={rolePath} selectedKeys="3">
-        <div
-          style={{
-            margin: '0 auto',
-            maxWidth: '800px',
-          }}
-        >
-          <SettingContent />
-          <Table style={{ marginTop: '20px' }} dataSource={data}>
-            <Column title="商品" dataIndex="name" key="name" />
-            <Column title="售價" dataIndex="price" key="price" />
-            <Column title="分潤" dataIndex="revenue" key="revenue" />
-            <Column
-              title=""
-              key="action"
-              render={() => (
-                <span>
-                  <Button style={{ marginRight: '10px' }} onClick={showCopySuccess}>
-                    複製網址
-                  </Button>
-                </span>
-              )}
-            />
-          </Table>
-        </div>
-      </AdminLayout>
-    </div>
-  )
-}
-
-Setting.propTypes = {
-  rolePath: PropTypes.string.isRequired,
-}
+const Setting = () => (
+  <div>
+    <AdminLayout selectedKeys="3">
+      <div
+        style={{
+          margin: '0 auto',
+          maxWidth: '800px',
+        }}
+      >
+        <SettingContent />
+        <Table style={{ marginTop: '20px' }} dataSource={data}>
+          <Column title="商品" dataIndex="name" key="name" />
+          <Column title="售價" dataIndex="price" key="price" />
+          <Column title="分潤" dataIndex="revenue" key="revenue" />
+          <Column
+            title=""
+            key="action"
+            render={() => (
+              <span>
+                <Button style={{ marginRight: '10px' }} onClick={showCopySuccess}>
+                  複製網址
+                </Button>
+              </span>
+            )}
+          />
+        </Table>
+      </div>
+    </AdminLayout>
+  </div>
+)
 
 export default Setting

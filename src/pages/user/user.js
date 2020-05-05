@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import { Form, Input, Select, Button, AutoComplete } from 'antd'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 
@@ -38,7 +37,6 @@ const tailFormItemLayout = {
 
 const User = props => {
   const [form] = Form.useForm()
-  const { rolePath } = props
 
   const onFinish = values => {
     console.log('Received values of form: ', values)
@@ -72,7 +70,7 @@ const User = props => {
 
   return (
     <div>
-      <AdminLayout rolePath={rolePath} selectedKeys="6">
+      <AdminLayout selectedKeys="6">
         <Form
           {...formItemLayout}
           form={form}
@@ -223,10 +221,6 @@ const User = props => {
       </AdminLayout>
     </div>
   )
-}
-
-User.propTypes = {
-  rolePath: PropTypes.string.isRequired,
 }
 
 export default User

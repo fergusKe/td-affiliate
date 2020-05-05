@@ -50,7 +50,7 @@ class AdminLayout extends React.Component {
 
   render() {
     const { collapsed } = this.state
-    const { children, selectedKeys, rolePath } = this.props
+    const { children, selectedKeys } = this.props
     const tdUser = getCookie('td_user')
 
     return (
@@ -58,7 +58,7 @@ class AdminLayout extends React.Component {
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <Menu theme="dark" defaultSelectedKeys={['2']} selectedKeys={[selectedKeys]} mode="inline">
             <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
-              <Link to={`${rolePath}reportCart`}>
+              <Link to="/reportCart">
                 <div className="logo">
                   <img src={logo} alt="logo" style={{ width: '30px', marginRight: '10px' }} />
                   Turing Digital
@@ -75,35 +75,35 @@ class AdminLayout extends React.Component {
               }
             >
               <Menu.Item key="4">
-                <Link to={`${rolePath}reportCart`}>
+                <Link to="/reportCart">
                   <span className="nav-text">收益總覽</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="5">
-                <Link to={`${rolePath}report`}>
+                <Link to="/report">
                   <span className="nav-text">收益報表</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="7">
-                <Link to={`${rolePath}member-report`}>
+                <Link to="/member-report">
                   <span className="nav-text">會員報表</span>
                 </Link>
               </Menu.Item>
             </SubMenu>
             <Menu.Item key="3">
-              <Link to={`${rolePath}setting`}>
+              <Link to="/setting">
                 <SettingOutlined />
                 <span className="nav-text">推薦產品</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Link to={`${rolePath}overview`}>
+              <Link to="/overview">
                 <AreaChartOutlined />
                 <span className="nav-text">提領現金</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="6">
-              <Link to={`${rolePath}user`}>
+              <Link to="/user">
                 <UserOutlined />
                 <span className="nav-text">帳戶資訊</span>
               </Link>
@@ -111,7 +111,7 @@ class AdminLayout extends React.Component {
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Header username={tdUser} rolePath={rolePath} />
+          <Header username={tdUser} />
           <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, minHeight: 360 }}>{children}</div>
           </Content>
@@ -125,7 +125,6 @@ class AdminLayout extends React.Component {
 AdminLayout.propTypes = {
   children: PropTypes.element.isRequired,
   selectedKeys: PropTypes.string,
-  rolePath: PropTypes.string.isRequired,
   history: PropTypes.object.isRequired,
 }
 
