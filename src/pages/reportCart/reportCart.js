@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Tabs } from 'antd'
-import LayoutWrapper from '../../components/layoutWrapper'
+import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import DashboardCard from '../../components/card'
 import Barchart from '../../components/barchart'
 import Proportion from '../../components/card-proportion'
@@ -20,7 +20,7 @@ const ReportCart = props => {
 
   return (
     <div>
-      <LayoutWrapper rolePath={rolePath} selectedKeys="4">
+      <AdminLayout rolePath={rolePath} selectedKeys="4">
         <div className="overview">
           <DashboardCard />
           {/* <Tabs
@@ -37,7 +37,7 @@ const ReportCart = props => {
           </Tabs> */}
           <Proportion />
         </div>
-      </LayoutWrapper>
+      </AdminLayout>
     </div>
   )
 }

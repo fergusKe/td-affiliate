@@ -1,14 +1,14 @@
 import React from 'react'
-import LayoutWrapper from '../../components/layoutWrapper'
+import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import OverviewTable from '../overview/overview-table'
 
 import './index.scss'
 
 const UserAdmin = () => (
   <div>
-    <LayoutWrapper>
+    <AdminLayout>
       <OverviewTable />
-    </LayoutWrapper>
+    </AdminLayout>
   </div>
 )
 

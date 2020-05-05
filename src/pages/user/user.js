@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Form, Input, Select, Button, AutoComplete } from 'antd'
-import LayoutWrapper from '../../components/layoutWrapper'
+import AdminLayout from '../../components/AdminLayout/AdminLayout'
 
 const { Option } = Select
 
@@ -72,7 +72,7 @@ const User = props => {
 
   return (
     <div>
-      <LayoutWrapper rolePath={rolePath} selectedKeys="6">
+      <AdminLayout rolePath={rolePath} selectedKeys="6">
         <Form
           {...formItemLayout}
           form={form}
@@ -220,7 +220,7 @@ const User = props => {
             </Button>
           </Form.Item>
         </Form>
-      </LayoutWrapper>
+      </AdminLayout>
     </div>
   )
 }

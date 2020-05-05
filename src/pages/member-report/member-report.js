@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import LayoutWrapper from '../../components/layoutWrapper'
+import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import ReportContent from './report-content'
 
 const Report = props => {
@@ -8,9 +8,9 @@ const Report = props => {
 
   return (
     <div>
-      <LayoutWrapper rolePath={rolePath} selectedKeys="7">
+      <AdminLayout rolePath={rolePath} selectedKeys="7">
         <ReportContent />
-      </LayoutWrapper>
+      </AdminLayout>
     </div>
   )
 }

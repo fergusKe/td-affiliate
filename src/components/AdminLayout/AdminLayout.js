@@ -1,19 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
-import { Layout, Menu, Avatar, notification } from 'antd'
+import { Layout, Menu, notification } from 'antd'
 import { AreaChartOutlined, SettingOutlined, ProfileOutlined, UserOutlined } from '@ant-design/icons'
-import Header from './Header/Header'
-import logo from '../imgs/logo.jpg'
-import { getCookie } from '../commons/cookie'
+import Header from '../Header/Header'
+import logo from '../../imgs/logo.jpg'
+import { getCookie } from '../../commons/cookie'
 
-import './layoutWrapper.scss'
+import './AdminLayout.scss'
 
 const { Content, Footer, Sider } = Layout
 
 const { SubMenu } = Menu
 
-class LayoutWrapper extends React.Component {
+class AdminLayout extends React.Component {
   state = {
     collapsed: false,
   }
@@ -122,11 +122,11 @@ class LayoutWrapper extends React.Component {
   }
 }
 
-LayoutWrapper.propTypes = {
+AdminLayout.propTypes = {
   children: PropTypes.element.isRequired,
   selectedKeys: PropTypes.string,
   rolePath: PropTypes.string.isRequired,
-  history: PropTypes.object,
+  history: PropTypes.object.isRequired,
 }
 
-export default withRouter(LayoutWrapper)
+export default withRouter(AdminLayout)

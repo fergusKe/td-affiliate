@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Table, Modal, Button } from 'antd'
-import LayoutWrapper from '../../components/layoutWrapper'
+import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import SettingContent from './setting-content'
 
 const { Column } = Table
@@ -51,7 +51,7 @@ const Setting = props => {
 
   return (
     <div>
-      <LayoutWrapper rolePath={rolePath} selectedKeys="3">
+      <AdminLayout rolePath={rolePath} selectedKeys="3">
         <div
           style={{
             margin: '0 auto',
@@ -76,7 +76,7 @@ const Setting = props => {
             />
           </Table>
         </div>
-      </LayoutWrapper>
+      </AdminLayout>
     </div>
   )
 }

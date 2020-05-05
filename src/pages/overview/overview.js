@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Tabs } from 'antd'
-import LayoutWrapper from '../../components/layoutWrapper'
+import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import OverviewCash from './overview-cash'
 import OverviewRecord from './overview-record'
 import OverviewNote from './overview-note'
@@ -17,7 +17,7 @@ const Overview = props => {
 
   return (
     <div>
-      <LayoutWrapper rolePath={rolePath} selectedKeys="2">
+      <AdminLayout rolePath={rolePath} selectedKeys="2">
         <div className="overview">
           <div>
             <h2>現金回饋總覽</h2>
@@ -34,7 +34,7 @@ const Overview = props => {
             </TabPane> */}
           </Tabs>
         </div>
-      </LayoutWrapper>
+      </AdminLayout>
     </div>
   )
 }
