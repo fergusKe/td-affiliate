@@ -87,7 +87,7 @@ const Sign = () => {
   }
 
   const goToAdmin = () => {
-    history.push('user-admin/setting')
+    history.push('/setting')
   }
 
   const onFinish = (values, e) => {

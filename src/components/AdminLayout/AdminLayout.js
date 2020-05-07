@@ -2,7 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 import { Layout, Menu, notification } from 'antd'
-import { AreaChartOutlined, SettingOutlined, ProfileOutlined, UserOutlined } from '@ant-design/icons'
+import {
+  SettingOutlined,
+  ProfileOutlined,
+  UserOutlined,
+  DollarOutlined,
+  LineChartOutlined,
+  CreditCardOutlined,
+} from '@ant-design/icons'
 import Header from '../Header/Header'
 import logo from '../../imgs/logo.jpg'
 import { getCookie } from '../../commons/cookie'
@@ -69,7 +76,7 @@ class AdminLayout extends React.Component {
               key="sub1"
               title={
                 <span>
-                  <ProfileOutlined />
+                  <DollarOutlined />
                   銷售收益
                 </span>
               }
@@ -90,15 +97,41 @@ class AdminLayout extends React.Component {
                 </Link>
               </Menu.Item>
             </SubMenu>
+            <Menu.Item key="8">
+              <Link to="/result">
+                <LineChartOutlined />
+                <span className="nav-text">推薦成效</span>
+              </Link>
+            </Menu.Item>
             <Menu.Item key="3">
               <Link to="/setting">
                 <SettingOutlined />
                 <span className="nav-text">推薦產品</span>
               </Link>
             </Menu.Item>
+            <SubMenu
+              key="sub2"
+              title={
+                <span>
+                  <ProfileOutlined />
+                  成效報告
+                </span>
+              }
+            >
+              <Menu.Item key="9">
+                <Link to="/reportCart">
+                  <span className="nav-text">訂單總覽</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="10">
+                <Link to="/report">
+                  <span className="nav-text">請款記錄</span>
+                </Link>
+              </Menu.Item>
+            </SubMenu>
             <Menu.Item key="2">
               <Link to="/overview">
-                <AreaChartOutlined />
+                <CreditCardOutlined />
                 <span className="nav-text">提領現金</span>
               </Link>
             </Menu.Item>

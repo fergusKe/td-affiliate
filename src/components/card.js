@@ -10,24 +10,24 @@ import './card.scss'
 const DashboardCard = () => (
   <div className="site-card-wrapper">
     <Row gutter={[16, 16]}>
-      <Col span={8}>
-        <Card title="總銷售額" bordered={false} style={{ minheight: '300px' }}>
-          <h1 style={{ fontSize: '24px', fontWeight: 'normal' }}>$ 2,899,000</h1>
-          <Row gutter={16}>
-            <Col span={12} style={{ margin: '26px 0' }}>
+      <Col span={24}>
+        <Card title="總銷售額" bordered={false} style={{ minheight: '500px' }}>
+          <h2 style={{ fontSize: '24px', fontWeight: 'normal' }}>今日銷售額 $2,899,000</h2>
+          <Row gutter={8}>
+            <Col span={12} style={{ margin: '0px 0', textAlign: 'center' }}>
               <Statistic
                 title="與同期上週比"
                 value={11.28}
-                valueStyle={{ color: '#cf1322', fontSize: '16px' }}
+                valueStyle={{ color: '#cf1322', fontSize: '48px' }}
                 prefix={<CaretUpOutlined />}
                 suffix="%"
               />
             </Col>
-            <Col span={12} style={{ margin: '26px 0' }}>
+            <Col span={12} style={{ margin: '0px 0', textAlign: 'center' }}>
               <Statistic
                 title="與同期上月比"
                 value={9.3}
-                valueStyle={{ color: '#3f8600', fontSize: '16px' }}
+                valueStyle={{ color: '#3f8600', fontSize: '48px' }}
                 prefix={<CaretDownOutlined />}
                 suffix="%"
               />
@@ -43,10 +43,10 @@ const DashboardCard = () => (
           </Row>
         </Card>
       </Col>
-      <Col span={8}>
-        <Card title="瀏覽量" bordered={false} style={{ minheight: '300px' }}>
-          <h1 style={{ fontSize: '24px', fontWeight: 'normal' }}>63,000</h1>
-          <Barchart style={{ height: '200px', marginTop: '-50px' }} option={pageviewConfigSmall} />
+      <Col span={12}>
+        <Card title="總瀏覽量" bordered={false} style={{ minheight: '500px' }}>
+          <h2 style={{ fontSize: '16px', fontWeight: 'normal' }}>今日瀏覽量 63,000</h2>
+          <Barchart style={{ height: '400px', marginTop: '-50px' }} option={pageviewConfigSmall} />
           <Row>
             <Col span={24} style={{ marginTop: '-15px' }}>
               <div>
@@ -59,10 +59,10 @@ const DashboardCard = () => (
           </Row>
         </Card>
       </Col>
-      <Col span={8}>
-        <Card title="銷售量" bordered={false} style={{ minheight: '300px' }}>
-          <h1 style={{ fontSize: '24px', fontWeight: 'normal' }}>6,560</h1>
-          <Barchart style={{ height: '200px', marginTop: '-50px' }} option={pageviewConfig} />
+      <Col span={12}>
+        <Card title="總銷售量" bordered={false} style={{ minheight: '500px' }}>
+          <h2 style={{ fontSize: '16px', fontWeight: 'normal' }}>今日銷售量 6,560</h2>
+          <Barchart style={{ height: '400px', marginTop: '-50px' }} option={pageviewConfig} />
           <Row>
             <Col span={24} style={{ marginTop: '-15px' }}>
               <div>
