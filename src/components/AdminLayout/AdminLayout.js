@@ -2,7 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 import { Layout, Menu, notification } from 'antd'
-import { AreaChartOutlined, SettingOutlined, ProfileOutlined, UserOutlined } from '@ant-design/icons'
+import {
+  SettingOutlined,
+  ProfileOutlined,
+  UserOutlined,
+  DollarOutlined,
+  LineChartOutlined,
+  CreditCardOutlined,
+} from '@ant-design/icons'
 import Header from '../Header/Header'
 import logo from '../../imgs/logo.jpg'
 import { getCookie } from '../../commons/cookie'
@@ -71,7 +78,7 @@ class AdminLayout extends React.Component {
               key="sub1"
               title={
                 <span>
-                  <ProfileOutlined />
+                  <DollarOutlined />
                   銷售收益
                 </span>
               }
@@ -92,15 +99,27 @@ class AdminLayout extends React.Component {
                 </Link>
               </Menu.Item>
             </SubMenu>
+            <Menu.Item key="8">
+              <Link to="/result">
+                <LineChartOutlined />
+                <span className="nav-text">推薦成效</span>
+              </Link>
+            </Menu.Item>
             <Menu.Item key="3">
               <Link to="/setting">
                 <SettingOutlined />
                 <span className="nav-text">推薦產品</span>
               </Link>
             </Menu.Item>
+            <Menu.Item key="9">
+              <Link to="/effect">
+                <ProfileOutlined />
+                <span className="nav-text">成效報告</span>
+              </Link>
+            </Menu.Item>
             <Menu.Item key="2">
               <Link to="/overview">
-                <AreaChartOutlined />
+                <CreditCardOutlined />
                 <span className="nav-text">提領現金</span>
               </Link>
             </Menu.Item>
