@@ -1,10 +1,10 @@
-import React, { Component, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { CloseOutlined } from '@ant-design/icons'
-import { TweenMax, Power3, gsap } from 'gsap'
+import { Power3, gsap } from 'gsap'
 
 const Alert = props => {
-  const { msg, topStyle, showAlert, hideAlert } = props
+  const { msg, hideAlert } = props
   let alertRef = useRef(null)
 
   useEffect(() => {
@@ -42,8 +42,8 @@ const Alert = props => {
 
 Alert.propTypes = {
   msg: PropTypes.string.isRequired,
-  topStyle: PropTypes.object,
-  showAlert: PropTypes.func,
+  // topStyle: PropTypes.object,
+  // showAlert: PropTypes.func,
   hideAlert: PropTypes.func,
 }
 

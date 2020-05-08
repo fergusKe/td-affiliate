@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { Menu, Avatar, notification } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import { removeCookie } from '../../commons/cookie'

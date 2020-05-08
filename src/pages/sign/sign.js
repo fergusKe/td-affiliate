@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Form, Input, Button, Checkbox, Typography, notification } from 'antd'
+import React from 'react'
+import { Form, Input, Button, Typography, notification } from 'antd'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { TweenMax, Power3, gsap } from 'gsap'
-import Alert from '../../components/Alert/Alert'
-import { setCookie, getCookie } from '../../commons/cookie'
+// import { TweenMax, Power3, gsap } from 'gsap'
+// import Alert from '../../components/Alert/Alert'
+import { setCookie } from '../../commons/cookie'
 
 import './sign.scss'
 
@@ -30,21 +30,6 @@ const { Title } = Typography
 const Sign = () => {
   const history = useHistory()
 
-  const [errorMsg, setErrorMsg] = useState([])
-
-  useEffect(() => {
-    const tdUser = getCookie('td_user')
-    const tdJwt = getCookie('td_jwt')
-    console.log('tdUser = ', tdUser)
-    console.log('tdJwt = ', tdJwt)
-    if (tdUser && tdJwt) {
-      console.log('已登入')
-      // this.props.history.push('/login');
-      // toast.info('Please Login First');
-      // return;
-    }
-  }, [errorMsg])
-
   const openNotification = (type, message) => {
     notification[type]({
       message,
@@ -55,36 +40,20 @@ const Sign = () => {
     })
   }
 
-  // const showAlert = () => {
-  //   console.log('showAlert')
-  //   gsap.to(alertRef, 0.3, { opacity: 1, y: 50, ease: Power3.easeOut })
+  // const hideAlert = e => {
+  //   console.log('hideAlert')
+  //   console.log('this is:', e)
+  //   console.log('this is:', e.target)
+  //   const ele = e.target
+  //   gsap.to(ele, 0.3, {
+  //     opacity: 0,
+  //     y: -50,
+  //     ease: Power3.easeIn,
+  //     onComplete() {
+  //       gsap.to(ele, 0.5, { display: 'none' })
+  //     },
+  //   })
   // }
-  const showAlert = () => {
-    // console.log('showAlert')
-    // console.log('this is:', e)
-    // console.log('this is:', e.target)
-    // const ele = alertRef.current
-    // console.log('ele = ', ele)
-    // gsap.from(ele[0], 0.8, { opacity: 0, y: -50, ease: Power3.easeOut })
-    // gsap.from(ele[1], 0.8, { opacity: 0, y: -50, ease: Power3.easeOut, delay: 0.2 })
-    // gsap.staggerFrom(ele, 0.8, { opacity: 0, y: -50, ease: Power3.easeOut }, 0.2)
-    // gsap.to(ele, 0.3, { opacity: 1, y: 50, ease: Power3.easeOut })
-  }
-
-  const hideAlert = e => {
-    console.log('hideAlert')
-    console.log('this is:', e)
-    console.log('this is:', e.target)
-    const ele = e.target
-    gsap.to(ele, 0.3, {
-      opacity: 0,
-      y: -50,
-      ease: Power3.easeIn,
-      onComplete() {
-        gsap.to(ele, 0.5, { display: 'none' })
-      },
-    })
-  }
 
   const goToAdmin = () => {
     history.push('/setting')
@@ -107,12 +76,15 @@ const Sign = () => {
         // 註冊成功
         if (res.status === 201) {
           console.log('註冊成功')
-          const tdUser = res.data.username
-          const tdJwt = res.data.token
-          console.log('tdUser = ', tdUser)
-          console.log('tdJwt = ', tdJwt)
-          setCookie('td_user', tdUser)
-          setCookie('td_jwt', tdJwt)
+          const tdUsername = res.data.username
+          const tdToken = res.data.token
+          const tdUserId = res.data.user_id
+          console.log('tdUsername = ', tdUsername)
+          console.log('tdToken = ', tdToken)
+          console.log('tdUserId = ', tdUserId)
+          setCookie('td_username', tdUsername)
+          setCookie('td_token', tdToken)
+          setCookie('td_userid', tdUserId)
           openNotification('success', '登入成功')
           goToAdmin()
         }
@@ -129,13 +101,9 @@ const Sign = () => {
       })
   }
 
-  const onClose = () => {
-    // hideAlert()
-  }
-
   return (
     <div className="sign-wrap">
-      <div className="alert-box">
+      {/* <div className="alert-box">
         {errorMsg.map((msg, idx) => (
           <Alert
             key={msg}
@@ -146,7 +114,7 @@ const Sign = () => {
             hideAlert={hideAlert}
           />
         ))}
-      </div>
+      </div> */}
       <Form
         {...layout}
         style={{ transform: 'translate(0, 60%)' }}

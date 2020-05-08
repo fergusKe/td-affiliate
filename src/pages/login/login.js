@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { Form, Input, Button, Checkbox, Typography, notification } from 'antd'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { TweenMax, Power3, gsap } from 'gsap'
-import Alert from '../../components/Alert/Alert'
-import { setCookie, getCookie } from '../../commons/cookie'
+// import { Power3, gsap } from 'gsap'
+// import Alert from '../../components/Alert/Alert'
+import { setCookie } from '../../commons/cookie'
 
 import './login.scss'
 
@@ -28,7 +28,7 @@ const { Title } = Typography
 const Login = () => {
   const history = useHistory()
 
-  const [errorMsg, setErrorMsg] = useState([])
+  // const [errorMsg, setErrorMsg] = useState([])
 
   // useEffect(() => {
   //   const tdUser = getCookie('td_user')
@@ -55,10 +55,6 @@ const Login = () => {
     console.log('Received values of form: ', values)
     const { username, password } = values
 
-    // axios.get('http://utility.turingdigital.com.tw/users').then(data => {
-    //   console.log(data)
-    // })
-
     // 登入
     axios
       .post('http://utility.turingdigital.com.tw/auth/login', {
@@ -71,12 +67,15 @@ const Login = () => {
         // 註冊成功
         if (res.status === 200) {
           console.log('登入成功')
-          const tdUser = res.data.username
-          const tdJwt = res.data.token
-          console.log('tdUser = ', tdUser)
-          console.log('tdJwt = ', tdJwt)
-          setCookie('td_user', tdUser)
-          setCookie('td_jwt', tdJwt)
+          const tdUsername = res.data.username
+          const tdToken = res.data.token
+          const tdUserId = res.data.user_id
+          // console.log('tdUsername = ', tdUsername)
+          // console.log('tdToken = ', tdToken)
+          // console.log('tdUserId = ', tdUserId)
+          setCookie('td_username', tdUsername)
+          setCookie('td_token', tdToken)
+          setCookie('td_userid', tdUserId)
           openNotification('success', '登入成功')
           goToAdmin()
         }
@@ -93,36 +92,28 @@ const Login = () => {
       })
   }
 
-  const hideAlert = e => {
-    console.log('hideAlert')
-    console.log('this is:', e)
-    console.log('this is:', e.target)
-    const ele = e.target
-    gsap.to(ele, 0.3, {
-      opacity: 0,
-      y: -50,
-      ease: Power3.easeIn,
-      onComplete() {
-        gsap.to(ele, 0.5, { display: 'none' })
-      },
-    })
-  }
+  // const hideAlert = e => {
+  //   console.log('hideAlert')
+  //   console.log('this is:', e)
+  //   console.log('this is:', e.target)
+  //   const ele = e.target
+  //   gsap.to(ele, 0.3, {
+  //     opacity: 0,
+  //     y: -50,
+  //     ease: Power3.easeIn,
+  //     onComplete() {
+  //       gsap.to(ele, 0.5, { display: 'none' })
+  //     },
+  //   })
+  // }
 
   return (
     <div className="login-wrap">
-      <div className="alert-box">
+      {/* <div className="alert-box">
         {errorMsg.map((msg, idx) => (
-          <Alert
-            key={msg}
-            idx={idx}
-            msg={msg}
-            topStyle={{ top: `${idx * 40}px` }}
-            // showAlert={showAlert}
-            hideAlert={hideAlert}
-            // ref={el => (alertRef = el)}
-          />
+          <Alert key={msg} idx={idx} msg={msg} topStyle={{ top: `${idx * 40}px` }} hideAlert={hideAlert} />
         ))}
-      </div>
+      </div> */}
       <Form
         {...layout}
         style={{ transform: 'translate(0, 50%)' }}

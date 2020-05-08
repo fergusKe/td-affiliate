@@ -26,12 +26,14 @@ class AdminLayout extends React.Component {
   }
 
   componentDidMount() {
-    const tdUser = getCookie('td_user')
-    const tdJwt = getCookie('td_jwt')
+    const tdUsername = getCookie('td_username')
+    const tdToken = getCookie('td_token')
+    const tdUserId = getCookie('td_userid')
     const { history } = this.props
-    console.log('tdUser = ', tdUser)
-    console.log('tdJwt = ', tdJwt)
-    if (!tdUser || !tdJwt) {
+    // console.log('tdUsername = ', tdUsername)
+    // console.log('tdToken = ', tdToken)
+    // console.log('tdUserId = ', tdUserId)
+    if (!tdUsername || !tdToken || !tdUserId) {
       console.log('未登入')
       this.openNotification()
       history.push('/login')
@@ -58,21 +60,21 @@ class AdminLayout extends React.Component {
   render() {
     const { collapsed } = this.state
     const { children, selectedKeys } = this.props
-    const tdUser = getCookie('td_user')
+    const tdUsername = getCookie('td_username')
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <Menu theme="dark" defaultSelectedKeys={['2']} selectedKeys={[selectedKeys]} mode="inline">
             <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
-              <Link to="/reportCart">
+              <Link to="/result">
                 <div className="logo">
                   <img src={logo} alt="logo" style={{ width: '30px', marginRight: '10px' }} />
                   Turing Digital
                 </div>
               </Link>
             </Menu.Item>
-            <SubMenu
+            {/* <SubMenu
               key="sub1"
               title={
                 <span>
@@ -96,11 +98,11 @@ class AdminLayout extends React.Component {
                   <span className="nav-text">會員報表</span>
                 </Link>
               </Menu.Item>
-            </SubMenu>
+            </SubMenu> */}
             <Menu.Item key="8">
               <Link to="/result">
                 <LineChartOutlined />
-                <span className="nav-text">推薦成效</span>
+                <span className="nav-text">推廣成效</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="3">
@@ -115,22 +117,22 @@ class AdminLayout extends React.Component {
                 <span className="nav-text">成效報告</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key="2">
+            {/* <Menu.Item key="2">
               <Link to="/overview">
                 <CreditCardOutlined />
                 <span className="nav-text">提領現金</span>
               </Link>
-            </Menu.Item>
-            <Menu.Item key="6">
+            </Menu.Item> */}
+            {/* <Menu.Item key="6">
               <Link to="/user">
                 <UserOutlined />
                 <span className="nav-text">帳戶資訊</span>
               </Link>
-            </Menu.Item>
+            </Menu.Item> */}
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Header username={tdUser} />
+          <Header username={tdUsername} />
           <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, minHeight: 360 }}>{children}</div>
           </Content>
