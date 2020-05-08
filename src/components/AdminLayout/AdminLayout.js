@@ -67,14 +67,14 @@ class AdminLayout extends React.Component {
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <Menu theme="dark" defaultSelectedKeys={['2']} selectedKeys={[selectedKeys]} mode="inline">
             <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
-              <Link to="/reportCart">
+              <Link to="/result">
                 <div className="logo">
                   <img src={logo} alt="logo" style={{ width: '30px', marginRight: '10px' }} />
                   Turing Digital
                 </div>
               </Link>
             </Menu.Item>
-            <SubMenu
+            {/* <SubMenu
               key="sub1"
               title={
                 <span>
@@ -98,11 +98,11 @@ class AdminLayout extends React.Component {
                   <span className="nav-text">會員報表</span>
                 </Link>
               </Menu.Item>
-            </SubMenu>
+            </SubMenu> */}
             <Menu.Item key="8">
               <Link to="/result">
                 <LineChartOutlined />
-                <span className="nav-text">推薦成效</span>
+                <span className="nav-text">推廣成效</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="3">
@@ -117,18 +117,18 @@ class AdminLayout extends React.Component {
                 <span className="nav-text">成效報告</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key="2">
+            {/* <Menu.Item key="2">
               <Link to="/overview">
                 <CreditCardOutlined />
                 <span className="nav-text">提領現金</span>
               </Link>
-            </Menu.Item>
-            <Menu.Item key="6">
+            </Menu.Item> */}
+            {/* <Menu.Item key="6">
               <Link to="/user">
                 <UserOutlined />
                 <span className="nav-text">帳戶資訊</span>
               </Link>
-            </Menu.Item>
+            </Menu.Item> */}
           </Menu>
         </Sider>
         <Layout className="site-layout">
