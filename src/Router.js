@@ -7,6 +7,7 @@ import Overview from './pages/overview/overview'
 import Setting from './pages/setting/setting'
 import Result from './pages/result/result'
 import Effect from './pages/effect/effect'
+import Order from './pages/order/order'
 import ReportCart from './pages/reportCart/reportCart'
 import Report from './pages/report/report'
 import MemberReport from './pages/member-report/member-report'
@@ -23,6 +24,7 @@ const Router = () => (
       <Route exact path="/setting" render={() => <Setting />} />
       <Route exact path="/result" render={() => <Result />} />
       <Route exact path="/effect" render={() => <Effect />} />
+      <Route exact path="/order" render={() => <Order />} />
       <Route exact path="/reportCart" render={() => <ReportCart />} />
       <Route exact path="/report" render={() => <Report />} />
       <Route exact path="/member-report" render={() => <MemberReport />} />

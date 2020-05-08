@@ -19,16 +19,16 @@ data = data.map(item => ({
   totaltotalRevenue: item.status * item.totalRevenue,
 }))
 
-const EffectBouns = () => (
+const OrderBouns = () => (
   <div>
     <div style={{ backgroundColor: '#f5f5f5', padding: '15px' }}>
       <span>本月總獎金（ 0.00 元 ）</span>
     </div>
     <div style={{ padding: '30px', height: '110px' }}>
       <span>
-        <Link to="/effect">
+        <Link to="/reportCart">
           <CaretRightOutlined />
-          請款紀錄
+          訂單總覽
         </Link>
       </span>
       <span>
@@ -49,4 +49,4 @@ const EffectBouns = () => (
   </div>
 )
 
-export default withRouter(EffectBouns)
+export default withRouter(OrderBouns)
