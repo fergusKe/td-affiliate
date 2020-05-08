@@ -19,12 +19,14 @@ class AdminLayout extends React.Component {
   }
 
   componentDidMount() {
-    const tdUser = getCookie('td_user')
-    const tdJwt = getCookie('td_jwt')
+    const tdUsername = getCookie('td_username')
+    const tdToken = getCookie('td_token')
+    const tdUserId = getCookie('td_userid')
     const { history } = this.props
-    console.log('tdUser = ', tdUser)
-    console.log('tdJwt = ', tdJwt)
-    if (!tdUser || !tdJwt) {
+    // console.log('tdUsername = ', tdUsername)
+    // console.log('tdToken = ', tdToken)
+    // console.log('tdUserId = ', tdUserId)
+    if (!tdUsername || !tdToken || !tdUserId) {
       console.log('未登入')
       this.openNotification()
       history.push('/login')
@@ -51,7 +53,7 @@ class AdminLayout extends React.Component {
   render() {
     const { collapsed } = this.state
     const { children, selectedKeys } = this.props
-    const tdUser = getCookie('td_user')
+    const tdUsername = getCookie('td_username')
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
@@ -111,7 +113,7 @@ class AdminLayout extends React.Component {
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Header username={tdUser} />
+          <Header username={tdUsername} />
           <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, minHeight: 360 }}>{children}</div>
           </Content>
