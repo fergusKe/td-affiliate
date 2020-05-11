@@ -109,13 +109,14 @@ const Setting = () => {
   const getCreateShareLinkUrl = () => `https://utility.turingdigital.com.tw/v1/users/${tdUserId}/share_links`
 
   const craeteShareLink = () => {
-    console.log('createShare = ', createShare)
+    const url = host + createShare
+    console.log('createShare = ', url)
     console.log(validationUrlStyle.borderColor)
 
     if (validationUrlStyle.borderColor === undefined && createShare !== '') {
       axios
         .post(getCreateShareLinkUrl(), {
-          url: createShare,
+          url,
         })
         .then(function(response) {
           console.log(response)
@@ -148,9 +149,10 @@ const Setting = () => {
 
   const handeCreateShare = e => {
     const { value } = e.target
+    const url = host + value
     setCreateShare(value)
-    console.log(value)
-    validationUrl(value)
+    console.log(url)
+    validationUrl(url)
   }
 
   return (
@@ -186,6 +188,7 @@ const Setting = () => {
           <h3>請輸入產品網址，替您產生推廣連結</h3>
           <div style={{ display: 'flex' }}>
             <Input
+              addonBefore={host}
               placeholder="請輸入產品網址"
               size="large"
               value={createShare}

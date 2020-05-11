@@ -48,7 +48,7 @@ const Login = () => {
   }
 
   const goToAdmin = () => {
-    history.push('/setting')
+    history.push('/result')
   }
 
   const onFinish = values => {
@@ -121,7 +121,7 @@ const Login = () => {
         fields={[
           {
             name: ['username'],
-            value: 'user1',
+            value: 'user3',
           },
           {
             name: ['password'],
