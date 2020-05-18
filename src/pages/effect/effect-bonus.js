@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table, Button } from 'antd'
 import { Link, withRouter } from 'react-router-dom'
-import { CaretRightOutlined } from '@ant-design/icons'
+import { CaretRightOutlined, PlusOutlined } from '@ant-design/icons'
 
 const { Column } = Table
 
@@ -10,6 +10,7 @@ let data = [
     date: '2019-03月',
     promotionBonus: 'NT$180',
     eventBonus: 'NT$180',
+    groupBonus: 'NT$0',
     totalBonus: 'NT$360',
   },
 ]
@@ -44,7 +45,9 @@ const EffectBouns = () => (
       <Column title="月份" dataIndex="date" key="date" />
       <Column title="推廣獎金" dataIndex="promotionBonus" key="promotionBonus" />
       <Column title="活動獎金" dataIndex="eventBonus" key="eventBonus" />
+      <Column title="家族推廣獎金" dataIndex="groupBonus" key="groupBonus" />
       <Column title="本月獎金" dataIndex="totalBonus" key="totalBonus" />
+      <PlusOutlined />
     </Table>
   </div>
 )

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tabs, Menu, message, Card, Col, Row, Timeline, Dropdown, Button } from 'antd'
-import { DownOutlined, UserOutlined, NotificationOutlined, BarChartOutlined } from '@ant-design/icons'
+import { DownOutlined, UserOutlined, BarChartOutlined } from '@ant-design/icons'
 import ResultTable from './result-table'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 
