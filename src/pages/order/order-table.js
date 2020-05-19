@@ -5,8 +5,8 @@ import { DownOutlined, SearchOutlined } from '@ant-design/icons'
 function handleMenuClick(e) {
   console.log('click', e)
 }
+
 const { RangePicker } = DatePicker
-const { Column } = Table
 
 const menu1 = (
   <Menu onClick={handleMenuClick}>
@@ -54,12 +54,122 @@ const menu6 = (
   </Menu>
 )
 
+const orderData = {
+  totalData: 10,
+  confirmData: 5,
+  dayTimeData: 5,
+  creditData: 3,
+  invalidData: 2,
+}
+
+const columns = [
+  {
+    title: '廠商',
+    dataIndex: 'name',
+    key: 'name',
+    width: 100,
+    fixed: 'center',
+    align: 'center',
+  },
+  {
+    title: '點擊',
+    dataIndex: 'click',
+    key: 'click',
+    width: 80,
+    fixed: 'center',
+    align: 'center',
+    sorter: (a, b) => a.age - b.age,
+  },
+  {
+    title: '訂單數',
+    children: [
+      {
+        title: '確認中',
+        dataIndex: 'confirmData',
+        key: 'confirmData',
+        width: 80,
+        fixed: 'center',
+        align: 'center',
+        sorter: (a, b) => a.age - b.age,
+      },
+      {
+        title: '有效',
+        dataIndex: 'dayTimeData',
+        key: 'dayTimeData',
+        width: 80,
+        fixed: 'center',
+        align: 'center',
+        sorter: (a, b) => a.age - b.age,
+      },
+      {
+        title: '獎金入帳',
+        dataIndex: 'creditData',
+        key: 'creditData',
+        width: 80,
+        fixed: 'center',
+        align: 'center',
+        sorter: (a, b) => a.age - b.age,
+      },
+      {
+        title: '無效',
+        dataIndex: 'invalidData',
+        key: 'invalidData',
+        width: 80,
+        fixed: 'center',
+        align: 'center',
+        sorter: (a, b) => a.age - b.age,
+      },
+    ],
+  },
+  {
+    title: '預估獎金',
+    dataIndex: 'stimatedBonus',
+    key: 'stimatedBonus',
+    width: 80,
+    fixed: 'center',
+    align: 'center',
+    sorter: (a, b) => a.age - b.age,
+  },
+  {
+    title: '獎金入帳',
+    dataIndex: 'realBonus',
+    key: 'realBonus',
+    width: 80,
+    fixed: 'center',
+    align: 'center',
+    sorter: (a, b) => a.age - b.age,
+  },
+  {
+    title: '轉換率',
+    dataIndex: 'conversionRatio',
+    key: 'conversionRatio',
+    width: 80,
+    fixed: 'center',
+    align: 'center',
+    sorter: (a, b) => a.age - b.age,
+  },
+  {
+    title: '備註',
+    dataIndex: 'Remarks',
+    key: 'Remarks',
+    width: 80,
+    fixed: 'center',
+    align: 'center',
+  },
+]
+
 let data = [
   {
-    date: '2019-03月',
-    orderNumber: 2,
-    orderAmount: 'NT$1800',
-    bonus: 'NT$199',
+    name: '廠商 1',
+    click: 56,
+    confirmData: 5,
+    dayTimeData: 5,
+    creditData: 3,
+    invalidData: 2,
+    stimatedBonus: 1299,
+    realBonus: 1299,
+    conversionRatio: '50%',
+    Remarks: '無相關事項',
   },
 ]
 
@@ -151,14 +261,13 @@ const OrderTable = () => (
       </div>
     </div>
     <div style={{ backgroundColor: '#f5f5f5', padding: '15px' }}>
-      <span>[查詢時間] 訂單總數：0 筆</span>
+      <span>
+        [查詢時間]&ensp;&ensp;訂單總數：{orderData.totalData}&ensp;筆（ 確認中&ensp;{orderData.confirmData}
+        &ensp;&frasl;&ensp;有效訂單&ensp;{orderData.dayTimeData}&ensp;&frasl;&ensp;獎金入帳&ensp;{orderData.creditData}
+        &ensp;&frasl;&ensp;訂單無效&ensp;{orderData.invalidData}）
+      </span>
     </div>
-    <Table dataSource={data} size="default">
-      <Column title="月份" dataIndex="date" key="date" />
-      <Column title="訂單數" dataIndex="orderNumber" key="orderNumber" />
-      <Column title="訂單金額" dataIndex="orderAmount" key="orderAmount" />
-      <Column title="預計獎金" dataIndex="bonus" key="bonus" />
-    </Table>
+    <Table columns={columns} dataSource={data} bordered size="middle" />
   </div>
 )
 

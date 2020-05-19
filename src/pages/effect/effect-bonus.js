@@ -27,7 +27,7 @@ const EffectBouns = () => (
     </div>
     <div style={{ padding: '30px', height: '110px' }}>
       <span>
-        <Link to="/effect">
+        <Link to="/record">
           <CaretRightOutlined />
           請款紀錄
         </Link>

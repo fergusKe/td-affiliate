@@ -25,12 +25,12 @@ const EffectTable = () => (
       <span>本月訂單 ( 0 筆 )</span>
     </div>
     <div style={{ padding: '30px' }}>
-      <span>
+      <div>
         <Link to="/Order">
           <CaretRightOutlined />
           訂單總覽
         </Link>
-      </span>
+      </div>
     </div>
     <Table dataSource={data} size="default">
       <Column title="月份" dataIndex="date" key="date" />
