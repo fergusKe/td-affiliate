@@ -1,16 +1,10 @@
 import React from 'react'
-import { Tabs, Menu, message, Card, Col, Row, Timeline, Dropdown, Button } from 'antd'
+import { Menu, Card, Col, Row, Timeline, Dropdown, Button } from 'antd'
 import { DownOutlined, UserOutlined, BarChartOutlined } from '@ant-design/icons'
 import ResultTable from './result-table'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 
 import './result.scss'
-
-function callback() {
-  console.log(message)
-}
-
-const { TabPane } = Tabs
 
 const menu = (
   <Menu>
@@ -21,6 +15,11 @@ const menu = (
 )
 
 class Result extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+
   render() {
     return (
       <div>
@@ -28,7 +27,11 @@ class Result extends React.Component {
           <div className="site-card-wrapper">
             <Row gutter={[16, 16]}>
               <Col span={16}>
-                <Card className="result-wrap" bordered={false} style={{ minheight: '400px', paddingLeft: '10px' }}>
+                <Card
+                  className="result-wrap"
+                  bordered={false}
+                  style={{ minheight: '400px', paddingLeft: '10px', height: '100%' }}
+                >
                   <span style={{ color: 'rgba(0, 0, 0, 0.85)', fontWigth: '500', fontSize: '16px' }}>
                     <BarChartOutlined style={{ margin: '0 10px' }} />
                     總覽
@@ -39,25 +42,28 @@ class Result extends React.Component {
                     </Dropdown>
                   </span>
                   <Col span={24} className="result-report" style={{ minheight: '400px', paddingLeft: '10px' }}>
-                    <Tabs
-                      className="result-report-tabs"
-                      defaultActiveKey="1"
-                      onChange={callback}
-                      style={{ backgroundColor: '#fff', padding: '16px', height: '250px' }}
-                    >
-                      <TabPane tab="獎金金額" key="1" style={{ margin: '0' }}>
-                        <div style={{ margin: '0px' }}>沒有相關數據</div>
-                      </TabPane>
-                      <TabPane tab="訂單數" key="2" style={{ margin: '0' }}>
-                        <div style={{ margin: '0px' }}>沒有相關數據</div>
-                      </TabPane>
-                      <TabPane tab="點擊數" key="3" style={{ margin: '0' }}>
-                        <div style={{ margin: '0px' }}>沒有相關數據</div>
-                      </TabPane>
-                      <TabPane tab="曝光數" key="4" style={{ margin: '0' }}>
-                        <div style={{ margin: '0px' }}>沒有相關數據</div>
-                      </TabPane>
-                    </Tabs>
+                    <div className="result-report-tabs" style={{ display: 'block', padding: '42px 24px 50px' }}>
+                      <div className="tabs-wrap">
+                        <div className="tablist" defaultActiveKey="1" style={{ textAlign: 'center', fontSize: '16px' }}>
+                          <div className="tab" key="1" style={{ width: '80px', textAlign: 'center' }}>
+                            獎金金額
+                            <div>NT2699</div>
+                          </div>
+                          <div className="tab" key="2" style={{ width: '80px', textAlign: 'center' }}>
+                            訂單數
+                            <div>343</div>
+                          </div>
+                          <div className="tab" key="3" style={{ width: '80px', textAlign: 'center' }}>
+                            點擊數
+                            <div>2343</div>
+                          </div>
+                          <div className="tab" key="4" style={{ width: '80px', textAlign: 'center' }}>
+                            曝光數
+                            <div>3562</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </Col>
                 </Card>
               </Col>

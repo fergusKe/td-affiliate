@@ -20,7 +20,7 @@ const Router = () => (
       <Route exact path="/" component={Login} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/sign" component={Sign} />
-      {/* admin */}
+      {/* user */}
       <Route exact path="/overview" render={() => <Overview />} />
       <Route exact path="/setting" render={() => <Setting />} />
       <Route exact path="/result" render={() => <Result />} />
@@ -31,6 +31,7 @@ const Router = () => (
       <Route exact path="/report" render={() => <Report />} />
       <Route exact path="/member-report" render={() => <MemberReport />} />
       <Route exact path="/user" render={() => <User />} />
+      {/* admin */}
     </Switch>
   </HashRouter>
 )
