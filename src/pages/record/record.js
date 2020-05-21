@@ -1,12 +1,11 @@
 import React from 'react'
 import { Card, Col, Row } from 'antd'
-import EffectTable from './effect-table'
-import EffectBouns from './effect-bonus'
+
+import RecordTable from './record-table'
+
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 
-import './effect.scss'
-
-class Effect extends React.Component {
+class Record extends React.Component {
   render() {
     return (
       <div>
@@ -16,14 +15,8 @@ class Effect extends React.Component {
               <Col span={24}>
                 <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
                   <Col span={24}>
-                    <EffectTable />
-                  </Col>
-                </Card>
-              </Col>
-              <Col span={24}>
-                <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
-                  <Col span={24}>
-                    <EffectBouns />
+                    <h1>請款紀錄</h1>
+                    <RecordTable />
                   </Col>
                 </Card>
               </Col>
@@ -35,4 +28,4 @@ class Effect extends React.Component {
   }
 }
 
-export default Effect
+export default Record

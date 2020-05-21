@@ -117,6 +117,24 @@ class AdminLayout extends React.Component {
                 <span className="nav-text">成效報告</span>
               </Link>
             </Menu.Item>
+            <Menu.Item key="10">
+              <Link to="/admin/result">
+                <LineChartOutlined />
+                <span className="nav-text">管理者_推廣成效</span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="11">
+              <Link to="/admin/setting">
+                <SettingOutlined />
+                <span className="nav-text">管理者_推薦產品</span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="12">
+              <Link to="/admin/effect">
+                <ProfileOutlined />
+                <span className="nav-text">管理者_成效報告</span>
+              </Link>
+            </Menu.Item>
             {/* <Menu.Item key="2">
               <Link to="/overview">
                 <CreditCardOutlined />

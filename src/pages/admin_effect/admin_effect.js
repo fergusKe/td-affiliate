@@ -1,29 +1,29 @@
 import React from 'react'
 import { Card, Col, Row } from 'antd'
-import EffectTable from './effect-table'
-import EffectBouns from './effect-bonus'
+import AdminEffectTable from './admin_effect-table'
+import AdminEffectBouns from './admin_effect-bonus'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 
-import './effect.scss'
+import './admin_effect.scss'
 
-class Effect extends React.Component {
+class AdminEffect extends React.Component {
   render() {
     return (
       <div>
-        <AdminLayout selectedKeys="9">
+        <AdminLayout selectedKeys="12">
           <div className="site-card-wrapper">
             <Row gutter={[16, 16]}>
               <Col span={24}>
                 <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
                   <Col span={24}>
-                    <EffectTable />
+                    <AdminEffectTable />
                   </Col>
                 </Card>
               </Col>
               <Col span={24}>
                 <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
                   <Col span={24}>
-                    <EffectBouns />
+                    <AdminEffectBouns />
                   </Col>
                 </Card>
               </Col>
@@ -35,4 +35,4 @@ class Effect extends React.Component {
   }
 }
 
-export default Effect
+export default AdminEffect

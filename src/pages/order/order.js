@@ -1,23 +1,9 @@
 import React from 'react'
-import { Tabs, Menu, message, Card, Col, Row, Timeline, Dropdown, Button } from 'antd'
-import { DownOutlined, UserOutlined, NotificationOutlined, BarChartOutlined } from '@ant-design/icons'
+import { Card, Col, Row } from 'antd'
+
 import OrderTable from './order-table'
-import OrderBouns from './order-bonus'
+
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
-
-function callback() {
-  console.log(message)
-}
-
-const { TabPane } = Tabs
-
-const menu = (
-  <Menu>
-    <Menu.Item key="1" icon={<UserOutlined />}>
-      上月
-    </Menu.Item>
-  </Menu>
-)
 
 class Order extends React.Component {
   render() {
@@ -27,9 +13,30 @@ class Order extends React.Component {
           <div className="site-card-wrapper">
             <Row gutter={[16, 16]}>
               <Col span={24}>
-                <Card title="訂單總覽" bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
+                <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
                   <Col span={24}>
                     <OrderTable />
+                    <div>
+                      <ul>
+                        <li>
+                          <p>
+                            連結&ensp;&frasl;&ensp;無法追蹤：此數據代表已經失效的&ensp;URL&ensp;連結或是特殊簽約的廠商直接算入訂單，所以也可能是自然流入訂單但計算為成功推廣
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            連結&ensp;&frasl;&ensp;未知連結：此數據代表已經不存在的連結，連結或是特殊簽約的廠商直接算入訂單
+                          </p>
+                        </li>
+                        <li>
+                          <li>
+                            <p>
+                              訂單來源&ensp;&frasl;&ensp;無法追蹤：此數據代表無法追蹤到訂單來源，可能的原因例如透過通信軟體傳送或是&ensp;email&ensp;轉送等
+                            </p>
+                          </li>
+                        </li>
+                      </ul>
+                    </div>
                   </Col>
                 </Card>
               </Col>

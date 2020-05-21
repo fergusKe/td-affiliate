@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table, Button } from 'antd'
 import { Link, withRouter } from 'react-router-dom'
-import { CaretRightOutlined } from '@ant-design/icons'
+import { CaretRightOutlined, PlusOutlined } from '@ant-design/icons'
 
 const { Column } = Table
 
@@ -10,6 +10,7 @@ let data = [
     date: '2019-03月',
     promotionBonus: 'NT$180',
     eventBonus: 'NT$180',
+    groupBonus: 'NT$0',
     totalBonus: 'NT$360',
   },
 ]
@@ -19,16 +20,16 @@ data = data.map(item => ({
   totaltotalRevenue: item.status * item.totalRevenue,
 }))
 
-const OrderBouns = () => (
+const AdminEffectBouns = () => (
   <div>
     <div style={{ backgroundColor: '#f5f5f5', padding: '15px' }}>
       <span>本月總獎金（ 0.00 元 ）</span>
     </div>
     <div style={{ padding: '30px', height: '110px' }}>
       <span>
-        <Link to="/reportCart">
+        <Link to="/record">
           <CaretRightOutlined />
-          訂單總覽
+          請款紀錄
         </Link>
       </span>
       <span>
@@ -44,9 +45,11 @@ const OrderBouns = () => (
       <Column title="月份" dataIndex="date" key="date" />
       <Column title="推廣獎金" dataIndex="promotionBonus" key="promotionBonus" />
       <Column title="活動獎金" dataIndex="eventBonus" key="eventBonus" />
+      <Column title="家族推廣獎金" dataIndex="groupBonus" key="groupBonus" />
       <Column title="本月獎金" dataIndex="totalBonus" key="totalBonus" />
+      <PlusOutlined />
     </Table>
   </div>
 )
 
-export default withRouter(OrderBouns)
+export default withRouter(AdminEffectBouns)

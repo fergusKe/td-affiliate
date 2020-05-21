@@ -19,7 +19,7 @@ data = data.map(item => ({
   totaltotalRevenue: item.status * item.totalRevenue,
 }))
 
-const EffectTable = () => (
+const AdminEffectTable = () => (
   <div>
     <div style={{ backgroundColor: '#f5f5f5', padding: '15px' }}>
       <span>本月訂單 ( 0 筆 )</span>
@@ -41,4 +41,4 @@ const EffectTable = () => (
   </div>
 )
 
-export default withRouter(EffectTable)
+export default withRouter(AdminEffectTable)
