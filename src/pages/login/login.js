@@ -121,7 +121,7 @@ const Login = () => {
         fields={[
           {
             name: ['username'],
-            value: 'user3',
+            value: 'admin',
           },
           {
             name: ['password'],
