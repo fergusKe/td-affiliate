@@ -47,19 +47,19 @@ class AdminResult extends React.Component {
                         <div className="tablist" defaultActiveKey="1" style={{ textAlign: 'center', fontSize: '16px' }}>
                           <div className="tab" key="1" style={{ width: '80px', textAlign: 'center' }}>
                             獎金金額
-                            <div>NT2699</div>
+                            <div>NT 2699</div>
                           </div>
                           <div className="tab" key="2" style={{ width: '80px', textAlign: 'center' }}>
                             訂單數
-                            <div>343</div>
+                            <div>343 筆</div>
                           </div>
                           <div className="tab" key="3" style={{ width: '80px', textAlign: 'center' }}>
                             點擊數
-                            <div>2343</div>
+                            <div>2343 次</div>
                           </div>
                           <div className="tab" key="4" style={{ width: '80px', textAlign: 'center' }}>
                             曝光數
-                            <div>3562</div>
+                            <div>3562 次</div>
                           </div>
                         </div>
                       </div>
