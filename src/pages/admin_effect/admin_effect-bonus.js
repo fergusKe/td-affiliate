@@ -27,7 +27,7 @@ const AdminEffectBouns = () => (
     </div>
     <div style={{ padding: '30px', height: '110px' }}>
       <span>
-        <Link to="/record">
+        <Link to="/admin/effect">
           <CaretRightOutlined />
           請款紀錄
         </Link>

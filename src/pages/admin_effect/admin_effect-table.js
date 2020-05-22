@@ -26,7 +26,7 @@ const AdminEffectTable = () => (
     </div>
     <div style={{ padding: '30px' }}>
       <div>
-        <Link to="/Order">
+        <Link to="/admin/effect">
           <CaretRightOutlined />
           訂單總覽
         </Link>
