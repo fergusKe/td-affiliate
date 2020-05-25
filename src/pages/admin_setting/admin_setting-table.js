@@ -1,11 +1,12 @@
-import React from 'react'
-import { Table } from 'antd'
+import React, { useState } from 'react'
+import { Table, Radio, Divider } from 'antd'
 
 const columns = [
   {
     title: '產品名稱',
     dataIndex: 'productName',
     key: 'productName',
+    render: text => <a>{text}</a>,
   },
   {
     title: '產品 ID',
@@ -58,7 +59,7 @@ const data = [
   {
     key: '1',
     productName: '【水哦X果貿吳媽家】獨家聯名－千歲豬腳麵線禮盒★限量組數',
-    productId: 'djfk34',
+    productId: 'djk334',
     productCategory: '豬腳麵線禮盒',
     shopName: '水哦X果貿吳媽家',
     bonusProportion: '5%',
@@ -71,7 +72,7 @@ const data = [
   {
     key: '2',
     productName: '【果貿吳媽家】❤愛的美味 海陸雙拼組',
-    productId: 'js234j',
+    productId: 'jsd234',
     productCategory: '海陸雙拼組',
     shopName: '果貿吳媽家',
     bonusProportion: '5%',
@@ -84,7 +85,7 @@ const data = [
   {
     key: '3',
     productName: '【果貿吳媽家】小資必買 首購嚐鮮最超值',
-    productId: 'rwe3j24',
+    productId: 'rwe324',
     productCategory: '小資必買',
     shopName: '果貿吳媽家',
     bonusProportion: '5%',
@@ -96,10 +97,43 @@ const data = [
   },
 ]
 
-const AdminSettingTable = () => (
-  <div style={{ marginTop: '30px' }}>
-    <Table columns={columns} dataSource={data} />
-  </div>
-)
+const rowSelection = {
+  onChange: (selectedRowKeys, selectedRows) => {
+    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows)
+  },
+  getCheckboxProps: record => ({
+    disabled: record.name === 'Disabled User',
+    // Column configuration not to be checked
+    name: record.name,
+  }),
+}
+
+const AdminSettingTable = () => {
+  const [selectionType, setSelectionType] = useState('checkbox')
+  return (
+    <div>
+      <Radio.Group
+        onChange={({ target: { value } }) => {
+          setSelectionType(value)
+        }}
+        value={selectionType}
+      >
+        {/* <Radio value="checkbox">Checkbox</Radio>
+        <Radio value="radio">radio</Radio> */}
+      </Radio.Group>
+
+      <Divider />
+
+      <Table
+        rowSelection={{
+          type: selectionType,
+          ...rowSelection,
+        }}
+        columns={columns}
+        dataSource={data}
+      />
+    </div>
+  )
+}
 
 export default AdminSettingTable
