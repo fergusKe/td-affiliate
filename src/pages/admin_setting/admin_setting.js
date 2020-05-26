@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react'
-import { Card, Col, Row, Table, Button, Input, notification } from 'antd'
+import { Card, Col, Row, Table, Button, Input, notification, Tabs } from 'antd'
+
 import axios from 'axios'
 import AdminSettingTable from './admin_setting-table'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import { getCookie } from '../../commons/cookie'
 
+const { TabPane } = Tabs
 const { Column } = Table
 const { Search } = Input
 
@@ -154,30 +156,69 @@ const AdminSetting = () => {
     validationUrl(url)
   }
 
+  const callback = key => {
+    console.log(key)
+  }
+
   return (
     <div>
       <AdminLayout selectedKeys="11">
         <Row gutter={[16, 16]}>
           <Col span={24}>
-            <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
-              <Col span={24}>
-                <h1>新增產品</h1>
-                <div style={{ display: 'flex' }}>
-                  <Input
-                    addonBefore={host}
-                    placeholder="請輸入產品網址"
-                    size="large"
-                    value={createShare}
-                    style={validationUrlStyle}
-                    onChange={handeCreateShare}
-                  />
-                  <Button type="primary" size="large" style={{ borderRadius: '0 2px 2px 0' }} onClick={craeteShareLink}>
-                    新增產品
-                  </Button>
-                </div>
-                <AdminSettingTable />
-              </Col>
-            </Card>
+            <Tabs defaultActiveKey="1" onChange={callback}>
+              <TabPane tab="新增產品" key="1">
+                <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
+                  <Col span={24}>
+                    <h1>新增產品</h1>
+                    <div style={{ display: 'flex', marginTop: '20px' }}>
+                      <Input
+                        addonBefore={host}
+                        placeholder="請輸入產品網址"
+                        size="large"
+                        value={createShare}
+                        style={validationUrlStyle}
+                        onChange={handeCreateShare}
+                      />
+                      <Button
+                        type="primary"
+                        size="large"
+                        style={{ borderRadius: '0 2px 2px 0' }}
+                        onClick={craeteShareLink}
+                      >
+                        新增產品
+                      </Button>
+                    </div>
+                    <AdminSettingTable />
+                  </Col>
+                </Card>
+              </TabPane>
+              <TabPane tab="調整退傭" key="2">
+                <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
+                  <Col span={24}>
+                    <h1>調整退傭</h1>
+                    <div style={{ display: 'flex', marginTop: '20px' }}>
+                      <Input
+                        addonBefore={host}
+                        placeholder="請輸入產品網址"
+                        size="large"
+                        value={createShare}
+                        style={validationUrlStyle}
+                        onChange={handeCreateShare}
+                      />
+                      <Button
+                        type="primary"
+                        size="large"
+                        style={{ borderRadius: '0 2px 2px 0' }}
+                        onClick={craeteShareLink}
+                      >
+                        新增產品
+                      </Button>
+                    </div>
+                    <AdminSettingTable />
+                  </Col>
+                </Card>
+              </TabPane>
+            </Tabs>
           </Col>
         </Row>
       </AdminLayout>
