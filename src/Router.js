@@ -16,6 +16,7 @@ import User from './pages/user/user'
 
 import AdminResult from './pages/admin_result/admin_result'
 import AdminSetting from './pages/admin_setting/admin_setting'
+import AdminRefund from './pages/admin_refund/admin_refund'
 import AdminEffect from './pages/admin_effect/admin_effect'
 
 const Router = () => (
@@ -38,6 +39,7 @@ const Router = () => (
       {/* admin */}
       <Route exact path="/admin/result" render={() => <AdminResult />} />
       <Route exact path="/admin/setting" render={() => <AdminSetting />} />
+      <Route exact path="/admin/refund" render={() => <AdminRefund />} />
       <Route exact path="/admin/effect" render={() => <AdminEffect />} />
     </Switch>
   </HashRouter>
