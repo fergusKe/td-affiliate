@@ -17,12 +17,6 @@ function callback() {
 const { TabPane } = Tabs
 const { Option } = Select
 
-const announce = [
-  '【果貿吳媽家】千千進食中推薦-眷村員外雞湯/1份3500g★訂購請選到貨區間，如需指定日期請備註，單筆訂單僅限統一到貨 2020-05-07',
-  '【水哦X果貿吳媽家】獨家聯名－千歲豬腳麵線禮盒★限量組數，售完為止★（一組699免運）2020-05-04',
-  '【果貿吳媽家】五月寵愛媽咪/愛的99免運組❤4盒96顆/999元-超值79折免運優惠 2020-05-01',
-]
-
 const Result = () => {
   const [tdUsername, setTdUsername] = useState('')
   const [tdToken, setTdToken] = useState('')
@@ -33,6 +27,7 @@ const Result = () => {
   const [totalRevenue, setTotalRevenue] = useState(0)
   const [summary, setSummary] = useState('')
   const [tableData, setTableData] = useState([])
+  const [announcements, setAnnouncements] = useState([])
 
   useEffect(() => {
     const username = getCookie('td_username')
@@ -105,6 +100,17 @@ const Result = () => {
       .catch(function(error) {
         console.log(error)
       })
+
+    axios
+      .get(`https://utility.turingdigital.com.tw/v1/companies/1/announcements`)
+      .then(function(response) {
+        const { data } = response
+        console.log('announcements response = ', data)
+        setAnnouncements(data)
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
   }, [])
 
   function handleChange(value) {
@@ -168,9 +174,9 @@ const Result = () => {
               <div className="announce-wrap-header">
                 <Card title="最新公告" bordered={false} style={{ minheight: '400px', paddingLeft: '10px' }}>
                   <Timeline style={{ padding: '10px' }}>
-                    {announce.map(data => (
+                    {announcements.map(data => (
                       <Timeline.Item>
-                        <Link to="#">{data}</Link>
+                        <Link to="#">{data.content}</Link>
                       </Timeline.Item>
                     ))}
                   </Timeline>
