@@ -31,6 +31,8 @@ const Result = () => {
   const [totalClick, setTotalClick] = useState(0)
   const [totalOrder, setTotalOrder] = useState(0)
   const [totalRevenue, setTotalRevenue] = useState(0)
+  const [summary, setSummary] = useState('')
+  const [tableData, setTableData] = useState([])
 
   useEffect(() => {
     const username = getCookie('td_username')
@@ -58,15 +60,47 @@ const Result = () => {
       .then(function(response) {
         console.log('all orders = ', response)
         const { data } = response
+        let bonus = 0
+        let click = 0
+        let order = 0
+        let revenue = 0
+        const table = []
         console.log('Object.keys = ', Object.keys(data))
-        // const keys = Object.keys(data)
-        // keys.forEach(function(item) {
-        //   console.log('item = ', data[item])
-        //   setTotalBonus(totalBonus + data[item].total_bonus)
-        //   setTotalClick(totalClick + data[item].total_click)
-        //   setTotalOrder(totalOrder + data[item].total_order)
-        //   setTotalRevenue(totalRevenue + data[item].total_revenue)
-        // })
+        setSummary(data)
+        const keys = Object.keys(data)
+        keys.forEach(function(item) {
+          console.log('item = ', data[item])
+          const itemBonus = data[item].total_bonus
+          const itemClick = data[item].total_click
+          const itemOrder = data[item].total_order
+          const itemRevenue = data[item].total_revenue
+          bonus += itemBonus
+          click += itemClick
+          order += itemOrder
+          revenue += itemRevenue
+          table.push({
+            date: item,
+            bonus: itemBonus,
+            hitNumber: itemClick,
+            orderNumber: itemOrder,
+            orderAmount: itemRevenue,
+          })
+        })
+
+        console.log('bonus = ', bonus)
+        console.log('click = ', click)
+        console.log('order = ', order)
+        console.log('revenue = ', revenue)
+        console.log('table = ', table)
+        // setTotalBonus(parseInt(bonus, 10))
+        // setTotalClick(parseInt(click, 10))
+        // setTotalOrder(parseInt(order, 10))
+        // setTotalRevenue(parseInt(revenue, 10))
+        setTotalBonus(bonus)
+        setTotalClick(click)
+        setTotalOrder(order)
+        setTotalRevenue(revenue)
+        setTableData(table)
       })
       .catch(function(error) {
         console.log(error)
@@ -109,17 +143,17 @@ const Result = () => {
                     <div className="tab">
                       獎金金額
                       <br />
-                      0.00元
+                      {totalRevenue}元
                     </div>
                     <div className="tab">
                       訂單數
                       <br />
-                      0筆
+                      {totalOrder}筆
                     </div>
                     <div className="tab">
                       點擊數
                       <br />
-                      0次
+                      {totalClick}次
                     </div>
                     <div className="tab">
                       曝光數
@@ -146,7 +180,7 @@ const Result = () => {
             <Col span={24}>
               <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
                 <Col span={24}>
-                  <ResultTable />
+                  <ResultTable data={tableData} />
                 </Col>
               </Card>
             </Col>
