@@ -109,23 +109,35 @@ class AdminLayout extends React.Component {
             >
               <Menu.Item key="11">
                 <Link to="/admin/setting">
-                  <SettingOutlined />
                   <span className="nav-text">管理者_新增產品</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="12">
                 <Link to="/admin/refund">
-                  <SettingOutlined />
                   <span className="nav-text">管理者_調整退傭</span>
                 </Link>
               </Menu.Item>
             </SubMenu>
-            <Menu.Item key="13">
-              <Link to="/admin/effect">
-                <ProfileOutlined />
-                <span className="nav-text">管理者_成效報告</span>
-              </Link>
-            </Menu.Item>
+            <SubMenu
+              key="sub2"
+              title={
+                <span>
+                  <ProfileOutlined />
+                  管理者_推薦成效
+                </span>
+              }
+            >
+              <Menu.Item key="13">
+                <Link to="/admin/order">
+                  <span className="nav-text">管理者_訂單總覽</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="14">
+                <Link to="/admin/collect">
+                  <span className="nav-text">管理者_請款報告</span>
+                </Link>
+              </Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
         <Layout className="site-layout">

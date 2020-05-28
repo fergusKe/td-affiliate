@@ -127,7 +127,11 @@ const Result = () => {
         <div className="site-card-wrapper">
           <Row gutter={[16, 16]}>
             <Col span={16}>
-              <Card className="result-wrap" bordered={false} style={{ minheight: '400px', paddingLeft: '10px' }}>
+              <Card
+                className="result-wrap"
+                bordered={false}
+                style={{ minheight: '400px', paddingLeft: '10px', height: '100%' }}
+              >
                 <div
                   style={{
                     color: 'rgba(0, 0, 0, 0.85)',

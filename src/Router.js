@@ -17,7 +17,8 @@ import User from './pages/user/user'
 import AdminResult from './pages/admin_result/admin_result'
 import AdminSetting from './pages/admin_setting/admin_setting'
 import AdminRefund from './pages/admin_refund/admin_refund'
-import AdminEffect from './pages/admin_effect/admin_effect'
+import AdminOrder from './pages/admin_order/admin_order'
+import AdminCollect from './pages/admin_collect/admin_collect'
 
 const Router = () => (
   <HashRouter>
@@ -40,7 +41,8 @@ const Router = () => (
       <Route exact path="/admin/result" render={() => <AdminResult />} />
       <Route exact path="/admin/setting" render={() => <AdminSetting />} />
       <Route exact path="/admin/refund" render={() => <AdminRefund />} />
-      <Route exact path="/admin/effect" render={() => <AdminEffect />} />
+      <Route exact path="/admin/order" render={() => <AdminOrder />} />
+      <Route exact path="/admin/collect" render={() => <AdminCollect />} />
     </Switch>
   </HashRouter>
 )

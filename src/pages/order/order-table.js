@@ -170,85 +170,26 @@ data = data.map(item => ({
 
 const OrderTable = () => (
   <div>
-    <div className="search-wrap" style={{ backgroundColor: 'white', marginBottom: '50px', borderRadius: '10px' }}>
-      <div>
-        <span>查詢區間：&ensp;</span>
-        <RangePicker style={{ marginBottom: '30px', width: '350px' }} format="YYYY年MM月DD日" />
-        <span>
-          <Radio.Group defaultValue="a" style={{ margin: '0 50px', border: 'none' }}>
-            <Radio.Button value="a">本週</Radio.Button>
-            <Radio.Button value="b">上週</Radio.Button>
-            <Radio.Button value="c">一個月</Radio.Button>
-            <Radio.Button value="d">一季</Radio.Button>
-            <Radio.Button value="e">一年</Radio.Button>
-          </Radio.Group>
-        </span>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'start', marginBottom: '30px' }}>
-        <div style={{ marginRight: '50px' }}>
-          <span>查詢指標：&ensp;</span>
-          維度&ensp;1&ensp;
-          <Dropdown overlay={menu1}>
-            <Button>
-              廠商
-              <DownOutlined />
-            </Button>
-          </Dropdown>
-        </div>
-        <div style={{ marginRight: '20px' }}>
-          <span>查詢指標：&ensp;</span>
-          維度&ensp;2&ensp;
-          <Dropdown overlay={menu2}>
-            <Button>
-              名稱
-              <DownOutlined />
-            </Button>
-          </Dropdown>
-        </div>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'start', marginBottom: '30px' }}>
-        <div style={{ marginRight: '50px' }}>
-          <span>篩選條件：&ensp;</span>
-          <Dropdown overlay={menu1}>
-            <Button>
-              廠商
-              <DownOutlined />
-            </Button>
-          </Dropdown>
-          <Dropdown overlay={menu3}>
-            <Button>
-              連結
-              <DownOutlined />
-            </Button>
-          </Dropdown>
-          <Dropdown overlay={menu4}>
-            <Button>
-              廠商類別
-              <DownOutlined />
-            </Button>
-          </Dropdown>
-          <Dropdown overlay={menu5}>
-            <Button>
-              訂單來源
-              <DownOutlined />
-            </Button>
-          </Dropdown>
-          <Dropdown overlay={menu6}>
-            <Button>
-              成效標籤 (UID)
-              <DownOutlined />
-            </Button>
-          </Dropdown>
-        </div>
-        <div style={{ position: 'absolute', right: '0px' }}>
-          <Button type="primary" icon={<SearchOutlined />} style={{ margin: '0px 20px' }}>
-            查詢
-          </Button>
-          <Button style={{ margin: '0px 20px', backgroundColor: '#8c8c8c', color: 'white', border: 'none' }}>
-            匯出報表
-          </Button>
-        </div>
-      </div>
+    <div className="search-wrap" style={{ backgroundColor: 'white', marginBottom: '40px', borderRadius: '10px' }}>
+      <span>查詢區間：&ensp;</span>
+      <RangePicker style={{ width: '350px' }} format="YYYY年MM月DD日" />
+      <span>
+        <Radio.Group defaultValue="a" style={{ margin: '0 50px', border: 'none' }}>
+          <Radio.Button value="a">本週</Radio.Button>
+          <Radio.Button value="b">上週</Radio.Button>
+          <Radio.Button value="c">一個月</Radio.Button>
+          <Radio.Button value="d">一季</Radio.Button>
+          <Radio.Button value="e">一年</Radio.Button>
+        </Radio.Group>
+      </span>
+      <span style={{ position: 'absolute', right: '0px' }}>
+        <Button type="primary" icon={<SearchOutlined />}>
+          查詢
+        </Button>
+        <Button style={{ margin: '0px 20px', backgroundColor: '#8c8c8c', color: 'white', border: 'none' }}>
+          匯出報表
+        </Button>
+      </span>
     </div>
     <div style={{ backgroundColor: '#f5f5f5', padding: '15px' }}>
       <span>
