@@ -1,20 +1,16 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { Table, Modal, Button, Input, AutoComplete, notification } from 'antd'
+import { Table, Button, Input, notification } from 'antd'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import { getCookie } from '../../commons/cookie'
 
 const { Column } = Table
-const { Search } = Input
 
 const host = 'https://mamawu.com.tw/'
 const tdKetword = 'tdsb'
 
 const Setting = () => {
-  const createShareInputEl = useRef(null)
-
   const [tdUsername, setTdUsername] = useState('')
   const [tdToken, setTdToken] = useState('')
   const [tdUserId, setTdUserId] = useState('')
