@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react'
 import { Card, Col, Row, Table, Button, Input, notification, Tabs, Radio, Divider } from 'antd'
 
 import axios from 'axios'
-import AdminSettingTable from './admin_setting-table'
+import AdminSettingTable from './admin_refund-table'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import { getCookie } from '../../commons/cookie'
 
@@ -164,8 +164,7 @@ const AdminSetting = () => {
         <Row gutter={[16, 16]}>
           <Col span={24}>
             <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
-              <h1>新增產品</h1>
-              <div style={{ display: 'flex', margin: '30px 0' }}>
+              <div style={{ display: 'flex', margin: '20px 0 0 0' }}>
                 <Input
                   addonBefore={host}
                   placeholder="請輸入產品網址"

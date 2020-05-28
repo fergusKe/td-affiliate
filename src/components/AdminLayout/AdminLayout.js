@@ -74,31 +74,6 @@ class AdminLayout extends React.Component {
                 </div>
               </Link>
             </Menu.Item>
-            {/* <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <DollarOutlined />
-                  銷售收益
-                </span>
-              }
-            >
-              <Menu.Item key="4">
-                <Link to="/reportCart">
-                  <span className="nav-text">收益總覽</span>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="5">
-                <Link to="/report">
-                  <span className="nav-text">收益報表</span>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="7">
-                <Link to="/member-report">
-                  <span className="nav-text">會員報表</span>
-                </Link>
-              </Menu.Item>
-            </SubMenu> */}
             <Menu.Item key="8">
               <Link to="/result">
                 <LineChartOutlined />
@@ -123,30 +98,34 @@ class AdminLayout extends React.Component {
                 <span className="nav-text">管理者_推廣成效</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key="11">
-              <Link to="/admin/setting">
-                <SettingOutlined />
-                <span className="nav-text">管理者_推薦產品</span>
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="12">
+            <SubMenu
+              key="sub1"
+              title={
+                <span>
+                  <SettingOutlined />
+                  管理者_推薦產品
+                </span>
+              }
+            >
+              <Menu.Item key="11">
+                <Link to="/admin/setting">
+                  <SettingOutlined />
+                  <span className="nav-text">管理者_新增產品</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="12">
+                <Link to="/admin/refund">
+                  <SettingOutlined />
+                  <span className="nav-text">管理者_調整退傭</span>
+                </Link>
+              </Menu.Item>
+            </SubMenu>
+            <Menu.Item key="13">
               <Link to="/admin/effect">
                 <ProfileOutlined />
                 <span className="nav-text">管理者_成效報告</span>
               </Link>
             </Menu.Item>
-            {/* <Menu.Item key="2">
-              <Link to="/overview">
-                <CreditCardOutlined />
-                <span className="nav-text">提領現金</span>
-              </Link>
-            </Menu.Item> */}
-            {/* <Menu.Item key="6">
-              <Link to="/user">
-                <UserOutlined />
-                <span className="nav-text">帳戶資訊</span>
-              </Link>
-            </Menu.Item> */}
           </Menu>
         </Sider>
         <Layout className="site-layout">
