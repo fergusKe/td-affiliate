@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
-import { Table, Divider } from 'antd'
+import { Table, Divider, Popconfirm } from 'antd'
 
 const AdminOrderTable = () => {
+  const cancel = () => {
+    console.log('cancel')
+  }
+
   const columns = [
     {
       title: '訂單編號',
@@ -40,9 +44,13 @@ const AdminOrderTable = () => {
       key: 'date',
     },
     {
-      title: 'operation',
+      title: '操作',
       dataIndex: 'operation',
-      render: () => <a>取消訂單</a>,
+      render: () => (
+        <Popconfirm title="確定取消?" onConfirm={cancel}>
+          <a>取消訂單</a>
+        </Popconfirm>
+      ),
     },
   ]
   const data = [
