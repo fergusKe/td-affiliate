@@ -40,6 +40,42 @@ const EditableCell = ({ editing, dataIndex, title, inputType, children, ...restP
   )
 }
 
+class PromotOption extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { value: '立即推廣' }
+
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value })
+  }
+
+  render() {
+    const { value } = this.state
+    return (
+      <select
+        value={value}
+        onChange={this.handleChange}
+        style={{
+          color: '#1890ff',
+          textDecoration: 'none',
+          backgroundColor: 'transparent',
+          outline: 'none',
+          cursor: 'pointer',
+          transition: 'color 0.3s',
+          border: '0',
+        }}
+      >
+        <option value="立即推廣">立即推廣</option>
+        <option value="取消推廣">取消推廣</option>
+        <option value="移除">移除</option>
+      </select>
+    )
+  }
+}
+
 const AdminSettingTable = () => {
   const [form] = Form.useForm()
   const [data, setData] = useState(originData)
@@ -87,6 +123,7 @@ const AdminSettingTable = () => {
       title: '產品名稱',
       dataIndex: 'productName',
       key: 'productName',
+      width: '20%',
       render: text => <a>{text}</a>,
       editable: true,
     },
@@ -142,7 +179,7 @@ const AdminSettingTable = () => {
       title: '商品操作',
       dataIndex: 'productOperat',
       key: 'productOperat',
-      render: text => <a>{text}</a>,
+      render: text => <PromotOption />,
       editable: true,
     },
     {
@@ -152,18 +189,48 @@ const AdminSettingTable = () => {
         const editable = isEditing(record)
         return editable ? (
           <span>
-            {/* <div href="javascript:;" onClick={() => save(record.key)} style={{marginRight: 8,}}> */}
-            <div>儲存</div>
-            <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
+            <button
+              className="button_save"
+              type="button"
+              onClick={() => save(record.key)}
+              onKeyPress={() => save(record.key)}
+              style={{
+                marginRight: 8,
+                color: '#1890ff',
+                textDecoration: 'none',
+                backgroundColor: 'transparent',
+                outline: 'none',
+                cursor: 'pointer',
+                transition: 'color 0.3s',
+                border: '0',
+              }}
+            >
+              儲存
+            </button>
+            <Popconfirm title="確定取消?" onConfirm={cancel}>
               <a>取消</a>
             </Popconfirm>
           </span>
         ) : (
-          // <div onClick={() => edit(record)} disabled={editingKey !== ''} onKeyDown={this.handleClick}>
-          <div>
-            {/* <input type="text" onClick={() => {}} /> */}
+          <button
+            className="button_edit"
+            type="button"
+            disabled={editingKey !== ''}
+            onClick={() => edit(record)}
+            onKeyPress={() => edit(record)}
+            style={{
+              marginRight: 8,
+              color: '#1890ff',
+              textDecoration: 'none',
+              backgroundColor: 'transparent',
+              outline: 'none',
+              cursor: 'pointer',
+              transition: 'color 0.3s',
+              border: '0',
+            }}
+          >
             編輯
-          </div>
+          </button>
         )
       },
     },

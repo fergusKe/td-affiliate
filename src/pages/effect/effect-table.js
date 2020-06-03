@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table } from 'antd'
+import { Table, Button } from 'antd'
 import { Link, withRouter } from 'react-router-dom'
 import { CaretRightOutlined } from '@ant-design/icons'
 
@@ -24,12 +24,20 @@ const EffectTable = () => (
     <div style={{ backgroundColor: '#f5f5f5', padding: '15px' }}>
       <span>本月訂單 ( 0 筆 )</span>
     </div>
-    <div style={{ padding: '30px' }}>
-      <div>
+    <div style={{ padding: '30px', height: '110px' }}>
+      <span>
         <Link to="/Order">
           <CaretRightOutlined />
           訂單總覽
         </Link>
+      </span>
+      <span>
+        <Button type="primary" danger style={{ position: 'absolute', right: '30px' }}>
+          我要請款
+        </Button>
+      </span>
+      <div style={{ position: 'absolute', right: '30px', top: '130px', color: 'gray' }}>
+        <p>可請款獎金累積到 NT$500 元以上，每月 5~15 日可進行請款</p>
       </div>
     </div>
     <Table dataSource={data} size="default">
