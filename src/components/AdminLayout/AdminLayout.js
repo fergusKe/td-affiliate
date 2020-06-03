@@ -2,14 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 import { Layout, Menu, notification } from 'antd'
-import {
-  SettingOutlined,
-  ProfileOutlined,
-  UserOutlined,
-  DollarOutlined,
-  LineChartOutlined,
-  CreditCardOutlined,
-} from '@ant-design/icons'
+import { SettingOutlined, ProfileOutlined, LineChartOutlined } from '@ant-design/icons'
 import Header from '../Header/Header'
 import logo from '../../imgs/logo.jpg'
 import { getCookie } from '../../commons/cookie'

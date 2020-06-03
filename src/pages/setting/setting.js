@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import axios from 'axios'
 import { Table, Button, Input, notification } from 'antd'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
@@ -11,9 +11,6 @@ const host = 'https://mamawu.com.tw/'
 const tdKetword = 'tdsb'
 
 const Setting = () => {
-  const [tdUsername, setTdUsername] = useState('')
-  const [tdToken, setTdToken] = useState('')
-  const [tdUserId, setTdUserId] = useState('')
   const [mainLink, setMainLink] = useState('')
   const [shareLinks, setShareLinks] = useState([])
   const [createShare, setCreateShare] = useState('')
@@ -70,16 +67,6 @@ const Setting = () => {
   }, [userid])
 
   useEffect(() => {
-    const username = getCookie('td_username')
-    const token = getCookie('td_token')
-
-    setTdUsername(username)
-    setTdToken(token)
-    setTdUserId(userid)
-    console.log('tdUsername = ', username)
-    // console.log('tdToken = ', token)
-    console.log('tdUserId = ', userid)
-
     fetchMainLink()
     fetchShareLink()
   }, [fetchMainLink, fetchShareLink, userid])
@@ -102,13 +89,14 @@ const Setting = () => {
     })
   }
 
-  const getCreateShareLinkUrl = () => `https://utility.turingdigital.com.tw/v1/users/${tdUserId}/share_links`
+  const getCreateShareLinkUrl = () => `https://utility.turingdigital.com.tw/v1/users/${userid}/share_links`
 
   const craeteShareLink = () => {
     const url = host + createShare
     console.log('createShare = ', url)
     console.log(validationUrlStyle.borderColor)
 
+    // 驗證是網址連結，並且不為空
     if (validationUrlStyle.borderColor === undefined && createShare !== '') {
       axios
         .post(getCreateShareLinkUrl(), {
