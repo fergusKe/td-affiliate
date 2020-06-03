@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 const originData = [
   {
+    key: 1,
     grade: '普通分銷員',
     gradeRule: '默認成為分銷員後極為該等級',
     rate: `${5}`,
@@ -81,21 +82,25 @@ const AdminSettingTable = () => {
 
   const columns = [
     {
+      key: 'grade',
       title: '等級名',
       dataIndex: 'grade',
       editable: true,
     },
     {
+      key: 'gradeRule',
       title: '升級規則',
       dataIndex: 'gradeRule',
       editable: true,
     },
     {
+      key: 'rate',
       title: '佣金比例 (%)',
       dataIndex: 'rate',
       editable: true,
     },
     {
+      key: 'operation',
       title: '操作',
       dataIndex: 'operation',
       render: (_, record) => {

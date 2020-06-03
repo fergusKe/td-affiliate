@@ -170,7 +170,7 @@ data = data.map(item => ({
 
 const OrderTable = () => (
   <div>
-    <div className="search-wrap" style={{ backgroundColor: 'white', marginBottom: '40px', borderRadius: '10px' }}>
+    <div className="search-wrap" style={{ backgroundColor: 'white', marginBottom: '40px 0', borderRadius: '10px' }}>
       <span>查詢區間：&ensp;</span>
       <RangePicker style={{ width: '350px' }} format="YYYY年MM月DD日" />
       <span>
@@ -182,14 +182,14 @@ const OrderTable = () => (
           <Radio.Button value="e">一年</Radio.Button>
         </Radio.Group>
       </span>
-      <span style={{ position: 'absolute', right: '0px' }}>
+      <div style={{ margin: '20px 0' }}>
         <Button type="primary" icon={<SearchOutlined />}>
           查詢
         </Button>
-        <Button style={{ margin: '0px 20px', backgroundColor: '#8c8c8c', color: 'white', border: 'none' }}>
+        <Button style={{ margin: '0px 40px', backgroundColor: '#8c8c8c', color: 'white', border: 'none' }}>
           匯出報表
         </Button>
-      </span>
+      </div>
     </div>
     <div style={{ backgroundColor: '#f5f5f5', padding: '15px' }}>
       <span>

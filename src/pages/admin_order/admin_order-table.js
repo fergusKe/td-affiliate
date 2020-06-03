@@ -46,6 +46,7 @@ const AdminOrderTable = () => {
     {
       title: '操作',
       dataIndex: 'operation',
+      key: 'operation',
       render: () => (
         <Popconfirm title="確定取消?" onConfirm={cancel}>
           <a>取消訂單</a>

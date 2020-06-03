@@ -103,9 +103,9 @@ const AdminCollectTable = () => {
   const [selectionType] = useState('checkbox')
   return (
     <div>
-      <Button type="primary" style={{ position: 'absolute', right: '30px', top: '30px' }}>
-        匯出報表
-      </Button>
+      <div>
+        <Button type="primary">匯出報表</Button>
+      </div>
       <Divider />
       <Table
         rowSelection={{
