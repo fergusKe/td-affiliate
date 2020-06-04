@@ -170,7 +170,9 @@ const Result = () => {
                   <Timeline style={{ padding: '10px' }}>
                     {announcements.map(data => (
                       <Timeline.Item key={data.id}>
-                        <Link to="#">{data.content}</Link>
+                        <a href={data.url} target="_blank" rel="noopener noreferrer">
+                          {data.content}
+                        </a>
                       </Timeline.Item>
                     ))}
                   </Timeline>
