@@ -10,24 +10,30 @@ const columns = [
   {
     title: '月份',
     dataIndex: 'date',
+    key: 'date',
   },
   {
     title: '訂單數',
     dataIndex: 'orderNumber',
+    key: 'orderNumber',
   },
   {
     title: '訂單金額',
     dataIndex: 'orderAmount',
+    key: 'orderAmount',
   },
   {
     title: '預計獎金',
     dataIndex: 'bonus',
+    key: 'bonus',
   },
   {
     title: '狀態',
     dataIndex: 'status',
+    key: 'status',
   },
 ]
+
 const dataSource = [
   {
     key: '1',

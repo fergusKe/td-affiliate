@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 import dayjs from 'dayjs'
 import { Card, Col, Row, Timeline, Select } from 'antd'
@@ -47,7 +46,7 @@ const Result = () => {
           let bonus = 0
           let click = 0
           let order = 0
-          let revenue = 0
+          // let revenue = 0
           const table = []
 
           const keys = Object.keys(data)
@@ -60,7 +59,7 @@ const Result = () => {
             bonus += itemBonus
             click += itemClick
             order += itemOrder
-            revenue += itemRevenue
+            // revenue += itemRevenue
 
             table.push({
               key: item,
@@ -182,7 +181,7 @@ const Result = () => {
             <Col span={24}>
               <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
                 <Col span={24}>
-                  <ResultTable data={tableData} fetchSummary={fetchSummary} />
+                  <ResultTable dataSource={tableData} fetchSummary={fetchSummary} />
                 </Col>
               </Card>
             </Col>

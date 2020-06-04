@@ -5,7 +5,34 @@ import PropTypes from 'prop-types'
 import { Table, DatePicker, Radio, Button } from 'antd'
 
 const { RangePicker } = DatePicker
-const { Column } = Table
+
+const columns = [
+  {
+    title: '日期',
+    dataIndex: 'date',
+    key: 'date',
+  },
+  {
+    title: '訂單數',
+    dataIndex: 'orderNumber',
+    key: 'orderNumber',
+  },
+  {
+    title: '訂單金額',
+    dataIndex: 'orderAmount',
+    key: 'orderAmount',
+  },
+  {
+    title: '點擊數',
+    dataIndex: 'hitNumber',
+    key: 'hitNumber',
+  },
+  {
+    title: '獎金金額',
+    dataIndex: 'bonus',
+    key: 'bonus',
+  },
+]
 
 const today = dayjs().format('dddd')
 
@@ -55,11 +82,11 @@ const lastYearStart = dayjs()
 const lastYearEnd = dayjs().format('YYYY-MM-DD')
 
 const ResultTable = props => {
-  const { data, fetchSummary } = props
+  const { dataSource, fetchSummary } = props
   const [start, setStart] = useState(thisWeekStart)
   const [end, setEnd] = useState(thisWeekEnd)
 
-  console.log('summary = ', data)
+  console.log('summary = ', dataSource)
 
   useEffect(() => {
     fetchSummary(thisWeekStart, thisWeekEnd, true)
@@ -135,19 +162,13 @@ const ResultTable = props => {
           </Button> */}
         </div>
       </div>
-      <Table dataSource={data} size="default">
-        <Column title="日期" dataIndex="date" key="date" />
-        <Column title="訂單數" dataIndex="orderNumber" key="orderNumber" />
-        <Column title="訂單金額" dataIndex="orderAmount" key="orderAmount" />
-        <Column title="點擊數" dataIndex="hitNumber" key="hitNumber" />
-        <Column title="獎金金額" dataIndex="bonus" key="bonus" />
-      </Table>
+      <Table dataSource={dataSource} columns={columns} size="default"></Table>
     </div>
   )
 }
 
 ResultTable.propTypes = {
-  data: PropTypes.array.isRequired,
+  dataSource: PropTypes.array.isRequired,
   fetchSummary: PropTypes.func.isRequired,
 }
 
