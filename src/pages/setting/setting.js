@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import axios from 'axios'
-import { Table, Button, Input, notification } from 'antd'
+import { Button, Input, notification } from 'antd'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
+import LinkTable from './LinkTable'
 import { getCookie } from '../../commons/cookie'
-
-const { Column } = Table
 
 const host = 'https://mamawu.com.tw/'
 const tdKetword = 'tdsb'
@@ -185,33 +184,7 @@ const Setting = () => {
             </Button>
             {/* </CopyToClipboard> */}
           </div>
-          <Table style={{ marginTop: '20px' }} dataSource={shareLinks}>
-            <Column
-              title="商品"
-              dataIndex="link"
-              key="link"
-              render={(item, record, index) => (
-                <a href={item} target="_blank" rel="noopener noreferrer">
-                  {item}
-                </a>
-                // <Link to={item} target="_blank">
-                //   {item}
-                // </Link>
-              )}
-            />
-            <Column title="點擊次數" dataIndex="click" key="click" />
-            <Column
-              title=""
-              key="action"
-              render={(item, record) => (
-                <span>
-                  <CopyToClipboard onCopy={showCopySuccess} text={record.link}>
-                    <Button style={{ marginRight: '10px' }}>複製網址</Button>
-                  </CopyToClipboard>
-                </span>
-              )}
-            />
-          </Table>
+          <LinkTable dataSource={shareLinks} showCopySuccess={showCopySuccess} />
         </div>
       </AdminLayout>
     </div>
