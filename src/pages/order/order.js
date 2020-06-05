@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Col, Row } from 'antd'
 
-import OrderTable from './order-table'
+import OrderTable from './OrderTable'
 
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 

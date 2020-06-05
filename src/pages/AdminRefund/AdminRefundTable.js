@@ -13,6 +13,7 @@ const originData = [
 ]
 
 const EditableCell = ({ editing, dataIndex, title, inputType, record, index, children, ...restProps }) => {
+  console.log('editing = ', editing)
   const inputNode = inputType === 'number' ? <InputNumber /> : <Input />
   return (
     <td {...restProps}>
@@ -108,6 +109,7 @@ const AdminSettingTable = () => {
         return editable ? (
           <span>
             <button
+              // role="button"
               className="button_save"
               type="submit"
               onClick={() => save(record.key)}
@@ -190,13 +192,13 @@ const AdminSettingTable = () => {
 }
 
 EditableCell.propTypes = {
-  editing: PropTypes.string,
+  editing: PropTypes.bool,
   dataIndex: PropTypes.string,
   title: PropTypes.string,
   inputType: PropTypes.string,
-  record: PropTypes.string,
+  record: PropTypes.object,
   index: PropTypes.string,
-  children: PropTypes.string,
+  children: PropTypes.array,
 }
 
 export default AdminSettingTable

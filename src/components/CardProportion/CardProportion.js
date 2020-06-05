@@ -1,10 +1,10 @@
 import React from 'react'
 import { Card, Col, Row, Tabs, Progress } from 'antd'
-import Barchart from './barchart'
-import pageviewProportion from '../pages/reportCart/data/pageview-proportion-config'
-import pageviewConversion from '../pages/reportCart/data/pageview-conversion-config'
+import Barchart from '../Barchart/Barchart'
+import pageviewProportion from '../../pages/reportCart/data/pageview-proportion-config'
+import pageviewConversion from '../../pages/reportCart/data/pageview-conversion-config'
 
-import './card.scss'
+import './CardProportion.scss'
 
 const { TabPane } = Tabs
 
@@ -12,7 +12,7 @@ function callback(key) {
   console.log(key)
 }
 
-class Proportion extends React.Component {
+class CardProportion extends React.Component {
   render() {
     return (
       <div className="site-card-wrapper">
@@ -91,4 +91,4 @@ class Proportion extends React.Component {
   }
 }
 
-export default Proportion
+export default CardProportion

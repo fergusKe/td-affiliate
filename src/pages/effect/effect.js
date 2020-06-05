@@ -4,7 +4,7 @@ import { Card, Col, Row, Table, Button } from 'antd'
 import { CaretRightOutlined } from '@ant-design/icons'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 
-import './effect.scss'
+import './Effect.scss'
 
 const columns = [
   {

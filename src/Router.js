@@ -1,24 +1,24 @@
 import React from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
-import Login from './pages/login/login'
-import Sign from './pages/sign/sign'
+import Login from './pages/Login/Login'
+import Sign from './pages/Sign/Sign'
 // import UserAdmin from './pages/userAdmin'
-import Overview from './pages/overview/overview'
+import Overview from './pages/Overview/Overview'
 import Setting from './pages/Setting/Setting'
-import Result from './pages/result/result'
-import Effect from './pages/effect/effect'
-import Order from './pages/order/order'
-import Record from './pages/record/record'
-import ReportCart from './pages/reportCart/reportCart'
-import Report from './pages/report/report'
-import MemberReport from './pages/member-report/member-report'
-import User from './pages/user/user'
+import Result from './pages/Result/Result'
+import Effect from './pages/Effect/Effect'
+import Order from './pages/Order/Order'
+import Record from './pages/Record/Record'
+import ReportCart from './pages/ReportCart/ReportCart'
+import Report from './pages/Report/Report'
+import MemberReport from './pages/MemberReport/MemberReport'
+import User from './pages/User/User'
 
-import AdminResult from './pages/admin_result/admin_result'
-import AdminSetting from './pages/admin_setting/admin_setting'
-import AdminRefund from './pages/admin_refund/admin_refund'
-import AdminOrder from './pages/admin_order/admin_order'
-import AdminCollect from './pages/admin_collect/admin_collect'
+import AdminResult from './pages/AdminResult/AdminResult'
+import AdminSetting from './pages/AdminSetting/AdminSetting'
+import AdminRefund from './pages/AdminRefund/AdminRefund'
+import AdminOrder from './pages/AdminOrder/AdminOrder'
+import AdminCollect from './pages/AdminCollect/AdminCollect'
 
 const Router = () => (
   <HashRouter>
@@ -33,7 +33,7 @@ const Router = () => (
       <Route exact path="/overview" render={() => <Overview />} />
       <Route exact path="/order" render={() => <Order />} />
       <Route exact path="/record" render={() => <Record />} />
-      <Route exact path="/reportCart" render={() => <ReportCart />} />
+      <Route exact path="/report-cart" render={() => <ReportCart />} />
       <Route exact path="/report" render={() => <Report />} />
       <Route exact path="/member-report" render={() => <MemberReport />} />
       <Route exact path="/user" render={() => <User />} />

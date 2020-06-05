@@ -6,7 +6,7 @@ import axios from 'axios'
 // import Alert from '../../components/Alert/Alert'
 import { setCookie } from '../../commons/cookie'
 
-import './sign.scss'
+import './Sign.scss'
 
 // gsap.registerPlugin(CSSPlugin)
 

@@ -1,46 +1,19 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react'
-import { Card, Col, Row, Table, Button, Input, notification, Tabs, Radio, Divider } from 'antd'
+import React, { useEffect, useState, useCallback } from 'react'
+import { Card, Col, Row, Button, Input, notification } from 'antd'
 
 import axios from 'axios'
-import AdminSettingTable from './admin_setting-table'
+import AdminSettingTable from './AdminSettingTable'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import { getCookie } from '../../commons/cookie'
-
-const { TabPane } = Tabs
 
 const host = 'https://mamawu.com.tw/'
 const tdKetword = 'tdsb'
 
 const AdminSetting = () => {
-  const createShareInputEl = useRef(null)
-
-  const [tdUsername, setTdUsername] = useState('')
-  const [tdToken, setTdToken] = useState('')
-  const [tdUserId, setTdUserId] = useState('')
-  const [mainLink, setMainLink] = useState('')
   const [shareLinks, setShareLinks] = useState([])
   const [createShare, setCreateShare] = useState('')
   const [validationUrlStyle, setValidationUrlStyle] = useState({})
   const userid = getCookie('td_userid')
-
-  const fetchMainLink = useCallback(() => {
-    const getMainLinkUrl = () => `https://utility.turingdigital.com.tw/v1/users/${userid}/share_links/search_or_create`
-
-    const fetchingMainLink = async () => {
-      const response = await axios.post(getMainLinkUrl(), {
-        url: host,
-      })
-      // console.log('response = ', response)
-      const { url, affiliate } = response.data
-      const search = `?utm_source=${tdKetword}_${affiliate}`
-      const link = `${url}${search}`
-      // console.log('link = ', link)
-      setMainLink(link)
-      // console.log('mainLink = ', mainLink)
-    }
-
-    fetchingMainLink()
-  }, [userid])
 
   const fetchShareLink = useCallback(() => {
     const getShareLinkUrl = () => `https://utility.turingdigital.com.tw/v1/users/${userid}/share_links`
@@ -73,30 +46,8 @@ const AdminSetting = () => {
   }, [userid])
 
   useEffect(() => {
-    const username = getCookie('td_username')
-    const token = getCookie('td_token')
-
-    setTdUsername(username)
-    setTdToken(token)
-    setTdUserId(userid)
-    console.log('tdUsername = ', username)
-    // console.log('tdToken = ', token)
-    console.log('tdUserId = ', userid)
-
-    fetchMainLink()
     fetchShareLink()
-  }, [fetchMainLink, fetchShareLink, userid])
-
-  const showCopySuccess = () => {
-    // Modal.success({
-    //   title: '複製網址',
-    //   content: '已成功複製商品網址',
-    // })
-    notification.success({
-      message: '已成功複製商品網址',
-      duration: 2,
-    })
-  }
+  }, [fetchShareLink, userid])
 
   const showError = () => {
     notification.erroe({
@@ -105,7 +56,7 @@ const AdminSetting = () => {
     })
   }
 
-  const getCreateShareLinkUrl = () => `https://utility.turingdigital.com.tw/v1/users/${tdUserId}/share_links`
+  const getCreateShareLinkUrl = () => `https://utility.turingdigital.com.tw/v1/users/${userid}/share_links`
 
   const craeteShareLink = () => {
     const url = host + createShare
@@ -121,8 +72,6 @@ const AdminSetting = () => {
           console.log(response)
           // 重新抓所有的 share link
           fetchShareLink()
-          // showCopySuccess()
-          // 點完直接複製
         })
         .catch(function(error) {
           console.log(error)

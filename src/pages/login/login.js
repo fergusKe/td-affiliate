@@ -6,7 +6,7 @@ import axios from 'axios'
 // import Alert from '../../components/Alert/Alert'
 import { setCookie } from '../../commons/cookie'
 
-import './login.scss'
+import './Login.scss'
 
 const layout = {
   labelCol: {

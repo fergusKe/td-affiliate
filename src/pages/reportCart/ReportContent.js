@@ -133,11 +133,11 @@ data = data.map(item => ({
   totalRevenue: item.conversion * item.revenue,
 }))
 
-const OverviewContent = () => (
+const ReportContent = () => (
   <div>
     <h4>報表總覽</h4>
     <Table columns={columns} dataSource={data} size="middle" />
   </div>
 )
 
-export default OverviewContent
+export default ReportContent

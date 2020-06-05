@@ -1,9 +1,9 @@
 import React from 'react'
 import { Tabs } from 'antd'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
-import OverviewCash from './overview-cash'
-import OverviewRecord from './overview-record'
-import OverviewNote from './overview-note'
+import OverviewCash from './OverviewCash'
+import OverviewRecord from './OverviewRecord'
+import OverviewNote from './OverviewNote'
 
 const { TabPane } = Tabs
 

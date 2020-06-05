@@ -35,7 +35,7 @@ const tailFormItemLayout = {
   },
 }
 
-const User = props => {
+const User = () => {
   const [form] = Form.useForm()
 
   const onFinish = values => {

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Card, Col, Row, Statistic } from 'antd'
 import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons'
-import Barchart from './barchart'
-import pageviewConfigSmall from '../pages/reportCart/data/pageview-small-config'
-import pageviewConfig from '../pages/reportCart/data/pageview-config'
+import Barchart from '../Barchart/Barchart'
+import pageviewConfigSmall from '../../pages/ReportCart/data/pageview-small-config'
+import pageviewConfig from '../../pages/ReportCart/data/pageview-config'
 
-import './card.scss'
+import './Card.scss'
 
 const DashboardCard = () => (
   <div className="site-card-wrapper">

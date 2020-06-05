@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Col, Row } from 'antd'
 
-import RecordTable from './record-table'
+import RecordTable from './RecordTable'
 
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 

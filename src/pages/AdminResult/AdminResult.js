@@ -3,11 +3,11 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import { Card, Col, Row, Timeline, Select } from 'antd'
 import { BarChartOutlined } from '@ant-design/icons'
-import AdminResultTable from './admin_result-table'
+import AdminResultTable from './AdminResultTable'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import { getCookie } from '../../commons/cookie'
 
-import './admin_result.scss'
+import './AdminResult.scss'
 
 const { Option } = Select
 

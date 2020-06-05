@@ -1,9 +1,9 @@
 import React from 'react'
 // import { Tabs } from 'antd'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
-import DashboardCard from '../../components/card'
-// import Barchart from '../../components/barchart'
-// import Proportion from '../../components/card-proportion'
+import DashboardCard from '../../components/Card/Card'
+// import Barchart from '../../components/Barchart/Barchart'
+// import CardProportion from '../../components/CardProportion/CardProportion'
 
 // import salesConfig from './data/sales-config'
 // import pageviewConfig from './data/pageview-config'

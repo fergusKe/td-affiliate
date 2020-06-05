@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Col, Row } from 'antd'
 
-import AdminCollectTable from './admin_collect-table'
+import AdminCollectTable from './AdminCollectTable'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 
 class AdminCollect extends React.Component {

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from './node_modules/react'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
-import OverviewTable from '../overview/overview-table'
+import OverviewTable from '../Overview/OverviewTable'
 
-import './index.scss'
+import './UserAdmin.scss'
 
 const UserAdmin = () => (
   <div>

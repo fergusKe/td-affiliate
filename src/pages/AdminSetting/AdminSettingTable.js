@@ -316,13 +316,13 @@ const AdminSettingTable = () => {
 }
 
 EditableCell.propTypes = {
-  editing: PropTypes.string,
+  editing: PropTypes.bool,
   dataIndex: PropTypes.string,
   title: PropTypes.string,
   inputType: PropTypes.string,
-  record: PropTypes.string,
+  record: PropTypes.object,
   index: PropTypes.number,
-  children: PropTypes.string,
+  children: PropTypes.array,
   restProps: PropTypes.string,
 }
 
