@@ -3,7 +3,7 @@ import { Tabs } from 'antd'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import OverviewCash from './OverviewCash'
 import OverviewRecord from './OverviewRecord'
-import OverviewNote from './OverviewNote'
+// import OverviewNote from './OverviewNote'
 
 const { TabPane } = Tabs
 
