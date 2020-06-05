@@ -4,28 +4,6 @@ import { Table, DatePicker, Button } from 'antd'
 const { RangePicker } = DatePicker
 const { Column } = Table
 
-const columns = [
-  {
-    title: '日期',
-    dataIndex: 'date',
-  },
-  {
-    title: '商品',
-    dataIndex: 'name',
-  },
-  {
-    title: '入帳日期',
-    dataIndex: 'recordedDate',
-  },
-  {
-    title: '金額',
-    dataIndex: 'totalRevenue',
-  },
-  {
-    title: '進度狀態',
-    dataIndex: 'status',
-  },
-]
 let data = [
   {
     date: '2018-02-11',

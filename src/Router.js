@@ -39,7 +39,7 @@ const Router = () => (
       <Route exact path="/user" render={() => <User />} />
       {/* admin */}
       <Route exact path="/admin/promotion-overview" render={() => <AdminPromotionOverview />} />
-      <Route exact path="/admin/produc-launch" render={() => <AdminProductLaunch />} />
+      <Route exact path="/admin/product-launch" render={() => <AdminProductLaunch />} />
       <Route exact path="/admin/refund-rate" render={() => <AdminRefundRate />} />
       <Route exact path="/admin/order-overview" render={() => <AdminOrderOverview />} />
       <Route exact path="/admin/order-detail" render={() => <AdminOrderDetail />} />

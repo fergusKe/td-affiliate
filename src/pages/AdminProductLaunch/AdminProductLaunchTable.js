@@ -179,7 +179,7 @@ const AdminSettingTable = () => {
       title: '商品操作',
       dataIndex: 'productOperat',
       key: 'productOperat',
-      render: text => <PromotOption />,
+      render: () => <PromotOption />,
       editable: true,
     },
     {

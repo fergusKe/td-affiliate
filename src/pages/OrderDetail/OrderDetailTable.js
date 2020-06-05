@@ -1,58 +1,8 @@
 import React from 'react'
-import { Table, DatePicker, Radio, Button, Menu } from 'antd'
+import { Table, DatePicker, Radio, Button } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 
-// function handleMenuClick(e) {
-//   console.log('click', e)
-// }
-
 const { RangePicker } = DatePicker
-
-// const menu1 = (
-//   <Menu onClick={handleMenuClick}>
-//     <Menu.Item key="1">廠商&ensp;1</Menu.Item>
-//     <Menu.Item key="2">廠商&ensp;2</Menu.Item>
-//     <Menu.Item key="3">廠商&ensp;3</Menu.Item>
-//   </Menu>
-// )
-
-// const menu2 = (
-//   <Menu onClick={handleMenuClick}>
-//     <Menu.Item key="1">名稱&ensp;1</Menu.Item>
-//     <Menu.Item key="2">名稱&ensp;2</Menu.Item>
-//     <Menu.Item key="3">名稱&ensp;3</Menu.Item>
-//   </Menu>
-// )
-
-// const menu3 = (
-//   <Menu onClick={handleMenuClick}>
-//     <Menu.Item key="1">連結&ensp;1</Menu.Item>
-//     <Menu.Item key="2">連結&ensp;2</Menu.Item>
-//     <Menu.Item key="3">連結&ensp;3</Menu.Item>
-//   </Menu>
-// )
-
-// const menu4 = (
-//   <Menu onClick={handleMenuClick}>
-//     <Menu.Item key="1">廠商類別&ensp;1</Menu.Item>
-//     <Menu.Item key="2">廠商類別&ensp;2</Menu.Item>
-//     <Menu.Item key="3">廠商類別&ensp;3</Menu.Item>
-//   </Menu>
-// )
-// const menu5 = (
-//   <Menu onClick={handleMenuClick}>
-//     <Menu.Item key="1">訂單來源&ensp;1</Menu.Item>
-//     <Menu.Item key="2">訂單來源&ensp;2</Menu.Item>
-//     <Menu.Item key="3">訂單來源&ensp;3</Menu.Item>
-//   </Menu>
-// )
-// const menu6 = (
-//   <Menu onClick={handleMenuClick}>
-//     <Menu.Item key="1">成效標籤 (UID)&ensp;1</Menu.Item>
-//     <Menu.Item key="2">成效標籤 (UID)&ensp;2</Menu.Item>
-//     <Menu.Item key="3">成效標籤 (UID)&ensp;3</Menu.Item>
-//   </Menu>
-// )
 
 const orderData = {
   totalData: 10,

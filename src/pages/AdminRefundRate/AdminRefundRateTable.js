@@ -12,7 +12,7 @@ const originData = [
   },
 ]
 
-const EditableCell = ({ editing, dataIndex, title, inputType, record, index, children, ...restProps }) => {
+const EditableCell = ({ editing, dataIndex, title, inputType, children, ...restProps }) => {
   console.log('editing = ', editing)
   const inputNode = inputType === 'number' ? <InputNumber /> : <Input />
   return (

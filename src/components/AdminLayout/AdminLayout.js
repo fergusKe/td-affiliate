@@ -101,7 +101,7 @@ class AdminLayout extends React.Component {
               }
             >
               <Menu.Item key="11">
-                <Link to="/admin/produc-launch">
+                <Link to="/admin/product-launch">
                   <span className="nav-text">管理者_產品上架</span>
                 </Link>
               </Menu.Item>

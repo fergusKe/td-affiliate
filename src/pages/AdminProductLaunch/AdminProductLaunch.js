@@ -7,10 +7,10 @@ import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import { getCookie } from '../../commons/cookie'
 
 const host = 'https://mamawu.com.tw/'
-const tdKetword = 'tdsb'
+// const tdKetword = 'tdsb'
 
 const AdminProductLaunch = () => {
-  const [shareLinks, setShareLinks] = useState([])
+  // const [shareLinks, setShareLinks] = useState([])
   const [createShare, setCreateShare] = useState('')
   const [validationUrlStyle, setValidationUrlStyle] = useState({})
   const userid = getCookie('td_userid')
@@ -22,23 +22,23 @@ const AdminProductLaunch = () => {
       console.log('getShareLinkUrl = ', getShareLinkUrl())
       const response = await axios.get(getShareLinkUrl())
       console.log('fetchShareLink = ', response)
-      const allLinks = response.data.map(item => {
-        const { id, url, click, affiliate, bonus } = item
-        const search = `?utm_source=${tdKetword}_${affiliate}`
-        const link = `${url}${search}`
+      // const allLinks = response.data.map(item => {
+      //   const { id, url, click, affiliate, bonus } = item
+      //   const search = `?utm_source=${tdKetword}_${affiliate}`
+      //   const link = `${url}${search}`
 
-        return {
-          key: id,
-          link,
-          click,
-          bonus,
-        }
-      })
+      //   return {
+      //     key: id,
+      //     link,
+      //     click,
+      //     bonus,
+      //   }
+      // })
       // const { url, affiliate } = response.data
       // const search = `?utm_source=${tdKetword}_${affiliate}`
       // const link = `${url}${search}`
-      console.log('allLinks = ', allLinks)
-      setShareLinks(allLinks)
+      // console.log('allLinks = ', allLinks)
+      // setShareLinks(allLinks)
       // console.log('mainLink = ', mainLink)
     }
 
