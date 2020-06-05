@@ -56,7 +56,7 @@ const Sign = () => {
   // }
 
   const goToAdmin = () => {
-    history.push('/result')
+    history.push('/promotion-overview')
   }
 
   const onFinish = (values, e) => {

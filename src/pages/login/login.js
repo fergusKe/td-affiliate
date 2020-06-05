@@ -48,7 +48,7 @@ const Login = () => {
   }
 
   const goToAdmin = () => {
-    history.push('/result')
+    history.push('/promotion-overview')
   }
 
   const onFinish = values => {
