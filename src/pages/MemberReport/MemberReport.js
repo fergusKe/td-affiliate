@@ -4,7 +4,7 @@ import ReportContent from './ReportContent'
 
 const Report = () => (
   <div>
-    <AdminLayout selectedKeys="5">
+    <AdminLayout selectedKeys="7">
       <ReportContent />
     </AdminLayout>
   </div>

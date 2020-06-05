@@ -1,29 +1,25 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Tabs } from 'antd'
-import LayoutWrapper from '../../components/layoutWrapper'
-import DashboardCard from '../../components/card'
-import Barchart from '../../components/barchart'
-import Proportion from '../../components/card-proportion'
+// import { Tabs } from 'antd'
+import AdminLayout from '../../components/AdminLayout/AdminLayout'
+import DashboardCard from '../../components/Card/Card'
+// import Barchart from '../../components/Barchart/Barchart'
+// import CardProportion from '../../components/CardProportion/CardProportion'
 
-import salesConfig from './data/sales-config'
-import pageviewConfig from './data/pageview-config'
+// import salesConfig from './data/sales-config'
+// import pageviewConfig from './data/pageview-config'
 
-const { TabPane } = Tabs
+// const { TabPane } = Tabs
 
-function callback(key) {
-  console.log(key)
-}
+// function callback(key) {
+//   console.log(key)
+// }
 
-const ReportCart = props => {
-  const { rolePath } = props
-
-  return (
-    <div>
-      <LayoutWrapper rolePath={rolePath} selectedKeys="4">
-        <div className="overview">
-          <DashboardCard />
-          {/* <Tabs
+const ReportCart = () => (
+  <div>
+    <AdminLayout selectedKeys="4">
+      <div className="overview">
+        <DashboardCard />
+        {/* <Tabs
             defaultActiveKey="1"
             onChange={callback}
             style={{ backgroundColor: '#fff', margin: '20px 0', padding: '10px' }}
@@ -35,15 +31,10 @@ const ReportCart = props => {
               <Barchart style={{ height: '400px' }} option={pageviewConfig} />
             </TabPane>
           </Tabs> */}
-          <Proportion />
-        </div>
-      </LayoutWrapper>
-    </div>
-  )
-}
-
-ReportCart.propTypes = {
-  rolePath: PropTypes.string.isRequired,
-}
+        {/* <Proportion /> */}
+      </div>
+    </AdminLayout>
+  </div>
+)
 
 export default ReportCart
