@@ -60,7 +60,7 @@ class AdminLayout extends React.Component {
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <Menu theme="dark" defaultSelectedKeys={['2']} selectedKeys={[selectedKeys]} mode="inline">
             <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
-              <Link to="/result">
+              <Link to="/promotion-overview">
                 <div className="logo">
                   <img src={logo} alt="logo" style={{ width: '30px', marginRight: '10px' }} />
                   Turing Digital
@@ -68,27 +68,27 @@ class AdminLayout extends React.Component {
               </Link>
             </Menu.Item>
             <Menu.Item key="8">
-              <Link to="/result">
+              <Link to="/promotion-overview">
                 <LineChartOutlined />
-                <span className="nav-text">推廣成效</span>
+                <span className="nav-text">推廣總覽</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="3">
-              <Link to="/setting">
+              <Link to="/promotion-link">
                 <SettingOutlined />
-                <span className="nav-text">推薦產品</span>
+                <span className="nav-text">推廣連結</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="9">
-              <Link to="/effect">
+              <Link to="/order-overview">
                 <ProfileOutlined />
-                <span className="nav-text">成效報告</span>
+                <span className="nav-text">訂單總覽</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="10">
-              <Link to="/admin/result">
+              <Link to="/admin/promotion-overview">
                 <LineChartOutlined />
-                <span className="nav-text">管理者_推廣成效</span>
+                <span className="nav-text">管理者_推廣總覽</span>
               </Link>
             </Menu.Item>
             <SubMenu
@@ -101,12 +101,12 @@ class AdminLayout extends React.Component {
               }
             >
               <Menu.Item key="11">
-                <Link to="/admin/setting">
-                  <span className="nav-text">管理者_新增產品</span>
+                <Link to="/admin/produc-launch">
+                  <span className="nav-text">管理者_產品上架</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="12">
-                <Link to="/admin/refund">
+                <Link to="/admin/refund-rate">
                   <span className="nav-text">管理者_調整退傭</span>
                 </Link>
               </Menu.Item>
@@ -121,12 +121,12 @@ class AdminLayout extends React.Component {
               }
             >
               <Menu.Item key="13">
-                <Link to="/admin/order">
+                <Link to="/admin/order-overview">
                   <span className="nav-text">管理者_訂單總覽</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="14">
-                <Link to="/admin/collect">
+                <Link to="/admin/order-detail">
                   <span className="nav-text">管理者_請款報告</span>
                 </Link>
               </Menu.Item>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Table, Divider, Button } from 'antd'
 
-const AdminCollectTable = () => {
+const AdminOrderDetailsTable = () => {
   const columns = [
     {
       title: '推廣者',
@@ -119,4 +119,4 @@ const AdminCollectTable = () => {
   )
 }
 
-export default AdminCollectTable
+export default AdminOrderDetailsTable

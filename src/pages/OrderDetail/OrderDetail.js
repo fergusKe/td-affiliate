@@ -1,11 +1,11 @@
 import React from 'react'
 import { Card, Col, Row } from 'antd'
 
-import OrderTable from './OrderTable'
+import OrderDetailTable from './OrderDetailTable'
 
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 
-class Order extends React.Component {
+class OrderDetail extends React.Component {
   render() {
     return (
       <div>
@@ -15,7 +15,7 @@ class Order extends React.Component {
               <Col span={24}>
                 <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
                   <Col span={24}>
-                    <OrderTable />
+                    <OrderDetailTable />
                     <div>
                       <ul>
                         <li>
@@ -29,11 +29,9 @@ class Order extends React.Component {
                           </p>
                         </li>
                         <li>
-                          <li>
-                            <p>
-                              訂單來源&ensp;&frasl;&ensp;無法追蹤：此數據代表無法追蹤到訂單來源，可能的原因例如透過通信軟體傳送或是&ensp;email&ensp;轉送等
-                            </p>
-                          </li>
+                          <p>
+                            訂單來源&ensp;&frasl;&ensp;無法追蹤：此數據代表無法追蹤到訂單來源，可能的原因例如透過通信軟體傳送或是&ensp;email&ensp;轉送等
+                          </p>
                         </li>
                       </ul>
                     </div>
@@ -48,4 +46,4 @@ class Order extends React.Component {
   }
 }
 
-export default Order
+export default OrderDetail

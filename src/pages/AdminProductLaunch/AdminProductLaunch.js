@@ -2,14 +2,14 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { Card, Col, Row, Button, Input, notification } from 'antd'
 
 import axios from 'axios'
-import AdminSettingTable from './AdminSettingTable'
+import AdminProductLaunchTable from './AdminProductLaunchTable'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import { getCookie } from '../../commons/cookie'
 
 const host = 'https://mamawu.com.tw/'
 const tdKetword = 'tdsb'
 
-const AdminSetting = () => {
+const AdminProductLaunch = () => {
   const [shareLinks, setShareLinks] = useState([])
   const [createShare, setCreateShare] = useState('')
   const [validationUrlStyle, setValidationUrlStyle] = useState({})
@@ -103,10 +103,6 @@ const AdminSetting = () => {
     validationUrl(url)
   }
 
-  const callback = key => {
-    console.log(key)
-  }
-
   return (
     <div>
       <AdminLayout selectedKeys="11">
@@ -127,7 +123,7 @@ const AdminSetting = () => {
                   新增產品
                 </Button>
               </div>
-              <AdminSettingTable />
+              <AdminProductLaunchTable />
             </Card>
           </Col>
         </Row>
@@ -136,4 +132,4 @@ const AdminSetting = () => {
   )
 }
 
-export default AdminSetting
+export default AdminProductLaunch

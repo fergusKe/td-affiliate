@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Table, Divider, Popconfirm } from 'antd'
 
-const AdminOrderTable = () => {
+const AdminOrderOverviewTable = () => {
   const cancel = () => {
     console.log('cancel')
   }
@@ -114,4 +114,4 @@ const AdminOrderTable = () => {
   )
 }
 
-export default AdminOrderTable
+export default AdminOrderOverviewTable

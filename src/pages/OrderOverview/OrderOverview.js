@@ -4,7 +4,7 @@ import { Card, Col, Row, Table, Button } from 'antd'
 import { CaretRightOutlined } from '@ant-design/icons'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 
-import './Effect.scss'
+import './OrderOverview.scss'
 
 const columns = [
   {
@@ -45,7 +45,7 @@ const dataSource = [
   },
 ]
 
-const Effect = () => {
+const OrderOverview = () => {
   const handleRequestPayment = () => {
     console.log('請款')
   }
@@ -63,9 +63,9 @@ const Effect = () => {
                   </div>
                   <div style={{ padding: '30px', height: '110px' }}>
                     <span>
-                      <Link to="/Order">
+                      <Link to="/order-detail">
                         <CaretRightOutlined />
-                        訂單總覽
+                        訂單明細
                       </Link>
                     </span>
                     <span>
@@ -93,4 +93,4 @@ const Effect = () => {
   )
 }
 
-export default Effect
+export default OrderOverview

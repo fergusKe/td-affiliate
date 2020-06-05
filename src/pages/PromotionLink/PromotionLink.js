@@ -9,7 +9,7 @@ import { getCookie } from '../../commons/cookie'
 const host = 'https://mamawu.com.tw/'
 const tdKetword = 'tdsb'
 
-const Setting = () => {
+const PromotionLink = () => {
   const [mainLink, setMainLink] = useState('')
   const [shareLinks, setShareLinks] = useState([])
   const [createShare, setCreateShare] = useState('')
@@ -191,4 +191,4 @@ const Setting = () => {
   )
 }
 
-export default Setting
+export default PromotionLink

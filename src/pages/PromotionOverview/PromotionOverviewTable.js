@@ -81,7 +81,7 @@ const lastYearStart = dayjs()
   .format('YYYY-MM-DD')
 const lastYearEnd = dayjs().format('YYYY-MM-DD')
 
-const ResultTable = props => {
+const PromotionOverviewTable = props => {
   const { dataSource, fetchSummary } = props
   const [start, setStart] = useState(thisWeekStart)
   const [end, setEnd] = useState(thisWeekEnd)
@@ -167,9 +167,9 @@ const ResultTable = props => {
   )
 }
 
-ResultTable.propTypes = {
+PromotionOverviewTable.propTypes = {
   dataSource: PropTypes.array.isRequired,
   fetchSummary: PropTypes.func.isRequired,
 }
 
-export default ResultTable
+export default PromotionOverviewTable

@@ -3,15 +3,15 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import { Card, Col, Row, Timeline, Select } from 'antd'
 import { BarChartOutlined } from '@ant-design/icons'
-import ResultTable from './ResultTable'
+import AdminPromotionOverviewTable from './AdminPromotionOverviewTable'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 import { getCookie } from '../../commons/cookie'
 
-import './Result.scss'
+import './AdminPromotionOverview.scss'
 
 const { Option } = Select
 
-const Result = () => {
+const AdminPromotionOverview = () => {
   const [totalBonus, setTotalBonus] = useState(0)
   const [totalClick, setTotalClick] = useState(0)
   const [totalOrder, setTotalOrder] = useState(0)
@@ -113,7 +113,7 @@ const Result = () => {
 
   return (
     <div>
-      <AdminLayout selectedKeys="8">
+      <AdminLayout selectedKeys="10">
         <div className="site-card-wrapper">
           <Row gutter={[16, 16]}>
             <Col span={16}>
@@ -181,7 +181,7 @@ const Result = () => {
             <Col span={24}>
               <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
                 <Col span={24}>
-                  <ResultTable dataSource={tableData} fetchSummary={fetchSummary} />
+                  <AdminPromotionOverviewTable dataSource={tableData} fetchSummary={fetchSummary} />
                 </Col>
               </Card>
             </Col>
@@ -192,4 +192,4 @@ const Result = () => {
   )
 }
 
-export default Result
+export default AdminPromotionOverview

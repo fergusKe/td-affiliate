@@ -39,7 +39,7 @@ const EditableCell = ({ editing, dataIndex, title, inputType, record, index, chi
   )
 }
 
-const AdminSettingTable = () => {
+const AdminRefundRateTable = () => {
   const [form] = Form.useForm()
   const [data, setData] = useState(originData)
   const [editingKey, setEditingKey] = useState('')
@@ -201,4 +201,4 @@ EditableCell.propTypes = {
   children: PropTypes.array,
 }
 
-export default AdminSettingTable
+export default AdminRefundRateTable

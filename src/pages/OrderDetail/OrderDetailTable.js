@@ -150,6 +150,7 @@ const columns = [
 
 let data = [
   {
+    key: 1,
     name: '廠商 1',
     click: 56,
     confirmData: 5,
@@ -168,7 +169,7 @@ data = data.map(item => ({
   totaltotalRevenue: item.status * item.totalRevenue,
 }))
 
-const OrderTable = () => (
+const OrderDetailTable = () => (
   <div>
     <div className="search-wrap" style={{ backgroundColor: 'white', marginBottom: '40px 0', borderRadius: '10px' }}>
       <span>查詢區間：&ensp;</span>
@@ -202,4 +203,4 @@ const OrderTable = () => (
   </div>
 )
 
-export default OrderTable
+export default OrderDetailTable
