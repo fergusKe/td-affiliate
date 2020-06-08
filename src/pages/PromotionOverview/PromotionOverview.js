@@ -10,6 +10,7 @@ import { getCookie } from '../../commons/cookie'
 import './PromotionOverview.scss'
 
 const { Option } = Select
+const userid = getCookie('td_userid')
 
 const PromotionOverview = () => {
   const [totalBonus, setTotalBonus] = useState(0)
@@ -18,7 +19,6 @@ const PromotionOverview = () => {
   // const [totalRevenue, setTotalRevenue] = useState(0)
   const [tableData, setTableData] = useState([])
   const [announcements, setAnnouncements] = useState([])
-  const userid = getCookie('td_userid')
 
   // 總覽日期
   const thisMonthStart = `${dayjs().format('YYYY')}-${dayjs().format('MM')}-01`
@@ -84,7 +84,7 @@ const PromotionOverview = () => {
           console.log(error)
         })
     },
-    [thisMonthEnd, thisMonthStart, userid]
+    [thisMonthEnd, thisMonthStart]
   )
 
   useEffect(() => {
@@ -100,7 +100,7 @@ const PromotionOverview = () => {
       .catch(function(error) {
         console.log(error)
       })
-  }, [fetchSummary, thisMonthEnd, thisMonthStart, userid])
+  }, [fetchSummary, thisMonthEnd, thisMonthStart])
 
   function handleMonthChange(value) {
     // console.log(`selected ${value}`)

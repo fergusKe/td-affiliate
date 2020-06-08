@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect, useCallback, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Card, Col, Row, Table, Button } from 'antd'
+import axios from 'axios'
+import dayjs from 'dayjs'
+import { Card, Col, Row, Table, Button, notification } from 'antd'
 import { CaretRightOutlined } from '@ant-design/icons'
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
+import { getCookie } from '../../commons/cookie'
 
 import './OrderOverview.scss'
 
@@ -45,9 +48,99 @@ const dataSource = [
   },
 ]
 
+const userid = getCookie('td_userid')
+
 const OrderOverview = () => {
+  const [tableData, setTableData] = useState([])
+
+  const fetchSummary = useCallback(() => {
+    const fetchSummaryLink = `https://utility.turingdigital.com.tw/v1/users/${userid}/share_links/summary?group_by=month&last=5`
+
+    console.log('fetchSummaryLink = ', fetchSummaryLink)
+
+    axios
+      .get(fetchSummaryLink)
+      .then(function(response) {
+        console.log('response = ', response)
+        const { data } = response
+        const table = []
+
+        const keys = Object.keys(data)
+        keys.forEach(function(item) {
+          // console.log('item = ', data[item])
+          const month = dayjs(item).format('YYYY-MM')
+          const itemBonus = data[item].total_bonus
+          const itemClick = data[item].total_click
+          const itemOrder = data[item].total_order
+          const itemRevenue = data[item].total_revenue
+
+          table.push({
+            key: month,
+            date: month,
+            bonus: itemBonus,
+            hitNumber: itemClick,
+            orderNumber: itemOrder,
+            orderAmount: itemRevenue,
+          })
+        })
+        console.log('table = ', table)
+        setTableData(table)
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
+  }, [])
+
+  useEffect(() => {
+    fetchSummary()
+  }, [fetchSummary])
+
+  const openNotification = (type, message) => {
+    notification[type]({
+      message,
+      description: '',
+      onClick: () => {
+        console.log('Notification Clicked!')
+      },
+    })
+  }
+
   const handleRequestPayment = () => {
     console.log('請款')
+
+    const fetchRequestLink = `https://utility.turingdigital.com.tw/v1/users/${userid}/orders/request_status`
+
+    tableData.forEach(function(item) {
+      console.log('item = ', item)
+      const { date } = item
+      const dateStart = dayjs(date, 'YYYY-MM').format('YYYY-MM-DD')
+      const dateLength = dayjs(date, 'YYYY-MM').daysInMonth()
+      const dateEnd = dayjs(dateStart, 'YYYY-MM-DD')
+        .add(dateLength - 1, 'day')
+        .format('YYYY-MM-DD')
+      console.log('dateStart = ', dateStart)
+      console.log('dateEnd = ', dateEnd)
+      console.log('dateLength = ', dateLength)
+
+      // "錯誤，範例：傳入SJON {"start_date":"2020-03-01","end_date":"2020-05-01", "request_status":"1"} 0:未請款 1:請款中 2:已出帳 3:其他"
+      axios
+        .post(fetchRequestLink, {
+          start_date: dateStart,
+          end_date: dateEnd,
+          request_status: 1,
+        })
+        .then(function(res) {
+          console.log(res)
+          if (res.data === 'ok') {
+            openNotification('success', `${date} 申請成功`)
+          } else {
+            openNotification('error', `${date} 申請失敗`)
+          }
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+    })
   }
 
   return (
@@ -82,7 +175,7 @@ const OrderOverview = () => {
                       <p>可請款獎金累積到 NT$500 元以上，每月 5~15 日可進行請款</p>
                     </div>
                   </div>
-                  <Table dataSource={dataSource} columns={columns} size="default"></Table>
+                  <Table dataSource={tableData} columns={columns} size="default"></Table>
                 </Col>
               </Card>
             </Col>
