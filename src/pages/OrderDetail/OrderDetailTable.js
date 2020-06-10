@@ -14,7 +14,7 @@ const orderData = {
 
 const columns = [
   {
-    title: '廠商',
+    title: '推廣連結',
     dataIndex: 'name',
     key: 'name',
     fixed: 'center',
@@ -47,14 +47,14 @@ const columns = [
         align: 'center',
         sorter: (a, b) => a.age - b.age,
       },
-      {
-        title: '獎金入帳',
-        dataIndex: 'creditData',
-        key: 'creditData',
-        fixed: 'center',
-        align: 'center',
-        sorter: (a, b) => a.age - b.age,
-      },
+      // {
+      //   title: '獎金入帳',
+      //   dataIndex: 'creditData',
+      //   key: 'creditData',
+      //   fixed: 'center',
+      //   align: 'center',
+      //   sorter: (a, b) => a.age - b.age,
+      // },
       {
         title: '無效',
         dataIndex: 'invalidData',
@@ -65,14 +65,14 @@ const columns = [
       },
     ],
   },
-  {
-    title: '預估獎金',
-    dataIndex: 'stimatedBonus',
-    key: 'stimatedBonus',
-    fixed: 'center',
-    align: 'center',
-    sorter: (a, b) => a.age - b.age,
-  },
+  // {
+  //   title: '預估獎金',
+  //   dataIndex: 'stimatedBonus',
+  //   key: 'stimatedBonus',
+  //   fixed: 'center',
+  //   align: 'center',
+  //   sorter: (a, b) => a.age - b.age,
+  // },
   {
     title: '獎金入帳',
     dataIndex: 'realBonus',
@@ -101,13 +101,13 @@ const columns = [
 let data = [
   {
     key: 1,
-    name: '廠商 1',
+    name: 'tdsb_e0oh',
     click: 56,
-    confirmData: 5,
+    confirmData: 3,
     dayTimeData: 5,
-    creditData: 3,
+    // creditData: 3,
     invalidData: 2,
-    stimatedBonus: 1299,
+    // stimatedBonus: 1299,
     realBonus: 1299,
     conversionRatio: '50%',
     Remarks: '無相關事項',
@@ -137,9 +137,9 @@ const OrderDetailTable = () => (
         <Button type="primary" icon={<SearchOutlined />}>
           查詢
         </Button>
-        <Button style={{ margin: '0px 40px', backgroundColor: '#8c8c8c', color: 'white', border: 'none' }}>
+        {/* <Button style={{ margin: '0px 40px', backgroundColor: '#8c8c8c', color: 'white', border: 'none' }}>
           匯出報表
-        </Button>
+        </Button> */}
       </div>
     </div>
     <div style={{ backgroundColor: '#f5f5f5', padding: '15px' }}>

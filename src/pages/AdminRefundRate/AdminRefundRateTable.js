@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Table, Input, InputNumber, Popconfirm, Form } from 'antd'
-
 import PropTypes from 'prop-types'
+import { Table, Input, InputNumber, Popconfirm, Form } from 'antd'
 
 const originData = [
   {
