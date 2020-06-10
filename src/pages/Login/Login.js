@@ -76,6 +76,7 @@ const Login = () => {
           setCookie('td_username', tdUsername)
           setCookie('td_token', tdToken)
           setCookie('td_userid', tdUserId)
+          setCookie('td_user', JSON.stringify(res.data))
           openNotification('success', '登入成功')
           goToAdmin()
         }
