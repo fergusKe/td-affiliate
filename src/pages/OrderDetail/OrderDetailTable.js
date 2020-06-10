@@ -48,14 +48,6 @@ const columns = [
         sorter: (a, b) => a.age - b.age,
       },
       {
-        title: '獎金入帳',
-        dataIndex: 'creditData',
-        key: 'creditData',
-        fixed: 'center',
-        align: 'center',
-        sorter: (a, b) => a.age - b.age,
-      },
-      {
         title: '無效',
         dataIndex: 'invalidData',
         key: 'invalidData',
@@ -145,8 +137,8 @@ const OrderDetailTable = () => (
     <div style={{ backgroundColor: '#f5f5f5', padding: '15px' }}>
       <span>
         [查詢時間]&ensp;&ensp;訂單總數：{orderData.totalData}&ensp;筆（ 確認中&ensp;{orderData.confirmData}
-        &ensp;&frasl;&ensp;有效訂單&ensp;{orderData.dayTimeData}&ensp;&frasl;&ensp;獎金入帳&ensp;{orderData.creditData}
-        &ensp;&frasl;&ensp;訂單無效&ensp;{orderData.invalidData}）
+        &ensp;&frasl;&ensp;有效訂單&ensp;{orderData.dayTimeData}&ensp;&frasl;&ensp;無效訂單&ensp;{orderData.invalidData}
+        &ensp;&frasl;&ensp;獎金入帳&ensp;{orderData.creditData}）
       </span>
     </div>
     <Table columns={columns} dataSource={data} bordered size="middle" />

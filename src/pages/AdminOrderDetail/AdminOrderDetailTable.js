@@ -10,6 +10,12 @@ const AdminOrderDetailsTable = () => {
       render: text => <a>{text}</a>,
     },
     {
+      title: '訂單編號',
+      dataIndex: 'orderNumber',
+      key: 'orderNumber',
+      render: text => <a>{text}</a>,
+    },
+    {
       title: '月份',
       dataIndex: 'month',
       key: 'month',
@@ -54,6 +60,7 @@ const AdminOrderDetailsTable = () => {
     {
       key: '1',
       userName: '00001',
+      orderNumber: '00001',
       month: '2020-02',
       promoteAmount: '355',
       totalBonus: '35',
@@ -65,6 +72,7 @@ const AdminOrderDetailsTable = () => {
     },
     {
       key: '2',
+      orderNumber: '00002',
       userName: '00002',
       month: '2020-02',
       promoteAmount: '2999',
@@ -78,6 +86,7 @@ const AdminOrderDetailsTable = () => {
     {
       key: '3',
       userName: '00003',
+      orderNumber: '00003',
       month: '2020-02',
       promoteAmount: '457',
       totalBonus: '45',

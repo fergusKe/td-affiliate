@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import { Table, Input, InputNumber, Popconfirm, Form } from 'antd'
-
+import React, { useContext, useState, useEffect, useRef } from 'react'
+import { Table, Input, InputNumber, Popconfirm, Form, Card, Col, Row, Button, Modal, Select, DatePicker } from 'antd'
 import PropTypes from 'prop-types'
 
 const originData = []
@@ -46,6 +45,20 @@ class PromotOption extends React.Component {
     this.state = { value: '立即推廣' }
 
     this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleAdd = () => {
+    const { count, dataSource } = this.state
+    const newData = {
+      key: count,
+      name: `Edward King ${count}`,
+      age: 32,
+      address: `London, Park Lane no. ${count}`,
+    }
+    this.setState({
+      dataSource: [...dataSource, newData],
+      count: count + 1,
+    })
   }
 
   handleChange(event) {
