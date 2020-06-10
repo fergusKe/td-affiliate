@@ -32,19 +32,21 @@ const columns = [
   },
   {
     title: '狀態',
-    dataIndex: 'status',
-    key: 'status',
-  },
-]
-
-const dataSource = [
-  {
-    key: '1',
-    date: '2019-03月',
-    orderNumber: 2,
-    orderAmount: 'NT$1800',
-    bonus: 'NT$199',
-    status: '未領取',
+    dataIndex: 'chargeState',
+    key: 'chargeState',
+    render: text => {
+      let status = ''
+      if (text === 'uncharge') {
+        status = '未申請'
+      }
+      if (text === 'charging') {
+        status = '審核中'
+      }
+      if (text === 'charged') {
+        status = '已審核'
+      }
+      return status
+    },
   },
 ]
 
@@ -73,6 +75,7 @@ const OrderOverview = () => {
           const itemClick = data[item].total_click
           const itemOrder = data[item].total_order
           const itemRevenue = data[item].total_revenue
+          const itemChargeState = data[item].charge_state
 
           table.push({
             key: month,
@@ -81,6 +84,7 @@ const OrderOverview = () => {
             hitNumber: itemClick,
             orderNumber: itemOrder,
             orderAmount: itemRevenue,
+            chargeState: itemChargeState,
           })
         })
         console.log('table = ', table)
@@ -106,8 +110,6 @@ const OrderOverview = () => {
   }
 
   const handleRequestPayment = () => {
-    console.log('請款')
-
     const fetchRequestLink = `https://utility.turingdigital.com.tw/v1/users/${userid}/orders/request_status`
 
     tableData.forEach(function(item) {
@@ -152,7 +154,7 @@ const OrderOverview = () => {
               <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
                 <Col span={24}>
                   <div style={{ backgroundColor: '#f5f5f5', padding: '15px' }}>
-                    <span>本月訂單 ( {dataSource.length} 筆 )</span>
+                    <span>本月訂單 ( {tableData.length} 筆 )</span>
                   </div>
                   <div style={{ padding: '30px', height: '110px' }}>
                     <span>

@@ -1,8 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Card, Col, Row } from 'antd'
-
+import { CaretRightOutlined } from '@ant-design/icons'
 import OrderDetailTable from './OrderDetailTable'
-
 import AdminLayout from '../../components/AdminLayout/AdminLayout'
 
 class OrderDetail extends React.Component {
@@ -14,6 +14,11 @@ class OrderDetail extends React.Component {
             <Row gutter={[16, 16]}>
               <Col span={24}>
                 <Card bordered={false} style={{ minheight: '700px', paddingLeft: '10px' }}>
+                  <Link to="/order-overview">
+                    <CaretRightOutlined />
+                    返回
+                  </Link>
+                  <hr />
                   <Col span={24}>
                     <OrderDetailTable />
                     <div>
