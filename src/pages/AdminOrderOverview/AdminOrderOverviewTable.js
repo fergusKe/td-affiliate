@@ -8,15 +8,16 @@ const AdminOrderOverviewTable = () => {
 
   const columns = [
     {
+      title: '推廣者',
+      dataIndex: 'userName',
+      key: 'userName',
+      render: text => <a>{text}</a>,
+    },
+    {
       title: '訂單編號',
       dataIndex: 'orderNumber',
       key: 'orderNumber',
       render: text => <a>{text}</a>,
-    },
-    {
-      title: '暱稱',
-      dataIndex: 'nickName',
-      key: 'nickName',
     },
     {
       title: '標示碼',
@@ -57,8 +58,8 @@ const AdminOrderOverviewTable = () => {
   const data = [
     {
       key: '1',
+      userName: '00001',
       orderNumber: '00001',
-      nickName: 'Bob',
       userId: 'lekfs343',
       totalOrderNumber: '23',
       totalOrderAmount: '799',
@@ -67,8 +68,8 @@ const AdminOrderOverviewTable = () => {
     },
     {
       key: '2',
+      userName: '00002',
       orderNumber: '00002',
-      nickName: 'John',
       userId: 'jrjhk34khjfdsfkh',
       totalOrderNumber: '19',
       totalOrderAmount: '245',
@@ -77,8 +78,8 @@ const AdminOrderOverviewTable = () => {
     },
     {
       key: '3',
+      userName: '00003',
       orderNumber: '00003',
-      nickName: 'Tony',
       userId: 'kfgf23h',
       totalOrderNumber: '9',
       totalOrderAmount: '783',
