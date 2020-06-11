@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import dayjs from 'dayjs'
-import moment from 'moment'
 import PropTypes from 'prop-types'
 import { Table, DatePicker, Radio, Button } from 'antd'
+import { SearchOutlined } from '@ant-design/icons'
+import dayjs from 'dayjs'
+import moment from 'moment'
 
 const { RangePicker } = DatePicker
 
@@ -91,6 +92,7 @@ const PromotionOverviewTable = props => {
   useEffect(() => {
     fetchSummary(thisWeekStart, thisWeekEnd, true)
   }, [fetchSummary])
+
   const onPickerChange = (date, dateString) => {
     // console.log('data', date, 'dateString', dateString)
     setStart(dateString[0])
@@ -151,10 +153,7 @@ const PromotionOverviewTable = props => {
           </Radio.Group>
         </span>
         <div className="btn-wrap">
-          <Button
-            style={{ margin: '10px 20px 0px 0', backgroundColor: '#f96982', color: 'white', border: 'none' }}
-            onClick={onSubmit}
-          >
+          <Button type="primary" icon={<SearchOutlined />} style={{ margin: '10px 20px 0px 0' }} onClick={onSubmit}>
             查詢
           </Button>
           {/* <Button style={{ margin: '10px 0 0px 0', backgroundColor: '#8c8c8c', color: 'white', border: 'none' }}>

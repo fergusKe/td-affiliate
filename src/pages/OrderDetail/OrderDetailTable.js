@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { Table, DatePicker, Radio, Button } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
+import dayjs from 'dayjs'
+import moment from 'moment'
 
 const { RangePicker } = DatePicker
 
@@ -32,7 +35,7 @@ const columns = [
     title: '訂單數',
     children: [
       {
-        title: '確認中',
+        title: '未請款',
         dataIndex: 'confirmData',
         key: 'confirmData',
         fixed: 'center',
@@ -40,23 +43,15 @@ const columns = [
         sorter: (a, b) => a.age - b.age,
       },
       {
-        title: '有效',
+        title: '請款中',
         dataIndex: 'dayTimeData',
         key: 'dayTimeData',
         fixed: 'center',
         align: 'center',
         sorter: (a, b) => a.age - b.age,
       },
-      // {
-      //   title: '獎金入帳',
-      //   dataIndex: 'creditData',
-      //   key: 'creditData',
-      //   fixed: 'center',
-      //   align: 'center',
-      //   sorter: (a, b) => a.age - b.age,
-      // },
       {
-        title: '無效',
+        title: '已出帳',
         dataIndex: 'invalidData',
         key: 'invalidData',
         fixed: 'center',
@@ -65,14 +60,6 @@ const columns = [
       },
     ],
   },
-  // {
-  //   title: '預估獎金',
-  //   dataIndex: 'stimatedBonus',
-  //   key: 'stimatedBonus',
-  //   fixed: 'center',
-  //   align: 'center',
-  //   sorter: (a, b) => a.age - b.age,
-  // },
   {
     title: '獎金入帳',
     dataIndex: 'realBonus',
@@ -98,59 +85,153 @@ const columns = [
   },
 ]
 
-let data = [
-  {
-    key: 1,
-    name: 'tdsb_e0oh',
-    click: 56,
-    confirmData: 3,
-    dayTimeData: 5,
-    // creditData: 3,
-    invalidData: 2,
-    // stimatedBonus: 1299,
-    realBonus: 1299,
-    conversionRatio: '50%',
-    Remarks: '無相關事項',
-  },
-]
+const today = dayjs().format('dddd')
 
-data = data.map(item => ({
-  ...item,
-  totaltotalRevenue: item.status * item.totalRevenue,
-}))
+function getThisWeekStart() {
+  if (today === 'Monday') {
+    return dayjs()
+  }
+  if (today === 'Tuesday') {
+    return dayjs().subtract(1, 'days')
+  }
+  if (today === 'Wednesday') {
+    return dayjs().subtract(2, 'days')
+  }
+  if (today === 'Thursday') {
+    return dayjs().subtract(3, 'days')
+  }
+  if (today === 'Friday') {
+    return dayjs().subtract(4, 'days')
+  }
+  if (today === 'Saturday') {
+    return dayjs().subtract(5, 'days')
+  }
+  if (today === 'Sunday') {
+    return dayjs().subtract(6, 'days')
+  }
+}
 
-const OrderDetailTable = () => (
-  <div>
-    <div className="search-wrap" style={{ backgroundColor: 'white', marginBottom: '40px 0', borderRadius: '10px' }}>
-      <span>查詢區間：&ensp;</span>
-      <RangePicker style={{ width: '350px' }} format="YYYY年MM月DD日" />
-      <span>
-        <Radio.Group defaultValue="a" style={{ margin: '0 50px', border: 'none' }}>
-          <Radio.Button value="a">本週</Radio.Button>
-          <Radio.Button value="b">上週</Radio.Button>
-          <Radio.Button value="c">一個月</Radio.Button>
-          <Radio.Button value="d">一季</Radio.Button>
-          <Radio.Button value="e">一年</Radio.Button>
-        </Radio.Group>
-      </span>
-      <div style={{ margin: '20px 0' }}>
-        <Button type="primary" icon={<SearchOutlined />}>
-          查詢
-        </Button>
-        {/* <Button style={{ margin: '0px 40px', backgroundColor: '#8c8c8c', color: 'white', border: 'none' }}>
+const thisWeekStart = getThisWeekStart().format('YYYY-MM-DD')
+const thisWeekEnd = dayjs().format('YYYY-MM-DD')
+const lastWeekStart = getThisWeekStart()
+  .subtract(1, 'week')
+  .format('YYYY-MM-DD')
+const lastWeekEnd = getThisWeekStart()
+  .subtract(1, 'day')
+  .format('YYYY-MM-DD')
+const lastMonthStart = dayjs()
+  .subtract(1, 'month')
+  .format('YYYY-MM-DD')
+const lastMonthEnd = dayjs().format('YYYY-MM-DD')
+const lastSeasonStart = dayjs()
+  .subtract(3, 'month')
+  .format('YYYY-MM-DD')
+const lastSeasonEnd = dayjs().format('YYYY-MM-DD')
+const lastYearStart = dayjs()
+  .subtract(1, 'year')
+  .format('YYYY-MM-DD')
+const lastYearEnd = dayjs().format('YYYY-MM-DD')
+
+// data = data.map(item => ({
+//   ...item,
+//   totaltotalRevenue: item.status * item.totalRevenue,
+// }))
+
+const OrderDetailTable = props => {
+  const { dataSource, fetchOrderDetail } = props
+  const [start, setStart] = useState(thisWeekStart)
+  const [end, setEnd] = useState(thisWeekEnd)
+
+  console.log('detail = ', dataSource)
+
+  useEffect(() => {
+    fetchOrderDetail(thisWeekStart, thisWeekEnd)
+  }, [fetchOrderDetail])
+
+  const onPickerChange = (date, dateString) => {
+    // console.log('data', date, 'dateString', dateString)
+    setStart(dateString[0])
+    setEnd(dateString[1])
+  }
+
+  const onRadioChange = e => {
+    const { value } = e.target
+    // console.log('value = ', value)
+
+    if (value === 'thisWeek') {
+      setStart(thisWeekStart)
+      setEnd(thisWeekEnd)
+    }
+
+    if (value === 'lastWeek') {
+      setStart(lastWeekStart)
+      setEnd(lastWeekEnd)
+    }
+
+    if (value === 'lastMonth') {
+      setStart(lastMonthStart)
+      setEnd(lastMonthEnd)
+    }
+
+    if (value === 'lastSeason') {
+      setStart(lastSeasonStart)
+      setEnd(lastSeasonEnd)
+    }
+
+    if (value === 'lastYear') {
+      setStart(lastYearStart)
+      setEnd(lastYearEnd)
+    }
+  }
+
+  const onSubmit = () => {
+    // console.log('submit')
+    fetchOrderDetail(start, end)
+  }
+  return (
+    <div>
+      <div className="search-wrap" style={{ backgroundColor: 'white', marginBottom: '40px 0', borderRadius: '10px' }}>
+        <span>查詢區間：&ensp;</span>
+        <RangePicker
+          style={{ marginBottom: '10px', width: '350px' }}
+          onChange={onPickerChange}
+          // defaultValue={[moment(thisWeekStart, 'YYYY-MM-DD'), moment(thisWeekEnd, 'YYYY-MM-DD')]}
+          value={[moment(start, 'YYYY-MM-DD'), moment(end, 'YYYY-MM-DD')]}
+        />
+        <span>
+          <Radio.Group defaultValue="thisWeek" onChange={onRadioChange} style={{ border: 'none' }}>
+            <Radio.Button value="thisWeek">本週</Radio.Button>
+            <Radio.Button value="lastWeek">上週</Radio.Button>
+            <Radio.Button value="lastMonth">一個月</Radio.Button>
+            <Radio.Button value="lastSeason">一季</Radio.Button>
+            <Radio.Button value="lastYear">一年</Radio.Button>
+          </Radio.Group>
+        </span>
+        <div>
+          <Button type="primary" icon={<SearchOutlined />} style={{ margin: '10px 20px 0px 0' }} onClick={onSubmit}>
+            查詢
+          </Button>
+          {/* <Button style={{ margin: '0px 40px', backgroundColor: '#8c8c8c', color: 'white', border: 'none' }}>
           匯出報表
         </Button> */}
+        </div>
       </div>
-    </div>
-    <div style={{ backgroundColor: '#f5f5f5', padding: '15px' }}>
-      <span>
-        [查詢時間]&ensp;&ensp;訂單總數：{orderData.totalData}&ensp;筆（ 確認中&ensp;{orderData.confirmData}
+      <div style={{ backgroundColor: '#f5f5f5', padding: '15px', marginTop: '10px' }}>
+        <span>
+          訂單總數：{dataSource.length}&ensp;筆
+          {/* （ 確認中&ensp;{orderData.confirmData}
         &ensp;&frasl;&ensp;有效訂單&ensp;{orderData.dayTimeData}&ensp;&frasl;&ensp;獎金入帳&ensp;{orderData.creditData}
-        &ensp;&frasl;&ensp;訂單無效&ensp;{orderData.invalidData}）
-      </span>
+        &ensp;&frasl;&ensp;訂單無效&ensp;{orderData.invalidData}） */}
+        </span>
+      </div>
+      <Table columns={columns} dataSource={dataSource} bordered size="middle" />
     </div>
-    <Table columns={columns} dataSource={data} bordered size="middle" />
-  </div>
-)
+  )
+}
+
+OrderDetailTable.propTypes = {
+  dataSource: PropTypes.array.isRequired,
+  fetchOrderDetail: PropTypes.func.isRequired,
+}
 
 export default OrderDetailTable

@@ -37,13 +37,13 @@ const columns = [
     render: text => {
       let status = ''
       if (text === 'uncharge') {
-        status = '未申請'
+        status = '未請款'
       }
       if (text === 'charging') {
-        status = '審核中'
+        status = '請款中'
       }
       if (text === 'charged') {
-        status = '已審核'
+        status = '已出帳'
       }
       return status
     },
@@ -112,7 +112,7 @@ const OrderOverview = () => {
   const handleRequestPayment = () => {
     const fetchRequestLink = `https://utility.turingdigital.com.tw/v1/users/${userid}/orders/request_status`
 
-    tableData.forEach(function(item) {
+    tableData.forEach(function(item, index) {
       console.log('item = ', item)
       const { date } = item
       const dateStart = dayjs(date, 'YYYY-MM').format('YYYY-MM-DD')
@@ -138,6 +138,11 @@ const OrderOverview = () => {
           } else {
             openNotification('error', `${date} 申請失敗`)
           }
+          // 全部跑完更新一下數據
+          if (index === tableData.length - 1) {
+            fetchSummary()
+          }
+          console.log('index = ', index)
         })
         .catch(function(error) {
           console.log(error)

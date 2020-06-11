@@ -61,10 +61,10 @@ const NavLeft = ({ selectedKeys, user }) => {
     if (user.role === 'user') {
       setNavTreeNode(renderNav(navUserList))
     }
-    if (user.role === 'admin') {
+    if (user.role === 'company') {
       setNavTreeNode(renderNav(navAdminList))
     }
-    if (user.role === 'company') {
+    if (user.role === 'admin') {
       setNavTreeNode(renderNav([...navUserList, ...navAdminList]))
     }
   }, [renderNav, user.role])
