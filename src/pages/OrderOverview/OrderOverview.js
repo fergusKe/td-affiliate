@@ -112,8 +112,13 @@ const OrderOverview = () => {
   const handleRequestPayment = () => {
     const fetchRequestLink = `https://utility.turingdigital.com.tw/v1/users/${userid}/orders/request_status`
 
+    let hasRequestPayment = false
+
     tableData.forEach(function(item, index) {
       console.log('item = ', item)
+      if (item.chargeState === 'charging' || item.chargeState === 'charged') return
+      hasRequestPayment = true
+
       const { date } = item
       const dateStart = dayjs(date, 'YYYY-MM').format('YYYY-MM-DD')
       const dateLength = dayjs(date, 'YYYY-MM').daysInMonth()
@@ -124,12 +129,15 @@ const OrderOverview = () => {
       console.log('dateEnd = ', dateEnd)
       console.log('dateLength = ', dateLength)
 
-      // "錯誤，範例：傳入SJON {"start_date":"2020-03-01","end_date":"2020-05-01", "request_status":"1"} 0:未請款 1:請款中 2:已出帳 3:其他"
+      // uncharge: 未請款
+      // charging: 請款中
+      // charged: 已出帳
+
       axios
         .post(fetchRequestLink, {
           start_date: dateStart,
           end_date: dateEnd,
-          request_status: 1,
+          charge_state: 'charging',
         })
         .then(function(res) {
           console.log(res)
@@ -148,6 +156,11 @@ const OrderOverview = () => {
           console.log(error)
         })
     })
+
+    // 無可申請資料
+    if (!hasRequestPayment) {
+      openNotification('success', `已無可申請資料`)
+    }
   }
 
   return (
