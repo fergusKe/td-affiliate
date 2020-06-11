@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter, Switch, Route } from 'react-router-dom'
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
 import Login from './pages/Login/Login'
 import Sign from './pages/Sign/Sign'
 // import UserAdmin from './pages/userAdmin'
@@ -43,6 +43,8 @@ const Router = () => (
       <Route exact path="/admin/refund-rate" render={() => <AdminRefundRate />} />
       <Route exact path="/admin/order-overview" render={() => <AdminOrderOverview />} />
       <Route exact path="/admin/order-detail" render={() => <AdminOrderDetail />} />
+      {/* redirect */}
+      <Redirect from="*" to="/promotion-overview" />
     </Switch>
   </HashRouter>
 )

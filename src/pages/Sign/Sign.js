@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { Form, Input, Button, Typography, notification } from 'antd'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 // import { TweenMax, Power3, gsap } from 'gsap'
 // import Alert from '../../components/Alert/Alert'
-import { setCookie } from '../../commons/cookie'
+import { setCookie, getCookie } from '../../commons/cookie'
 
 import './Sign.scss'
 
@@ -29,6 +29,21 @@ const { Title } = Typography
 
 const Sign = () => {
   const history = useHistory()
+  const cookieUsername = getCookie('td_username')
+  const cookieToken = getCookie('td_token')
+  const cookieUserId = getCookie('td_userid')
+
+  // 如果使用者已登入，跳轉到內頁
+  const isLoggedRedirectToOverview = useCallback(() => {
+    if (cookieUsername || cookieToken || cookieUserId) {
+      console.log('已登入')
+      history.push('/promotion-overview')
+    }
+  }, [cookieToken, cookieUserId, cookieUsername, history])
+
+  useEffect(() => {
+    isLoggedRedirectToOverview()
+  }, [isLoggedRedirectToOverview])
 
   const openNotification = (type, message) => {
     notification[type]({

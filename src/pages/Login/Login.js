@@ -1,10 +1,8 @@
-import React from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { Form, Input, Button, Checkbox, Typography, notification } from 'antd'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
-// import { Power3, gsap } from 'gsap'
-// import Alert from '../../components/Alert/Alert'
-import { setCookie } from '../../commons/cookie'
+import { setCookie, getCookie } from '../../commons/cookie'
 
 import './Login.scss'
 
@@ -27,15 +25,26 @@ const { Title } = Typography
 
 const Login = () => {
   const history = useHistory()
-
   // const [errorMsg, setErrorMsg] = useState([])
+  const cookieUsername = getCookie('td_username')
+  const cookieToken = getCookie('td_token')
+  const cookieUserId = getCookie('td_userid')
 
-  // useEffect(() => {
-  //   const tdUser = getCookie('td_user')
-  //   const tdJwt = getCookie('td_jwt')
-  //   console.log('tdUser = ', tdUser)
-  //   console.log('tdJwt = ', tdJwt)
-  // }, [])
+  // 如果使用者已登入，跳轉到內頁
+  const isLoggedRedirectToOverview = useCallback(() => {
+    if (cookieUsername || cookieToken || cookieUserId) {
+      console.log('已登入')
+      history.push('/promotion-overview')
+    }
+  }, [cookieToken, cookieUserId, cookieUsername, history])
+
+  useEffect(() => {
+    isLoggedRedirectToOverview()
+    //   const tdUser = getCookie('td_user')
+    //   const tdJwt = getCookie('td_jwt')
+    //   console.log('tdUser = ', tdUser)
+    //   console.log('tdJwt = ', tdJwt)
+  }, [isLoggedRedirectToOverview])
 
   const openNotification = (type, message) => {
     notification[type]({

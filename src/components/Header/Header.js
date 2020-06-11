@@ -22,8 +22,9 @@ function Header(props) {
   }
 
   const logout = () => {
-    removeCookie('td_user')
-    removeCookie('td_jwt')
+    removeCookie('td_username')
+    removeCookie('td_token')
+    removeCookie('td_userid')
     openNotification('success', '登出成功')
     history.push('/login')
   }
