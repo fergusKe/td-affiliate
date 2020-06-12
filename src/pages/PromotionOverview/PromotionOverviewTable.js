@@ -90,7 +90,7 @@ const PromotionOverviewTable = props => {
   console.log('summary = ', dataSource)
 
   useEffect(() => {
-    fetchSummary(thisWeekStart, thisWeekEnd, true)
+    fetchSummary(thisWeekStart, thisWeekEnd, 'day')
   }, [fetchSummary])
 
   const onPickerChange = (date, dateString) => {
@@ -131,7 +131,7 @@ const PromotionOverviewTable = props => {
 
   const onSubmit = () => {
     // console.log('submit')
-    fetchSummary(start, end, true)
+    fetchSummary(start, end, 'day')
   }
   return (
     <div>

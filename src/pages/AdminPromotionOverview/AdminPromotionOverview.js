@@ -33,8 +33,8 @@ const AdminPromotionOverview = () => {
     .daysInMonth()}`
 
   const fetchSummary = useCallback(
-    (start = thisMonthStart, end = thisMonthEnd, isUpdateTableDate = false) => {
-      const fetchLink = `https://utility.turingdigital.com.tw/v1/users/${userid}/share_links/summary?start_date=${start}&end_date=${end}`
+    (start = thisMonthStart, end = thisMonthEnd, updateDataType = 'both') => {
+      const fetchLink = `https://utility.turingdigital.com.tw/v1/share_links/summary?start_date=${start}&end_date=${end}`
 
       console.log('fetchLink = ', fetchLink)
 
@@ -71,25 +71,28 @@ const AdminPromotionOverview = () => {
             })
           })
 
-          if (isUpdateTableDate) {
+          if (updateDataType === 'day') {
             setTableData(table)
-          } else {
+          } else if (updateDataType === 'month') {
             setTotalBonus(bonus)
             setTotalClick(click)
             setTotalOrder(order)
             // setTotalRevenue(revenue)
+          } else {
+            setTableData(table)
+            setTotalBonus(bonus)
+            setTotalClick(click)
+            setTotalOrder(order)
           }
         })
         .catch(function(error) {
           console.log(error)
         })
     },
-    [thisMonthEnd, thisMonthStart, userid]
+    [thisMonthEnd, thisMonthStart]
   )
 
-  useEffect(() => {
-    fetchSummary(thisMonthStart, thisMonthEnd, true)
-
+  const fetchAnnouncements = useCallback(() => {
     axios
       .get(`https://utility.turingdigital.com.tw/v1/companies/1/announcements`)
       .then(function(response) {
@@ -100,14 +103,19 @@ const AdminPromotionOverview = () => {
       .catch(function(error) {
         console.log(error)
       })
-  }, [fetchSummary, thisMonthEnd, thisMonthStart, userid])
+  }, [])
+
+  useEffect(() => {
+    fetchSummary(thisMonthStart, thisMonthEnd)
+    fetchAnnouncements()
+  }, [fetchAnnouncements, fetchSummary, thisMonthEnd, thisMonthStart])
 
   function handleMonthChange(value) {
-    // console.log(`selected ${value}`)
+    console.log(`selected ${value}`)
     if (value === 'thisMonth') {
-      fetchSummary(thisMonthStart, thisMonthEnd)
+      fetchSummary(thisMonthStart, thisMonthEnd, 'month')
     } else {
-      fetchSummary(lastMonthStart, lastMonthEnd)
+      fetchSummary(lastMonthStart, lastMonthEnd, 'month')
     }
   }
 
