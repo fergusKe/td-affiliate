@@ -93,7 +93,7 @@ const AdminLayout = ({ children, selectedKeys, history }) => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <NavLeft user={cookieUser} selectedKeys={selectedKeys} />
-      <Layout className="site-layout">
+      <Layout className="site-layout" style={{ marginLeft: 200 }}>
         <Header username={cookieUsername} />
         <Content style={{ margin: '16px' }}>
           <div style={{ padding: 24, minHeight: 360 }}>{children}</div>

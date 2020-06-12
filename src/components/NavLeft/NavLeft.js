@@ -70,7 +70,17 @@ const NavLeft = ({ selectedKeys, user }) => {
   }, [renderNav, user.role])
 
   return (
-    <Sider trigger={null} collapsible collapsed={collapsed}>
+    <Sider
+      trigger={null}
+      collapsible
+      collapsed={collapsed}
+      style={{
+        overflow: 'auto',
+        height: '100vh',
+        position: 'fixed',
+        left: 0,
+      }}
+    >
       <Menu theme="dark" defaultSelectedKeys={['2']} selectedKeys={[selectedKeys]} mode="inline">
         <Menu.Item key="1" className="logoItem" style={{ height: 54 }}>
           <Link to="/promotion-overview">
