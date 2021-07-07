@@ -1,5 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import Router from './Router'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+import 'antd/dist/antd.css'
+import './index.scss'
+
+ReactDOM.render(<Router />, document.getElementById('root'))
